@@ -1,0 +1,27 @@
+services:
+  stduy-laravel-server:
+    build: .
+    container_name: stduy-laravel-server
+    volumes:
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./html:/var/www/html
+    ports:
+      - 8080:80
+      - 8000:8000
+    # environment:
+    #   - DB_CONNECTION=mysql
+    #   - DB_HOST=stduy-laravel-db
+    #   - DB_PORT=3306
+    #   - DB_DATABASE=mydatas
+    #   - DB_USERNAME=root
+    #   - DB_PASSWORD=root
+
+  # stduy-laravel-db:
+  #   image: mysql:8.0
+  #   container_name: stduy-laravel-db
+  #   ports:
+  #     - 3306:3306
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #     - MYSQL_DATABASE=mydatas
+  #     - TZ=Asia/Tokyo
