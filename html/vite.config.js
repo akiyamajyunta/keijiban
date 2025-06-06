@@ -10,4 +10,11 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    
+        build: {
+        outDir: 'public/build',  // この設定が正しくされているか確認
+        manifest: true,
+    },
+
+
 });
