@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'custom' => [  //追加
+            'driver' => 'session', //追加
+            'provider' => 'custom', //追加
+        ],
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        
+        'custom' => [ //追加
+            'driver' => 'custom_provider', //追加(自由に命名)
+            'model' => App\Models\User::class, //追加
         ],
 
         // 'users' => [
