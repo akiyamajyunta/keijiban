@@ -18,8 +18,8 @@
             <button class="search__toggle" aria-label="Open search">Search </button>
            <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
               <label class="sr-only" for="search">Search</label>
-              <input type="search" name="" id="search" placeholder="何が知りたいの？" />
-              <button>検索</button> <!-- ボタンは無いですが自動で遷移します-->
+              <input type="search" name="" id="search" placeholder="検索" />
+              <button>検索</button> <!-- ボタンは無いですがエンターバチコンッで自動で遷移します-->
             </form>
           </div>
         <div class="personal_info">
@@ -109,7 +109,9 @@
 
 /* ヘッダー本体 */
 .site-header {
-    position: relative;
+    /* position: relative; */
+    position: fixed;
+    width: 100%;
     background-color:black; 
     border-top: 6px solid red;
     border-bottom: 6px solid red;
