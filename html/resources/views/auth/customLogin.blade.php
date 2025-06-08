@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
