@@ -13,6 +13,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功
+Route::get('/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
 
 
 
