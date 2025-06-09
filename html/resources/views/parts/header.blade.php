@@ -16,10 +16,10 @@
           <a href="#" class="brand">twister</a>
           <div class="search">
             <button class="search__toggle" aria-label="Open search">Search </button>
-           <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
+            <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
               <label class="sr-only" for="search">Search</label>
               <input type="search" name="" id="search" placeholder="検索" />
-              <button>検索</button> <!-- ボタンは無いですがエンターバチコンッで自動で遷移します-->
+              <!-- ボタンは無いですがエンターバチコンッで自動で遷移します-->
             </form>
           </div>
         <div class="personal_info">
@@ -41,12 +41,12 @@
                 </a>
               </li>
               <li class="nav__item">
-                <a href=""> <!-- マイアカウント遷移先を表示-->
+                <a href="{{route('profile')}}"> <!-- プロフィールの表示遷移先を表示-->
                   <svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="nav-icon" focusable="false" xmlns="http://www.w3.org/2000/svg" >
                     <path d="M16,17.85V20a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V17.85a4,4,0,0,1,2.55-3.73l2.95-1.2V11.71l-0.73-1.3A6,6,0,0,1,4,7.47V6a4,4,0,0,1,4.39-4A4.12,4.12,0,0,1,12,6.21V7.47a6,6,0,0,1-.77,2.94l-0.73,1.3v1.21l2.95,1.2A4,4,0,0,1,16,17.85Zm4.75-3.65L19,13.53v-1a6,6,0,0,0,1-3.31V9a3,3,0,0,0-6,0V9.18a6,6,0,0,0,.61,2.58A3.61,3.61,0,0,0,16,13a3.62,3.62,0,0,1,2,3.24V21h4a1,1,0,0,0,1-1V17.47A3.5,3.5,0,0,0,20.75,14.2Z" class="inactive-item" style="fill-opacity: 1" ></path>
                     <path d="M20.74,14.2L19,13.54V12.86l0.25-.41A5,5,0,0,0,20,9.82V9a3,3,0,0,0-6,0V9.82a5,5,0,0,0,.75,2.63L15,12.86v0.68l-1,.37a4,4,0,0,0-.58-0.28l-2.45-1V10.83A8,8,0,0,0,12,7V6A4,4,0,0,0,4,6V7a8,8,0,0,0,1,3.86v1.84l-2.45,1A4,4,0,0,0,0,17.35V20a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V17.47A3.5,3.5,0,0,0,20.74,14.2ZM16,8.75a1,1,0,0,1,2,0v1.44a3,3,0,0,1-.38,1.46l-0.33.6a0.25,0.25,0,0,1-.22.13H16.93a0.25,0.25,0,0,1-.22-0.13l-0.33-.6A3,3,0,0,1,16,10.19V8.75ZM6,5.85a2,2,0,0,1,4,0V7.28a6,6,0,0,1-.71,2.83L9,10.72a1,1,0,0,1-.88.53H7.92A1,1,0,0,1,7,10.72l-0.33-.61A6,6,0,0,1,6,7.28V5.85ZM14,19H2V17.25a2,2,0,0,1,1.26-1.86L7,13.92v-1a3,3,0,0,0,1,.18H8a3,3,0,0,0,1-.18v1l3.72,1.42A2,2,0,0,1,14,17.21V19Zm7,0H16V17.35a4,4,0,0,0-.55-2l1.05-.4V14.07a2,2,0,0,0,.4.05h0.2a2,2,0,0,0,.4-0.05v0.88l2.53,1a1.5,1.5,0,0,1,1,1.4V19Z" class="active-item" style="fill: currentColor" ></path>
                   </svg>
-                  <span class="header_name">My account</span>
+                  <span class="header_name">account</span>
                 </a>
               </li>
               <!-- <li class="nav__item">
@@ -59,7 +59,7 @@
                 </a>
               </li> -->
               <li class="nav__item">
-               <a href="#"> <!-- dm -->
+                <a href="{{route('message')}}"> <!-- dm -->
                   <svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="nav-icon" focusable="false" xmlns="http://www.w3.org/2000/svg" >
                     <path d="M21,8H8A1,1,0,0,0,7,9V19a1,1,0,0,0,1,1H18l4,3V9A1,1,0,0,0,21,8Zm-4,8H12V15h5Zm1-3H11V12h7ZM17,4V6H6A1,1,0,0,0,5,7v8H3a1,1,0,0,1-1-1V4A1,1,0,0,1,3,3H16A1,1,0,0,1,17,4Z" class="inactive-item" style="fill-opacity: 1" ></path>
                     <path d="M21,8H8A1,1,0,0,0,7,9V19a1,1,0,0,0,1,1H18l4,3V9A1,1,0,0,0,21,8ZM20,19.11L18.52,18H9V10H20v9.11ZM12,15h5v1H12V15ZM4,13H5v2H3a1,1,0,0,1-1-1V4A1,1,0,0,1,3,3H16a1,1,0,0,1,1,1V6H15V5H4v8Zm14,0H11V12h7v1Z" class="active-item" style="fill: currentColor" ></path>
@@ -96,6 +96,7 @@
     color: orangered;}
 .personal_info{
     width: 300px;
+    height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,17 +105,21 @@
 .name{
     font-weight: bold;
     text-align: center;
-    font-size: 20px; 
+    font-size: 20px;
+    margin:1px;
     color: orangered;}
 
 /* ヘッダー本体 */
 .site-header {
-    /* position: relative; */
-    position: fixed;
-    width: 100%;
-    background-color:black; 
-    border-top: 6px solid red;
-    border-bottom: 6px solid red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black; 
+  border-top: 6px solid red;
+  border-bottom: 6px solid red;
+  z-index: 1000; /* 必要に応じて調整 */
+
 }
 
 .header_name{
@@ -132,8 +137,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
+}
   @media (min-width: 800px) {
     .site-header__wrapper {
       padding-top: 0;

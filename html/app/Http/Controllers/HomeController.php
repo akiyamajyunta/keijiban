@@ -30,4 +30,17 @@ class HomeController extends Controller
     {
         return view('main/option');
     }
+
+        public function profile()
+    {
+        return view('main/profile');
+    }
+        public function message()
+    {
+        return view('main/message');
+    }
+           public function direct()
+    {
+        return view('main/direct');
+    }
 }

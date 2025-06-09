@@ -1,43 +1,39 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 @include('parts.header')
 @section('content')
-<a>個人情報</a>
 
-<div class="container-parson">
-    <div class="container">
-            <p class="fsize">個人情報の変更</p>
 
-            <button class="change_button" onclick="toggleFormTab(this)">名前</button>
-            <div class="form-tab">
-                <form action="">
-                    <input type="text" placeholder="Username" />
-                    <button class="change_button">送信</button>
-                </form>
-            </div>
+    <div class="container-parson">
+      <div class="container">
+        <p class="fsize">個人情報の変更</p>
 
-            <button class="change_button" onclick="toggleFormTab(this)">アカウントネーム</button>
-            <div class="form-tab">
-                <form action="">
-                    <input type="text" placeholder="accountName" />
-                    <button class="change_button">送信</button>
-                </form>
-            </div>
-
-            <button class="change_button" onclick="toggleFormTab(this)">パスワード</button>
-            <div class="form-tab">
-                <form action="">
-                    <input type="password" placeholder="password" />
-                    <input type="password" placeholder="password" />
-                    <button class="change_button">送信</button>
-                </form>
-            </div>
+        <button class="change_button" onclick="toggleFormTab(this)">名前</button>
+        <div class="form-tab">
+          <form action="">
+              <input type="text" placeholder="Username" />
+              <button class="change_button">送信</button>
+          </form>
+        </div>
+        <button class="change_button" onclick="toggleFormTab(this)">アカウントネーム</button>
+        <div class="form-tab">
+          <form action="">
+            <input type="text" placeholder="accountName" />
+            <button class="change_button">送信</button>
+          </form>
+        </div>
+        <button class="change_button" onclick="toggleFormTab(this)">パスワード</button>
+        <div class="form-tab">
+          <form action="">
+            <input type="password" placeholder="password" />
+              <input type="password" placeholder="password" />
+              <button class="change_button">送信</button>
+            </form>
+        </div>
+      </div>
     </div>
-</div>
 
 
 <style>
-
-
 .fsize{
   font-size: 24px;
   text-align: center;
@@ -81,7 +77,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button:hover {
   background-color: #45a049;
 }
 
@@ -93,7 +89,7 @@ button[type="submit"]:hover {
     padding: 3px 6px;
     cursor: pointer;
     font-size: 1rem;
-  	margin-top: 3%;
+    margin-top: 3%;
     margin-bottom: 3%;
     justify-content: center;
 }
