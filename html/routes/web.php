@@ -13,11 +13,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功
-Route::get('/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//
-Route::get('/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//
-Route::get('/message/direct', [App\Http\Controllers\HomeController::class, 'direct'])->name('direct');//
+Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
+Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//
+Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//
+Route::get('home/message/direct', [App\Http\Controllers\HomeController::class, 'direct'])->name('direct');//
 
+//Route::get('home/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('home/logout');//
+Route::get('home/register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');//
 
 
 Route::get('/customLogin', [App\Http\Controllers\CustomLoginController::class, 'showLoginForm'])->name('customLogin');

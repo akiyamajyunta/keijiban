@@ -6,6 +6,7 @@
     <div class="container-parson">
       <div class="container">
         <p class="fsize">個人情報の変更</p>
+        <hr>
 
         <button class="change_button" onclick="toggleFormTab(this)">名前</button>
         <div class="form-tab">
@@ -29,8 +30,17 @@
               <button class="change_button">送信</button>
             </form>
         </div>
+
+          <hr>
+          <form action="{{rout('home/register')}}">
+            <button class="change_button">ログアウト</button>
+          </form>
+          <form action="">
+            <button class="change_button">新規登録</button>
+          </form>
       </div>
     </div>
+
 
 
 <style>

@@ -39,8 +39,13 @@ class HomeController extends Controller
     {
         return view('main/message');
     }
-           public function direct()
+        public function direct()
     {
         return view('main/direct');
+    }
+
+        public function register()
+    {
+        return view('auth/register');
     }
 }

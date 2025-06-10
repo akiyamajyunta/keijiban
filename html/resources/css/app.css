@@ -1,11 +1,15 @@
-@import 'tailwindcss';
-
-/* @tailwind base;
-@tailwind components; */
+/* @import 'tailwindcss'; */
+@import "tailwindcss/preflight";
 @tailwind utilities;
 
+@import "tailwindcss/preflight";
+ 
+/* @tailwind components;  */
+/* @tailwind utilities; */
 
 
+
+/* @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'; */
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
