@@ -49,8 +49,8 @@
           <div class="memo-comments">
             <span class="memo-user">山田</span>
             <div class="comment">素晴らしいメモですね！</div>
-            <span class="memo-user">田中</span>
-            <div class="comment">私もそう思いました。</div>
+            <span class="memo-user">جزرةجزرة</span>
+            <div class="comment">それらは素晴らしいです</div>
             <span class="memo-user">隈</span>
             <div class="comment">おぢさんはそうは思わないカナ？</div>
             <span class="memo-user">山田</span>
