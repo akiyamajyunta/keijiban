@@ -28,4 +28,10 @@ class CustomLoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
+
+        public function index()
+    {
+        return view('customHome');
+    }
 }
+

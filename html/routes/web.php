@@ -19,7 +19,7 @@ Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message
 Route::get('home/message/direct', [App\Http\Controllers\HomeController::class, 'direct'])->name('direct');//
 
 //Route::get('home/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('home/logout');//
-Route::get('home/register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');//
+Route::get('home/register', [App\Http\Controllers\HomeController::class, 'register'])->name('home.register');//
 
 
 Route::get('/customLogin', [App\Http\Controllers\CustomLoginController::class, 'showLoginForm'])->name('customLogin');

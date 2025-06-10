@@ -32,10 +32,10 @@
         </div>
 
           <hr>
-          <form action="{{rout('home/register')}}">
+          <form action="">
             <button class="change_button">ログアウト</button>
           </form>
-          <form action="">
+          <form action="{{route('home.register')}}">
             <button class="change_button">新規登録</button>
           </form>
       </div>
