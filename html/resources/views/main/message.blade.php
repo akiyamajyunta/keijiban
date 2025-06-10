@@ -4,22 +4,54 @@
 
     <main>
     <!-- 投稿済みメモ一覧 -->
-    <!-- <a href="{{route('direct')}}"> -->
         <section class="memo-list">
-            <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
-            <div class="memo-item">
-            <div class="memo-header">
-                <span class="memo-user">山田</span>
-                <div class='memo-controls'>
+            <a href="{{route('direct')}}" style="text-decoration:none">
+                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
+                <div class="memo-item">
+                <div class="memo-header">
+                    <span class="memo-user">山田</span>
+                    <div class='memo-controls'>
+                    </div>
                 </div>
-            </div>
-            <div class="memo-content">
-                山田
-                yamada1234
-            </div>
-            </div>
-            <!-- 必要に応じてここにメモアイテムを追加 -->
-        </section>    
+                <div class="memo-content">
+                    山田
+                    yamada1234
+                </div>
+                </div>
+            </a>   
+        </section>
+                <section class="memo-list">
+            <a href="{{route('direct')}}" style="text-decoration:none">
+                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
+                <div class="memo-item">
+                <div class="memo-header">
+                    <span class="memo-user">山田</span>
+                    <div class='memo-controls'>
+                    </div>
+                </div>
+                <div class="memo-content">
+                    山田
+                    yamada1234
+                </div>
+                </div>
+            </a>   
+        </section>
+                <section class="memo-list">
+            <a href="{{route('direct')}}" style="text-decoration:none">
+                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
+                <div class="memo-item">
+                <div class="memo-header">
+                    <span class="memo-user">山田</span>
+                    <div class='memo-controls'>
+                    </div>
+                </div>
+                <div class="memo-content">
+                    山田
+                    yamada1234
+                </div>
+                </div>
+            </a>   
+        </section>
     </main>
 
 
@@ -65,17 +97,26 @@ body::after {
 /* メインコンテンツのコンテナ */
 main {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 0px auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 300px;
 }
 
-/* メモ一覧のスタイル */
 
 
 .memo-list{
-    margin-top: 300px;
+    margin-top: 5px;
+    border: 1px solid;
+    border-radius: 8px;
+
+}
+
+
+.memo-list:hover{
+    background-color: rgb(255, 255, 227);
+    border-radius: 8px;
 }
 .memo-list .memo-item {
     border-bottom: 1px solid #e1e8ed;
