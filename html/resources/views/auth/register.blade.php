@@ -2,7 +2,7 @@
 
 @section('content')
 <a>新規登録</a>
-<div class="container">
+<div class="max-w-3xl mx-auto px-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
