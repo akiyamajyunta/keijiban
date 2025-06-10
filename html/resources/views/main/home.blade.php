@@ -57,7 +57,7 @@
             <div class="comment">米不足は自民の裏金が関与してる</div>
             <span class="memo-user">大隅</span>
             <div class="comment">100万円かせぎたいですか？今すぐクリック</div>
-            <span class="memo-user">藤沢</span>
+            <span class="memo-user">濱崎</span>
             <div class="comment">誰一人来ませんでした。</div>
             <form action="">
               <section class="new-memo" onclick="event.stopPropagation();">
