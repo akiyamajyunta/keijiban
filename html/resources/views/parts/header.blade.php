@@ -13,7 +13,7 @@
     <header class="site-header">
       <div class="wrapper site-header__wrapper">
         <div class="site-header__start">
-          <a href="#" class="brand">twister</a>
+          <a class="brand">twister</a>
           <div class="search">
             <button class="search__toggle" aria-label="Open search">Search </button>
             <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
