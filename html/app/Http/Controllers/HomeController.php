@@ -40,9 +40,14 @@ class HomeController extends Controller
     {
         return view('main/direct');
     }
-
-        public function register()
+        public function UserSearch()
     {
-        return view('auth/register');
+        return view('UserSearch');
     }
+    
+        public function OtherProfile()
+    {
+        return view('OtherProfile');
+    }
+    
 }

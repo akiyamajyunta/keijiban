@@ -1,44 +1,21 @@
 {{--@extends('layouts.app')--}}
-@include('parts.header')
+@include('parts.notloginHeader')
 @section('content')
+
+    @auth
+        <p class="text-center">ログイン中: {{ Auth::user()->name }}</p>
+    @endauth
 
 
     <div class="container-parson">
-      <div class="container">
-        <p class="fsize">個人情報の変更</p>
-        <hr>
-
-        <button class="change_button" onclick="toggleFormTab(this)">名前</button>
-        <div class="form-tab">
-          <form action="">
-              <input type="text" placeholder="Username" />
-              <button class="change_button">送信</button>
-          </form>
-        </div>
-        <button class="change_button" onclick="toggleFormTab(this)">アカウントネーム</button>
-        <div class="form-tab">
-          <form action="">
-            <input type="text" placeholder="accountName" />
-            <button class="change_button">送信</button>
-          </form>
-        </div>
-        <button class="change_button" onclick="toggleFormTab(this)">パスワード</button>
-        <div class="form-tab">
-          <form action="">
-            <input type="password" placeholder="password" />
-              <input type="password" placeholder="password" />
-              <button class="change_button">送信</button>
-            </form>
-        </div>
-
-          <hr>
-          <form action="{{route('logout')}}">
-            <button class="change_button">ログアウト</button>
-          </form>
-          <form action="{{route('register')}}">
+        <div class="container">
+        <form action="{{ route('login') }}">
+            <button class="change_button">ログイン</button>
+        </form>
+        <form action="{{ route('register') }}">
             <button class="change_button">新規登録</button>
-          </form>
-      </div>
+        </form>
+        </div>
     </div>
 
 
@@ -117,6 +94,10 @@ button:hover {
     opacity: 1;
 }
 
+.text-center{
+  color: #ffffff;
+  background-color: #ffffff;
+}
 
 </style>
 

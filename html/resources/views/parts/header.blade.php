@@ -17,7 +17,7 @@
           <div class="search">
             <button class="search__toggle" aria-label="Open search">Search </button>
             <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
-              <label class="sr-only" for="search">Search</label>
+              <label class="sr-only" for="search">ユーザー検索</label>
               <input type="search" name="" id="search" placeholder="検索" />
               <!-- ボタンは無いですがエンターバチコンッで自動で遷移します-->
             </form>
