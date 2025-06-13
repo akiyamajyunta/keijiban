@@ -5,7 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-
+use App\Http\Controllers\Auth\TimelineController;
+use App\Http\Controllers\Models\Tweet;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +39,7 @@ Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
 // コンテンツのルート();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
 
 Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
 Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//
@@ -54,6 +55,9 @@ Route::get('home/register', [App\Http\Controllers\HomeController::class, 'regist
 
 
 
-//メイン部分
+//tweet,comment,DMなど
 
-//Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('main');
+//tweet
+Route::get('/tweet', [App\Http\Controllers\TimelineController::class , 'store'])->name('tweet.store');
+Route::post('/tweet', [App\Http\Controllers\TimelineController::class , 'store'])->name('tweet.store');
+

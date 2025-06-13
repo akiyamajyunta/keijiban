@@ -8,7 +8,7 @@
             @enderror
             <input id="name" type="text" name="name" class="form-control" value="" >
         </div>
-<!-- 問題１なまえを空欄にすると以前登録した奴がパスワードもろとも出てくる -->
+<!-- 課題１なまえを空欄にすると以前登録した奴がパスワードもろとも出てくる -->
         <div class="mb-3">
             <label for="email" class="form-label">メールアドレス</label>
             @error('email')

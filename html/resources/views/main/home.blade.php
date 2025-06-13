@@ -23,209 +23,226 @@
 </div> -->
 
 
-
-    <main>
-      <!-- 新規メモ投稿エリア、投稿フォーム -->
-      <form action="">
+<!-- name="password" type="password" -->
+<main>
+    <!-- 新規メモ投稿エリア、投稿フォーム -->
+    <form action="{{route('tweet.store')}}">
         <section class="new-memo">
-        <textarea placeholder="いまどんなかんじ？"></textarea>
-        <button>投稿</button>
+            <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
+            <button>投稿</button>
         </section>
-      </form>
-      <!-- 投稿済みメモ一覧 -->
-      <section class="memo-list">
-        <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
+    </form>
+
+    <!-- 投稿済みメモ一覧 -->
+    <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
+    <section class="memo-list">
         <div class="memo-item">
-          <div class="memo-header">
-            <span class="memo-user">山田</span>
-            <div class='memo-controls'>
-              <span class="memo-date">2025/06/08</span>
-              <span><button>削除</button></span>
+            <div class="memo-header">
+                <span class="memo-user">山田</span>
+                <div class='memo-controls'>
+                    <span class="memo-date">2025/06/08</span>
+                    <span><button>削除</button></span>
+                </div>
             </div>
-          </div>
-          <div class="memo-content">
-            これはサンプルのメモです。simple is the best。
-          </div>
-          <div class="memo-comments">
-            <span class="memo-user">山田</span>
-            <div class="comment">素晴らしいメモですね！</div>
-            <span class="memo-user">جزرةجزرة</span>
-            <div class="comment">それらは素晴らしいです</div>
-            <span class="memo-user">隈</span>
-            <div class="comment">おぢさんはそうは思わないカナ？</div>
-            <span class="memo-user">山田</span>
-            <div class="comment">米不足は自民の裏金が関与してる</div>
-            <span class="memo-user">大隅</span>
-            <div class="comment">100万円かせぎたいですか？今すぐクリック</div>
-            <span class="memo-user">濱崎</span>
-            <div class="comment">誰一人来ませんでした。</div>
-            <form action="">
-              <section class="new-memo" onclick="event.stopPropagation();">
-              <textarea placeholder="月もきれいですね"></textarea>
-              <button>返信</button>
-              </section>
-            </form>
-          </div>
+            <div class="memo-content">
+                これはサンプルのメモです。simple is the best。
+            </div>
+            <div class="memo-comments">
+                <span class="memo-user">山田</span>
+                <div class="comment">素晴らしいメモですね！</div>
+                <span class="memo-user">جزرةجزرة</span>
+                <div class="comment">それらは素晴らしいです</div>
+                <span class="memo-user">隈</span>
+                <div class="comment">おぢさんはそうは思わないカナ？</div>
+                <span class="memo-user">山田</span>
+                <div class="comment">米不足は自民の裏金が関与してる</div>
+                <span class="memo-user">大隅</span>
+                <div class="comment">100万円かせぎたいですか？今すぐクリック</div>
+                <span class="memo-user">濱崎</span>
+                <div class="comment">誰一人来ませんでした。</div>
+                <form action="">
+                    <section class="new-memo" onclick="event.stopPropagation();">
+                        <textarea placeholder="送信"></textarea>
+                        <button>返信</button>
+                    </section>
+                </form>
+            </div>
         </div>
         <!-- 必要に応じてここにメモアイテムを追加 -->
-        </section>
-      </main>
+    </section>
+
+
+
+        <section class="memo-list">
+        <div class="memo-item">
+            <div class="memo-header">
+                <span class="memo-user">山田</span>
+                <div class='memo-controls'>
+                    <span class="memo-date">2025/06/08</span>
+                    <span><button>削除</button></span>
+                </div>
+            </div>
+            <div class="memo-content">
+                これはサンプルのメモです。simple is the best。
+            </div>
+        </div>
+        <!-- 必要に応じてここにメモアイテムを追加 -->
+    </section>
+</main>
 <style>
 /* 全体の基本設定 */
 
 body::before,
 body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: black;
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black;
 }
 
 /* 左側の線：中央部分600pxの左側端の位置を計算 */
 body::before {
-  left: calc((100% - 610px) / 2);
+    left: calc((100% - 610px) / 2);
 }
 
 /* 右側の線：中央部分600pxの右側端の位置 */
 body::after {
-  left: calc((100% + 610px) / 2);
+    left: calc((100% + 610px) / 2);
 }
 
 .memo-controls {
-  display: flex;
-  flex-direction: column;
-  /* 余白を調整したい場合は、例えば下記を追加 */
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    /* 余白を調整したい場合は、例えば下記を追加 */
+    gap: 5px;
 }
 
 
 /* ヘッダーのスタイル */
 .header {
-  background-color: #1da1f2;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
+    background-color: #1da1f2;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
 .logo {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /* メインコンテンツのコンテナ */
 main {
-  max-width: 550px;
-  margin: 20px auto;
-  margin-top: 150px;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 550px;
+    margin: 20px auto;
+    margin-top: 150px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 新規メモ投稿エリア */
 .new-memo {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .new-memo textarea {
-  width: 100%;
-  border: 1px solid #ccd6dd;
-  border-radius: 4px;
-  padding: 10px;
-  resize: vertical;
-  min-height: 80px;
-  font-size: 1rem;
+    width: 100%;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    padding: 10px;
+    resize: vertical;
+    min-height: 80px;
+    font-size: 1rem;
 }
 
 .new-memo button {
-  background-color: #1da1f2;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
 }
 
 .new-memo button:hover {
-  background-color: #0d95e8;
+    background-color: #0d95e8;
 }
 
 /* メモ一覧のスタイル */
 .memo-list .memo-item {
-  border-bottom: 1px solid #e1e8ed;
-  padding: 15px 0;
+    border: 1px solid black;
+    padding: 15px 10px;
+    margin: 10px;
+    border-radius: 3px;
 }
 
-.memo-list .memo-item:last-child {
-  border-bottom: none;
-}
+/* .memo-list .memo-item:last-child {
+    border-bottom: none;
+
+} */
 
 /* メモ項目のヘッダー */
 .memo-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: #657786;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #657786;
 }
 
 /* メモ内容のスタイル */
 .memo-content {
-  font-size: 1.1rem;
-  color: #14171a;
-  margin-top: 5px;
-  line-height: 1.4;
+    font-size: 1.1rem;
+    color: #14171a;
+    margin-top: 5px;
+    line-height: 1.4;
 }
 
 
-    .memo-comments {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out, padding 0.5s;
-      background-color: #f9f9f9;
-      margin-top: 10px;
-      padding: 0 15px;
-    }
-    /* memo-item に expanded クラスが付いたとき */
-    .memo-item.expanded .memo-comments {
-      /* max-height: 200px;  必要に応じて調整 */
-      padding: 10px 15px;
-    }
-    .comment {
-      padding: 5px 0;
-      border-bottom: 1px solid #e1e8ed;
-    }
-    .comment:last-child {
-      border-bottom: none;
-    }
+.memo-comments {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    padding: 0 15px;
+}
 
+/* memo-item に expanded クラスが付いたとき */
+.memo-item.expanded .memo-comments {
+    /* max-height: 200px;  必要に応じて調整 */
+    padding: 10px 15px;
+}
 
+.comment {
+    padding: 5px 0;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
 </style>
 
-  <script>
-      document.querySelectorAll('.memo-item').forEach(item => {
+<script>
+document.querySelectorAll('.memo-item').forEach(item => {
     item.addEventListener('click', () => {
-      const comments = item.querySelector('.memo-comments');
-      if (item.classList.contains('expanded')) {
-        // すでに展開されている場合は折りたたむ
-        comments.style.maxHeight = null;
-        item.classList.remove('expanded');
-      } else {
-        // 展開する際、コメントの scrollHeight を max-height に設定する
-        item.classList.add('expanded');
-        comments.style.maxHeight = comments.scrollHeight + "px";
-      }
+        const comments = item.querySelector('.memo-comments');
+        if (item.classList.contains('expanded')) {
+            // すでに展開されている場合は折りたたむ
+            comments.style.maxHeight = null;
+            item.classList.remove('expanded');
+        } else {
+            // 展開する際、コメントの scrollHeight を max-height に設定する
+            item.classList.add('expanded');
+            comments.style.maxHeight = comments.scrollHeight + "px";
+        }
     });
-  });
-
-
-  </script>
-
-
-
-
+});
+</script>

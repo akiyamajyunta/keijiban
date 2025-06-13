@@ -13,7 +13,7 @@
 
     <div class="mb-3">
         <label class="form-label" for="password">パスワード</label>
-        <input id="password" class="form-control" name="password" type="password" />
+        <input id="password" class="form-control" name="password" type="password"/>
         @error('password')
         <div class="text-danger">{{ $message }}</div>
         @enderror
