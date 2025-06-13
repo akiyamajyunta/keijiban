@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
             $table->text('content');  // ツイート本文（例：280文字以内など必要ならルールを設定）
             $table->timestamps();
 

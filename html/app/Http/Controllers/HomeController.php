@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use App\Models\Tweet;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -20,10 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
-        
-        return view('main/home');
+        // $tweets = Tweet::find(1);
+        $user_id = Auth::id();
+        $tweets = Tweet::where('user_id', $user_id)->get();
+        return view('main/home', compact('tweets'));
     }
 
     public function option()

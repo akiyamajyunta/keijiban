@@ -71,23 +71,26 @@
         <!-- 必要に応じてここにメモアイテムを追加 -->
     </section>
 
-
-
+  @foreach ($tweets as $tweet) 
         <section class="memo-list">
         <div class="memo-item">
             <div class="memo-header">
-                <span class="memo-user">山田</span>
+                <span class="memo-user">{{ $tweet->name}}</span>
                 <div class='memo-controls'>
-                    <span class="memo-date">2025/06/08</span>
-                    <span><button>削除</button></span>
+                    <span class="memo-date">{{ $tweet->created_at}}</span>
+                    <span>
+                      <button>削除</button>
+                      <a>{{$tweet->id}}</a>
+                    </span>
                 </div>
             </div>
             <div class="memo-content">
-                これはサンプルのメモです。simple is the best。
+            <p>{{ $tweet->content}}</p> 
             </div>
         </div>
         <!-- 必要に応じてここにメモアイテムを追加 -->
     </section>
+     @endforeach  
 </main>
 <style>
 /* 全体の基本設定 */
