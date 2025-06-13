@@ -1,14 +1,14 @@
     <h2 class="text-center mb-4">ユーザー登録</h2>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" autocomplete="off">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">ユーザー名</label>
             @error('name')
             <div class="text-danger">{{ $message }}</div>
             @enderror
-            <input id="name" type="text" name="name" class="form-control" value="" autofocus>
+            <input id="name" type="text" name="name" class="form-control" value="" >
         </div>
-
+<!-- 問題１なまえを空欄にすると以前登録した奴がパスワードもろとも出てくる -->
         <div class="mb-3">
             <label for="email" class="form-label">メールアドレス</label>
             @error('email')
@@ -30,7 +30,7 @@
             @error('password')
             <div class="text-danger">{{ $message }}</div>
             @enderror
-            <input id="password" type="password" name="password" class="form-control">
+            <input id="password" type="password" name="password" class="form-control" value="">
         </div>
 
         <div class="mb-3">
@@ -38,12 +38,11 @@
             @error('password_confirmation')
             <div class="text-danger">{{ $message }}</div>
             @enderror
-            <input id="password-confirm" type="password" name="password_confirmation" class="form-control">
+            <input id="password-confirm" type="password" name="password_confirmation" class="form-control" value="">
         </div>
 
         <button type="submit" class="btn btn-primary w-100">登録</button>
     </form>
     <div class="mt-3 d-flex justify-content-center">
-        <a href="{{$prevurl}}" class="btn btn-outline-secondary mx-2">戻る</a>
+        <a href="{{ url()->previous() }}" class="btn btn-outline-secondary mx-2">戻る</a>
     </div>
-        <!--option ならoption ,{{ route('register') }} なら{{ route('register') }}へ -->

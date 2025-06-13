@@ -21,6 +21,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('auth
 
 // ユーザー登録のルート
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 // ->middleware('guest');
 Route::post('register', [RegisterController::class, 'register']);
 
