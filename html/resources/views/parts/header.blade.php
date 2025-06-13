@@ -23,8 +23,17 @@
             </form>
           </div>
         <div class="personal_info">
-                <p class="name">山田</p>
-                <p class="name">yamada1234</p>
+                <p class="name">
+                  @auth
+                      {{ auth()->user()->name }}
+                  @endauth
+                </p>
+                <p class="name">
+                  @auth
+                      {{ auth()->user()->userId }}
+                  @endauth
+                </p>
+                </p>
         </div>  
         </div>
         <div class="site-header__end">
