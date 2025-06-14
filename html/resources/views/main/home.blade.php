@@ -41,7 +41,9 @@
                 <span class="memo-user">山田</span>
                 <div class='memo-controls'>
                     <span class="memo-date">2025/06/08</span>
-                    <span><button>削除</button></span>
+                    <span>
+                        <button>削除</button>
+                    </span>
                 </div>
             </div>
             <div class="memo-content">
@@ -78,10 +80,14 @@
                 <span class="memo-user">{{ $tweet->name}}</span>
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
-                    <span>
-                      <button>削除</button>
-                      <a>{{$tweet->id}}</a>
-                    </span>
+                    <form action="{{route('tweet.delete')}}">
+                        <span>
+                            @csrf
+                            <input type="hidden" name="id" value="{{$tweet->id}}">
+                            <button type='submit'>削除</button>
+                            <a>{{$tweet->id}}</a>
+                        </span>
+                    </form>
                 </div>
             </div>
             <div class="memo-content">

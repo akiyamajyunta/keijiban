@@ -10,23 +10,24 @@
 
         <button class="change_button" onclick="toggleFormTab(this)">名前</button>
         <div class="form-tab">
-          <form action="">
+          <form action="{{route('rename')}}">
               <input type="text" placeholder="Username" />
               <button class="change_button">送信</button>
           </form>
         </div>
-        <button class="change_button" onclick="toggleFormTab(this)">アカウントネーム</button>
+        <button class="change_button" onclick="toggleFormTab(this)">ユーザーID</button>
         <div class="form-tab">
-          <form action="">
+          <form action="{{route('reUserId')}}">
             <input type="text" placeholder="accountName" />
             <button class="change_button">送信</button>
           </form>
         </div>
+
         <button class="change_button" onclick="toggleFormTab(this)">パスワード</button>
         <div class="form-tab">
-          <form action="">
-            <input type="password" placeholder="password" />
-              <input type="password" placeholder="password" />
+          <form action="{{route('rePassword')}}" method="put">
+              <input type="password" name="password" placeholder="password" />
+              <input type="password" name="password_confirmation" placeholder="password" />
               <button class="change_button">送信</button>
             </form>
         </div>

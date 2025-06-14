@@ -25,6 +25,23 @@ class TimelineController extends Controller
         // return view('main/index');
         return redirect()->route('home');
     }
+
+
+        public function delete(Request $request)
+    {
+        $tweetId = $request->input('id');
+        $tweet = Tweet::findOrFail($tweetId);
+
+        if (Auth::id() !== $tweet->user_id) {
+            redirect()->route('home');
+        }
+
+        // ツイートを削除
+        $tweet->delete();
+
+        // return view('main/index');
+        return redirect()->route('home');
+    }
 }
 
 

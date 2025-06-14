@@ -27,6 +27,22 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register']);
 
 
+
+//名前の変更
+Route::get('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
+Route::post('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
+
+//パスワードの変更
+// Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
+// Route::post('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
+Route::put('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
+
+
+//ユーザーIDの変更
+Route::get('/tweet/reUserId',  [RegisterController::class,'reUserId'])->name('reUserId');
+Route::post('/tweet/reUserId', [RegisterController::class,'reUserId'])->name('reUserId');
+
+
 // ログインのルート
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
@@ -58,6 +74,12 @@ Route::get('home/register', [App\Http\Controllers\HomeController::class, 'regist
 //tweet,comment,DMなど
 
 //tweet
-Route::get('/tweet', [App\Http\Controllers\TimelineController::class , 'store'])->name('tweet.store');
-Route::post('/tweet', [App\Http\Controllers\TimelineController::class , 'store'])->name('tweet.store');
+Route::get('/tweet', [App\Http\Controllers\TimelineController::class,'store'])->name('tweet.store');
+Route::post('/tweet', [App\Http\Controllers\TimelineController::class,'store'])->name('tweet.store');
+
+//tweetの削除
+Route::get('/tweet/delete', [App\Http\Controllers\TimelineController::class ,'delete'])->name('tweet.delete');
+Route::post('/tweet/delete', [App\Http\Controllers\TimelineController::class ,'delete'])->name('tweet.delete');
+
+
 

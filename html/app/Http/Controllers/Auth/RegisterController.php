@@ -56,4 +56,19 @@ class RegisterController extends Controller
         // 5. ダッシュボードページにリダイレクトする
         return redirect()->route('home');
     }
+
+    public function rename(Request $request){
+
+        return redirect()->route('option');
+    } 
+    
+    public function rePassword(Request $request){
+
+        return redirect()->route('option');
+    }  
+
+    public function reUserId(Request $request){
+
+        return redirect()->route('option');
+    }  
 }
