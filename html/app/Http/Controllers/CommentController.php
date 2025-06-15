@@ -36,9 +36,7 @@ class CommentController extends Controller
 
                 Comment::create($data);
 
-            //return redirect()->route('home');//コメントしたらホームへ行く。これはダメ//解決
-
-            //課題　
+            //課題、プロフィール画面でコメントしたらエラーに
                 return redirect()->back();
     }
 

@@ -15,7 +15,15 @@
 
             <p class="fsize">{{$user->email}}</p>
             <hr>
-            <p>{{$user->profile}}</>
+            <p>{{$user->profile}}</p>
+
+          @if ($user->id !== Auth::id())
+          <form action="">
+            <input type="hidden" name="id"> 
+            {{--value="{{$tweet->id}}"> --}}
+            <button>ダイレクトメッセージ</button>
+          </form>
+          @endif
     </div>
 </div>
 @endforeach   

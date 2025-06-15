@@ -42,14 +42,14 @@ class HomeController extends Controller
 
 //user_idがからの時の処理も書く。そのうち
 //課題。別のルートでprofileに行くとエラー。原因は理解る
-            if($tweet_user_Id != $user_id){
-                $users = User::where('id', $tweet_user_Id )->get(); 
-                $tweets = Tweet::where('user_id', $tweet_user_Id )->get();
-                return view('main/profile',compact('users', 'tweets'));
-            }
             if(empty($tweet_user_Id)){
                 $users = User::where('id', $user_id)->get(); 
                 $tweets = Tweet::where('user_id', $user_id)->get();
+                return view('main/profile',compact('users', 'tweets'));
+            }
+            if($tweet_user_Id != $user_id){
+                $users = User::where('id', $tweet_user_Id )->get(); 
+                $tweets = Tweet::where('user_id', $tweet_user_Id )->get();
                 return view('main/profile',compact('users', 'tweets'));
             }
                 $users = User::where('id', $user_id)->get(); 
