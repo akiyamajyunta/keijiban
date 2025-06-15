@@ -36,6 +36,7 @@ class RegisterController extends Controller
         // 1. リクエストのデータを検証する
         $request->validate([//ここ、エラー処理を記入する
             'name' => ['required', 'string', 'max:255'],
+            'profile' => ['nullable', 'string', 'max:255'],
             'userId' => ['required', 'string', 'max:255', 'unique:users','regex:/^@[A-Za-z0-9_]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -44,6 +45,7 @@ class RegisterController extends Controller
         // 2. 新しいユーザーを作成する
         $user = User::create([
             'name' => $request->name,
+            'profile' => $request->profile,
             'userId' => $request->userId,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -58,7 +60,7 @@ class RegisterController extends Controller
         // 5. ダッシュボードページにリダイレクトする
         return redirect()->route('home');
     }
-
+//名前の変更
     public function rename(Request $request){
 
             $user = Auth::user();
@@ -68,6 +70,29 @@ class RegisterController extends Controller
             Tweet::where('user_id',$user_id)->update(['name' => $request->get('name')]);
             return redirect()->route('option');
     } //名前の変更
+
+    public function reProfile(Request $request){
+    $validator = Validator::make($request->all(), [
+        'profile' => ['max:140'],
+        ], 
+    [
+        'profile.max'      => '15文字以内にしてください',
+    ]);
+
+        if ($validator->fails()) {
+            $allErrors = $validator->errors()->all();
+            return back()
+                ->withErrors(['message' => $allErrors])
+                ->withInput();
+    }
+            $user = Auth::user();
+            $user->profile = $request->get('profile');
+            $user->save();  
+            $user_id = Auth::id();
+            User::where('user_id',$user_id)->update(['profile' => $request->get('profile')]);
+            return redirect()->route('option');
+    }
+
 
     //paswordの変更
     public function rePassword(Request $request){

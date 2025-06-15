@@ -1,26 +1,33 @@
 {{--@extends('layouts.app')--}}
 @include('parts.header')
 @section('content')
-<a>プロフィール</a>
 
+@foreach ($users as $user)  
+<a>プロフィール</a>
 <div class="container-parson">
     <div class="container">
+
             <p class="fsize">ユーザー情報</p>
             <hr>
-            <p class="fsize">山田</p>
+            <p class="fsize">{{$user->name}}</p>
 
-            <p class="fsize">yamada@gmail.com</p>
+            <p class="fsize">{{$user->userId}}</p>
 
-            <p class="fsize">yamada1234</p>
+            <p class="fsize">{{$user->email}}</p>
+            <hr>
+            <p>{{$user->profile}}</>
     </div>
 </div>
-
-
+@endforeach   
+  <main>
+    @include('parts.timeline')
+  </main>
 <style>
 
 
 .fsize{
   font-size: 24px;
+  margin: 0;
   text-align: center;
 }
 .container-parson{

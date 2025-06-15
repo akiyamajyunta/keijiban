@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\Tweet;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -34,10 +35,16 @@ class HomeController extends Controller
         return view('main/option');
     }
 
-        public function profile()
+    public function profile()
     {
-        return view('main/profile');
+        $user_id = Auth::id();
+        $users = User::where('id', $user_id)->get(); 
+        $tweets = Tweet::where('user_id', $user_id)->get();
+        return view('main/profile',compact('users', 'tweets'));
+
     }
+
+
         public function message()
     {
         return view('main/message');

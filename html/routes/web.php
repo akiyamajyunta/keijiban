@@ -32,6 +32,11 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
 Route::post('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
 
+//プロフィールの変更　reProfile
+
+Route::get('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
+Route::post('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
+
 //パスワードの変更
 // Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
 // Route::post('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
@@ -58,7 +63,9 @@ Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
 
 Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
+
 Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//
+
 Route::get('hone/UserSearch', [App\Http\Controllers\HomeController::class, 'UserSearch'])->name('UserSearch');//ユーザー検索
 
 Route::get('hone/OtherProfile', [App\Http\Controllers\HomeController::class, 'OtherProfile'])->name('OtherProfile');//他人のプロフィール
