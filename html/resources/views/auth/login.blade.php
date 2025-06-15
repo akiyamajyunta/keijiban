@@ -5,7 +5,7 @@
     @csrf
     <div class="mb-3">
         <label class="form-label" for="email">メールアドレス</label>
-        <input id="email" class="form-control" name="email" type="email" value="{{ old('email') }}" autofocus />
+        <input id="email" class="form-control" name="email" type="email" value="{{old('email')}}" autofocus />
         @error('email')
         <div class="text-danger">{{ $message }}</div>
         @enderror

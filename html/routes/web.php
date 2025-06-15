@@ -35,7 +35,7 @@ Route::post('/tweet/rename', [RegisterController::class,'rename'])->name('rename
 //パスワードの変更
 // Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
 // Route::post('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
-Route::put('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
+Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
 
 
 //ユーザーIDの変更
