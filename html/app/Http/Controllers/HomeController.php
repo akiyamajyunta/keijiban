@@ -63,4 +63,16 @@ class HomeController extends Controller
         return view('OtherProfile');
     }
     
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        if(!empty($search)){
+        // $tweets = $tweets;
+            $tweets = Tweet::where('content', 'LIKE', "%{$search}%")->get();
+        }else{
+            $tweets = Tweet::all();
+        }
+        return view('main/search', compact('tweets'));
+    }
+
 }

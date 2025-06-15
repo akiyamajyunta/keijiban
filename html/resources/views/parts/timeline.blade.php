@@ -1,6 +1,6 @@
 <a>timeline</a>
 
-    <!-- 投稿済みメモ一覧 -->
+    投稿済みメモ一覧
     <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
     <section class="memo-list">
         <div class="memo-item">
@@ -44,7 +44,8 @@
         <section class="memo-list">
         <div class="memo-item">
             <div class="memo-header">
-                <span class="memo-user">{{ $tweet->name}}</span>
+                    <span class="memo-user"><a href="">{{ $tweet->name}}</a></span>
+                    <span class="memo-user">{{ $tweet->user_id }}</span>
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
                     <form action="{{route('tweet.delete')}}">

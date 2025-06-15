@@ -34,7 +34,7 @@ class CommentController extends Controller
 
                 Comment::create($data);
 
-            return redirect()->route('home');
-    
+            //return redirect()->route('home');//コメントしたらホームへ行く。これはダメ
+                return redirect()->back();
     }
 }

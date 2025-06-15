@@ -62,9 +62,14 @@ Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
 
-Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//
+// search検索
 
-Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//
+Route::get('home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');//検索
+
+Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//オプション
+
+Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
+
 
 Route::get('hone/UserSearch', [App\Http\Controllers\HomeController::class, 'UserSearch'])->name('UserSearch');//ユーザー検索
 

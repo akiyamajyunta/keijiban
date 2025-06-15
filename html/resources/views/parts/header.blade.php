@@ -10,16 +10,17 @@
   </head>
   <body>
     <!-- Header Start -->
+     
+<!-- search -->
     <header class="site-header">
       <div class="wrapper site-header__wrapper">
         <div class="site-header__start">
           <a class="brand">twister</a>
           <div class="search">
             <button class="search__toggle" aria-label="Open search">Search </button>
-            <form class="search__form" action=""> <!-- 検索、後でここに挿入-->
+            <form class="search__form" action="{{route('search')}}"> <!-- 検索、後でここに挿入-->
               <label class="sr-only" for="search">ユーザー検索</label>
-              <input type="search" name="" id="search" placeholder="検索" />
-              <!-- ボタンは無いですがエンターバチコンッで自動で遷移します-->
+              <input type="search" name="search" id="search" placeholder="検索" />
             </form>
           </div>
         <div class="personal_info">
