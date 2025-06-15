@@ -1,59 +1,25 @@
-<a>timeline</a>
-
-    投稿済みメモ一覧
-    <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
-    <section class="memo-list">
-        <div class="memo-item">
-            <div class="memo-header">
-                <span class="memo-user">山田</span>
-                <div class='memo-controls'>
-                    <span class="memo-date">2025/06/08</span>
-                    <span>
-                        <button>削除</button>
-                    </span>
-                </div>
-            </div>
-            <div class="memo-content">
-                これはサンプルのメモです。simple is the best。
-            </div>
-            <div class="memo-comments">
-                <span class="memo-user">山田</span>
-                <div class="comment">素晴らしいメモですね！</div>
-                <span class="memo-user">جزرةجزرة</span>
-                <div class="comment">それらは素晴らしいです</div>
-                <span class="memo-user">隈</span>
-                <div class="comment">おぢさんはそうは思わないカナ？</div>
-                <span class="memo-user">山田</span>
-                <div class="comment">米不足は自民の裏金が関与してる</div>
-                <span class="memo-user">大隅</span>
-                <div class="comment">100万円かせぎたいですか？今すぐクリック</div>
-                <span class="memo-user">濱崎</span>
-                <div class="comment">誰一人来ませんでした。</div>
-                <form action="">
-                    <section class="new-memo" onclick="event.stopPropagation();">
-                        <textarea placeholder="送信"></textarea>
-                        <button>返信</button>
-                    </section>
-                </form>
-            </div>
-        </div>
-        <!-- 必要に応じてここにメモアイテムを追加 -->
-    </section>
 
 @foreach ($tweets->reverse() as $tweet) 
         <section class="memo-list">
         <div class="memo-item">
             <div class="memo-header">
-                    <span class="memo-user"><a href="">{{ $tweet->name}}</a></span>
+                <form action="{{route('profile')}}" method="POST">
+                    <span class="memo-user">
+                        @csrf
+                        <input type="hidden" name="id" value='{{ $tweet->user_id  }}'>
+                        <button onclick="event.stopPropagation()">{{ $tweet->name}}</button>
+                    </span>
+                </form>
+                    
                     <span class="memo-user">{{ $tweet->user_id }}</span>
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
                     <form action="{{route('tweet.delete')}}">
                         <span>
-                            @csrf
+                            @if ($tweet->user_id === Auth::id())
                             <input type="hidden" name="id" value="{{$tweet->id}}">
-                            
-                            <a>{{$tweet->id}}</a>
+                            <button onclick="event.stopPropagation()">削除</button>
+                            @endif
                         </span>
                     </form>
                 </div>
@@ -61,7 +27,8 @@
             <div class="memo-content">
                 <p>{{ $tweet->content}}</p> 
             </div>
-            <div class="memo-comments">
+
+            <div class="memo-comments"  onclick="event.stopPropagation()">
                 <form action="{{route('comment.store')}}">
                     <section class="new-memo" onclick="event.stopPropagation();">
                         @csrf 
@@ -72,11 +39,23 @@
                 </form>
 
                 @foreach($tweet->comments->reverse() as $comment)
-                    <span class="memo-user">{{ $comment->user->name }}</span>
+                <div class='comment-contener'>
+                    <div class="comment-header">
+                        <p>{{ $comment->user->name }}</p>
+                        <p>{{$comment->created_at}}</p>
+                    </div>
                     <div class="comment">{{ $comment->comment }}</div>
-                    <p>{{$comment->created_at}}</p>
+                    <!-- <p>{{$comment->id}}</p> -->
+                    <form action="{{route('comment.delete')}}">
+                            @if ($comment->user_id === Auth::id())
+                            <input type="hidden" name="id" value="{{$comment->id}}">
+                            <button onclick="event.stopPropagation()">削除</button>
+                            @endif
+                    </form>
+                </div> 
                 @endforeach($tweet->comments as $comment)
             </div>
+
         </div>
         <!-- 必要に応じてここにメモアイテムを追加 -->
          <!-- {{route('rename')}} -->
@@ -188,6 +167,8 @@ main {
     justify-content: space-between;
     font-size: 0.9rem;
     color: #657786;
+    justify-content: space-between;
+
 }
 
 /* メモ内容のスタイル */
@@ -213,11 +194,33 @@ main {
     /* max-height: 200px;  必要に応じて調整 */
     padding: 10px 15px;
 }
+.comment-header {
+    display: flex;
+    margin-bottom: 0;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #657786;
+}
+.comment-contener{
+    border: 1px solid black;
+    padding: 2px;
+    margin-bottom: 3px;
+}
 
+.comment-contener button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 1px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
 .comment {
-    padding: 5px 0;
+    padding: 0;
     border-bottom: 1px solid #e1e8ed;
 }
+
 
 .comment:last-child {
     border-bottom: none;

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class CommentController extends Controller
@@ -34,7 +36,23 @@ class CommentController extends Controller
 
                 Comment::create($data);
 
-            //return redirect()->route('home');//コメントしたらホームへ行く。これはダメ
+            //return redirect()->route('home');//コメントしたらホームへ行く。これはダメ//解決
+
+            //課題　
                 return redirect()->back();
+    }
+
+    public function delete(Request $request){
+
+        $commentId = $request->input('id');
+        $comment = Comment::findOrFail($commentId);
+
+        if (Auth::id() !== $comment->user_id) {
+            redirect()->back();;
+        }
+            $comment->delete();
+
+        return redirect()->back();
+    
     }
 }

@@ -69,6 +69,7 @@ Route::get('home/search', [App\Http\Controllers\HomeController::class, 'search']
 Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//オプション
 
 Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
+Route::post('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
 
 
 Route::get('hone/UserSearch', [App\Http\Controllers\HomeController::class, 'UserSearch'])->name('UserSearch');//ユーザー検索
@@ -96,3 +97,6 @@ Route::post('/tweet/delete', [App\Http\Controllers\TimelineController::class ,'d
 //コメント
 Route::get('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
+//コメントの削除
+Route::get('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
+Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');

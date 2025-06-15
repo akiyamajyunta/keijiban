@@ -33,14 +33,14 @@ class TimelineController extends Controller
         $tweet = Tweet::findOrFail($tweetId);
 
         if (Auth::id() !== $tweet->user_id) {
-            redirect()->route('home');
+            redirect()->back();;
         }
         
-        // ツイートを削除
-        $tweet->delete();
+            // ツイートを削除
+            $tweet->delete();
 
-        // return view('main/index');
-        return redirect()->route('home');
+            // return view('main/index');
+            return redirect()->back();
     }
 }
 
