@@ -26,6 +26,9 @@
 <!-- name="password" type="password" -->
 <main>
     <!-- 新規メモ投稿エリア、投稿フォーム -->
+    @error('message')
+        <a>{{ $message }}</a>
+    @enderror 
     <form action="{{route('tweet.store')}}">
         <section class="new-memo">
             <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
@@ -84,17 +87,34 @@
                         <span>
                             @csrf
                             <input type="hidden" name="id" value="{{$tweet->id}}">
-                            <button type='submit'>削除</button>
+                            
                             <a>{{$tweet->id}}</a>
                         </span>
                     </form>
                 </div>
             </div>
             <div class="memo-content">
-            <p>{{ $tweet->content}}</p> 
+                <p>{{ $tweet->content}}</p> 
+            </div>
+            <div class="memo-comments">
+                <form action="{{route('comment.store')}}">
+                    <section class="new-memo" onclick="event.stopPropagation();">
+                        @csrf 
+                        <input type="hidden" name="tweet_id" value='{{$tweet->id}}'>
+                        <textarea placeholder="送信" name="comment"></textarea>
+                        <button>返信</button>
+                    </section>
+                </form>
+
+                @foreach($tweet->comments as $comment)
+                    <span class="memo-user">{{ $comment->user->name }}</span>
+                    <div class="comment">{{ $comment->comment }}</div>
+                    <p>{{$comment->created_at}}</p>
+                @endforeach($tweet->comments as $comment)
             </div>
         </div>
         <!-- 必要に応じてここにメモアイテムを追加 -->
+         <!-- {{route('rename')}} -->
     </section>
      @endforeach  
 </main>

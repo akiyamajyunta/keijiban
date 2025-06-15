@@ -53,7 +53,7 @@ Route::get('logout', [LogoutController::class, 'logout'])->name('logout');//post
 Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
 
-// コンテンツのルート();
+// コンテンツのルート、遷移用;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
 
@@ -81,5 +81,6 @@ Route::post('/tweet', [App\Http\Controllers\TimelineController::class,'store'])-
 Route::get('/tweet/delete', [App\Http\Controllers\TimelineController::class ,'delete'])->name('tweet.delete');
 Route::post('/tweet/delete', [App\Http\Controllers\TimelineController::class ,'delete'])->name('tweet.delete');
 
-
-
+//コメント
+Route::get('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
+Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');

@@ -35,7 +35,7 @@ class TimelineController extends Controller
         if (Auth::id() !== $tweet->user_id) {
             redirect()->route('home');
         }
-
+        
         // ツイートを削除
         $tweet->delete();
 

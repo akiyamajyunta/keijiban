@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['tweet_id', 'user_id', 'comment'];
+    protected $fillable = ['tweet_id', 'user_id',  'name', 'comment'];
 
     public function tweet()
     {
