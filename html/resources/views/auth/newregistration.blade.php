@@ -1,3 +1,4 @@
+<!-- @include('parts.header') -->
     <h2 class="text-center mb-4">ユーザー登録</h2>
     <form method="POST" action="{{ route('register') }}" autocomplete="off">
         @csrf

@@ -38,8 +38,7 @@ class TimelineController extends Controller
         
             // ツイートを削除
             $tweet->delete();
-
-            // return view('main/index');
+            
             return redirect()->back();
     }
 }

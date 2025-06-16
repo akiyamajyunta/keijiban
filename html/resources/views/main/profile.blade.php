@@ -17,7 +17,7 @@
             <hr>
             <p>{{$user->profile}}</p>
 
-          @if ($user->id !== Auth::id())
+          @if (Auth::check() && $user->id !== Auth::id())
           <form action="">
             <input type="hidden" name="id"> 
             {{--value="{{$tweet->id}}"> --}}

@@ -1,5 +1,5 @@
 {{--@extends('layouts.app')--}}
-@include('parts.notloginHeader')
+<!-- @include('parts.header') -->
 @section('content')
 
     @auth

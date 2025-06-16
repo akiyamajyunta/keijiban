@@ -1,4 +1,4 @@
-
+{{-- @include('parts.header') --}}
 <h2 class="text-center mb-4">ログイン</h2>
 
 <form action="{{ route('login') }}" method="POST">

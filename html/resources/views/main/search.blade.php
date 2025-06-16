@@ -2,6 +2,7 @@
 @section('content')
 
 
+
 <main>
     @include('parts.timeline')
 </main>

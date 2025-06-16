@@ -24,10 +24,9 @@
                     </form>
                 </div>
             </div>
-            <div class="memo-content">
-                <p>{{ $tweet->content}}</p> 
+            <div class="memo-content"> 
             </div>
-
+            <!-- 返信 -->
             <div class="memo-comments"  onclick="event.stopPropagation()">
                 <form action="{{route('comment.store')}}">
                     <section class="new-memo" onclick="event.stopPropagation();">
@@ -37,7 +36,7 @@
                         <button>返信</button>
                     </section>
                 </form>
-
+            
                 @foreach($tweet->comments->reverse() as $comment)
                 <div class='comment-contener'>
                     <div class="comment-header">
@@ -57,13 +56,10 @@
             </div>
 
         </div>
-        <!-- 必要に応じてここにメモアイテムを追加 -->
-         <!-- {{route('rename')}} -->
     </section>
      @endforeach  
 </main>
 <style>
-/* 全体の基本設定 */
 
 body::before,
 body::after {
