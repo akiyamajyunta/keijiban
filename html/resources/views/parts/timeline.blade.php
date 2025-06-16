@@ -8,25 +8,27 @@
                         @csrf
                         <input type="hidden" name="id" value='{{ $tweet->user_id  }}'>
                         <button onclick="event.stopPropagation()">{{ $tweet->name}}</button>
+
                     </span>
                 </form>
-                    
                     <span class="memo-user">{{ $tweet->user_id }}</span>
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
-                    <form action="{{route('tweet.delete')}}">
-                        <span>
-                            @if ($tweet->user_id === Auth::id())
-                            <input type="hidden" name="id" value="{{$tweet->id}}">
-                            <button onclick="event.stopPropagation()">削除</button>
-                            @endif
-                        </span>
-                    </form>
+                    @if ($tweet->user_id === Auth::id())
+                        <form action="{{route('tweet.delete')}}">
+                            <span>
+                                
+                                <input type="hidden" name="id" value="{{$tweet->id}}">
+                                <button onclick="event.stopPropagation()">削除</button>
+                            </span>
+                        </form>
+                    @endif
                 </div>
             </div>
             <div class="memo-content"> 
+                <p>{{$tweet->content}}</p>
             </div>
-            <!-- 返信 -->
+            <!-- 返信,要するにコメント -->
             <div class="memo-comments"  onclick="event.stopPropagation()">
                 <form action="{{route('comment.store')}}">
                     <section class="new-memo" onclick="event.stopPropagation();">
@@ -151,11 +153,6 @@ main {
     margin: 10px;
     border-radius: 3px;
 }
-
-/* .memo-list .memo-item:last-child {
-    border-bottom: none;
-
-} */
 
 /* メモ項目のヘッダー */
 .memo-header {
