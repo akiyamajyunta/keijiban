@@ -2,110 +2,31 @@
 <!-- @include('parts.header') -->
 @section('content')
 
-    @auth
-        <p class="text-center">ログイン中: {{ Auth::user()->name }}</p>
-    @endauth
+@auth
+<p class="text-center">ログイン中: {{ Auth::user()->name }}</p>
+@endauth
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+  <title>ログイン</title>
+</head>
 
+<body>
 
-    <div class="container-parson">
-        <div class="container">
-        <form action="{{ route('login') }}">
-            <button class="change_button">ログイン</button>
-        </form>
-        <form action="{{ route('register') }}">
-            <button class="change_button">新規登録</button>
-        </form>
-        </div>
+  <div class="container-parson">
+    <div class="container">
+      <form action="{{ route('login') }}">
+        <button class="change_button">ログイン</button>
+      </form>
+      <form action="{{ route('register') }}">
+        <button class="change_button">新規登録</button>
+      </form>
     </div>
+  </div>
+</body>
 
-
-
-<style>
-.fsize{
-  font-size: 24px;
-  text-align: center;
-}
-.container-parson{
-justify-content: center;
-margin-top: 150px;
-}
-.container {
-  width: 300px;
-  margin: auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  justify-content: center;
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 93%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.change_button{
-    background-color: white;
-    width: 50%;
-    color: black;
-    border: 1px solid black;
-    padding: 3px 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    justify-content: center;
-}
-.form-tab {
-  /* 初期状態は非表示（高さ0、透明） */
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-/* open クラスが付いたときは展開状態に */
-.form-tab.open {
-    max-height: 300px;
-    opacity: 1;
-}
-
-.text-center{
-  color: #ffffff;
-  background-color: #ffffff;
-}
-
-</style>
-
-<script>
-  function toggleFormTab(button) {
-    const formTab = button.nextElementSibling;
-    formTab.classList.toggle("open");
-}
-
-</script>
+</html>
 

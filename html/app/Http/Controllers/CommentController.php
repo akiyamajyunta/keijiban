@@ -1,43 +1,55 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
-
-
-class CommentController extends Controller
-{
-    //
+class CommentController extends Controller{
 
     public function store(Request $request)
     {
-    $validator = Validator::make($request->all(), [
+        
+        $userId = $request->input('user_id');
+        $validator = Validator::make($request->all(), [
+
         'tweet_id' => ['required','exists:tweets,id'],
         'comment' => ['required','max:140'],
+
         ], 
-    [
+        [
         'comment.required' => 'コメントを入力してください',
         'comment.max'      => '140文字以内にしてください',
-    ]);
+        ]);
 
         if ($validator->fails()) {
+
             $allErrors = $validator->errors()->all();
+
             return back()
                 ->withErrors(['message' => $allErrors])
                 ->withInput();
-    }
-                $data = $request->only('tweet_id', 'comment','created_at');
-                $data['user_id'] = auth()->id();
-                $data['name']    = auth()->user()->name;
+        }
 
-                Comment::create($data);
+        $data = $request->only('tweet_id', 'comment','created_at');
+        $data['user_id'] = auth()->id();
+        $data['name']    = auth()->user()->name;
 
-            //課題、プロフィール画面でコメントしたらエラーに
-                return redirect()->back();
+        Comment::create($data);
+
+        $previousUrl = url()->previous();
+
+        if (Str::contains($previousUrl, 'home/profile')) {
+
+            return  redirect()->route('profile',['user_id' =>  $userId]);
+
+        }else{
+
+            return redirect()->back();
+        };
     }
 
     public function delete(Request $request){
@@ -45,10 +57,11 @@ class CommentController extends Controller
         $commentId = $request->input('id');
         $comment = Comment::findOrFail($commentId);
 
-        if (Auth::id() !== $comment->user_id) {
+        if (Auth::id() !== $comment->user_id){
             redirect()->back();;
         }
-            $comment->delete();
+
+        $comment->delete();
 
         return redirect()->back();
     

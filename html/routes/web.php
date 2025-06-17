@@ -68,13 +68,13 @@ Route::get('home/search', [App\Http\Controllers\HomeController::class, 'search']
 
 Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//オプション
 
-Route::get('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
-Route::post('hone/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
+Route::get('home/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
+Route::post('home/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
 
 
-Route::get('hone/UserSearch', [App\Http\Controllers\HomeController::class, 'UserSearch'])->name('UserSearch');//ユーザー検索
+Route::get('home/UserSearch', [App\Http\Controllers\HomeController::class, 'UserSearch'])->name('UserSearch');//ユーザー検索
 
-Route::get('hone/OtherProfile', [App\Http\Controllers\HomeController::class, 'OtherProfile'])->name('OtherProfile');//他人のプロフィール
+Route::get('home/OtherProfile', [App\Http\Controllers\HomeController::class, 'OtherProfile'])->name('OtherProfile');//他人のプロフィール
 
 Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//DMの相手をさがす
 Route::get('home/message/direct', [App\Http\Controllers\HomeController::class, 'direct'])->name('direct');//DMのないよう

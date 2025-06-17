@@ -1,9 +1,17 @@
 {{--@extends('layouts.app')--}}
 @include('parts.header')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+</head>
+<body>
+    <!-- 連絡先一覧表。田中、山田とかにメッセージを送る。バックエンドが出来たら、DM機能を実施したら、cssを引っ越す-->
 
     <main>
-    <!-- 投稿済みメモ一覧 -->
         <section class="memo-list">
             <a href="{{route('direct')}}" style="text-decoration:none">
                 <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
@@ -54,7 +62,8 @@
         </section>
     </main>
 
-
+</body>
+</html>
 
 <style>
 /* 全体の基本設定 */

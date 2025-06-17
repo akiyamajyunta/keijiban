@@ -41,8 +41,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             // 認証に成功したら、セッションを再生成する
             $request->session()->regenerate();
-
-            // ダッシュボードにリダイレクトする
+            
             return redirect()->intended(route('home'));
         }//成功。ここは弄らない
 
