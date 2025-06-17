@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $tweets = Tweet::find(1);
         $user_id = Auth::id();
         $tweets = Tweet::where('user_id', $user_id)->get();
         return view('main/home', compact('tweets'));
@@ -56,14 +55,14 @@ class HomeController extends Controller
     }
 
 
+    public function contact()
+    {
+        return view('main/contact');
+    }
+
     public function message()
     {
         return view('main/message');
-    }
-
-    public function direct()
-    {
-        return view('main/direct');
     }
 
     public function UserSearch()

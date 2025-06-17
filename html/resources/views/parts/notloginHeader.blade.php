@@ -1,10 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css')}}">
 </head>
 
 <body>
@@ -13,14 +12,13 @@
         <div class="wrapper site-header__wrapper">
             <div class="site-header__start">
                 <a class="brand">twister</a>
-                <div class="search">
-                    <button class="search__toggle" aria-label="Open search">Search </button>
-                    <form class="search__form" action="{{route('search')}}">
-                        <!-- 検索、後でここに挿入-->
-                        <label class="sr-only" for="search">検索</label>
-                        <input type="search" name="search" id="search" placeholder="検索" />
-                    </form>
-                </div>
+                    <div class="search">
+                        <!-- <button class="search__toggle" aria-label="Open search">Search </button> -->
+                        <form class="search__form" action="{{route('search')}}">
+                            <label class="sr-only" for="search">検索</label>
+                            <input type="search" name="search" id="search" placeholder="検索" />
+                        </form>
+                    </div>
                 <div class="personal_info">
                     <p class="name"></p>
                     <p class="name"></p>
@@ -43,8 +41,6 @@
             </div>
         </div>
     </header>
-    <!-- Header End -->
-    <script src="js/header-4.js"></script>
 </body>
 
 </html>

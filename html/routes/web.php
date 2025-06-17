@@ -76,8 +76,8 @@ Route::get('home/UserSearch', [App\Http\Controllers\HomeController::class, 'User
 
 Route::get('home/OtherProfile', [App\Http\Controllers\HomeController::class, 'OtherProfile'])->name('OtherProfile');//他人のプロフィール
 
-Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//DMの相手をさがす
-Route::get('home/message/direct', [App\Http\Controllers\HomeController::class, 'direct'])->name('direct');//DMのないよう
+Route::get('home/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');//DMの相手をさがす
+Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//DMのないよう
 
 //Route::get('home/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('home/logout');//
 Route::get('home/register', [App\Http\Controllers\HomeController::class, 'register'])->name('home.register');//

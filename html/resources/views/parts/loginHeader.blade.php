@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 </head>
@@ -73,7 +71,7 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="{{route('message')}}">
+                            <a href="{{route('contact')}}">
                                 <!-- dm -->
                                 <svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0"
                                     preserveAspectRatio="xMinYMin meet" class="nav-icon" focusable="false"

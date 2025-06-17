@@ -9,10 +9,15 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller{
-
+// コメント
     public function store(Request $request)
     {
-        
+     
+        if (!Auth::check()) {
+            $message = 'ログインしていません。ログインするか新規登録してください';
+            return view('auth.newpage', ['message' => $message]);
+        }
+
         $userId = $request->input('user_id');
         $validator = Validator::make($request->all(), [
 
