@@ -1,7 +1,5 @@
 @if(Auth::check())
-    @include('parts/loginHeader')
+@include('parts/loginHeader')
 @else
-    @include('parts/notloginHeader')
+@include('parts/notloginHeader')
 @endif
-
-

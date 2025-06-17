@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
     <title>Document</title>
 </head>
+
 <body>
+
     @foreach ($tweets->reverse() as $tweet)
     <section class="memo-list">
         <div class="memo-item">
@@ -65,7 +67,6 @@
         </div>
     </section>
     @endforeach
-    </main>
 </body>
 
 </html>

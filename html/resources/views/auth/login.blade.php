@@ -1,5 +1,5 @@
 {{-- @include('parts.header') --}}
-
+@include('parts.header')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +20,8 @@
                 <div class="input-from">
                     <label class="form-label" for="email">メールアドレス</label>
 
-                    <input id="email" class="form-control" name="email" type="email" value="{{old('email')}}" autofocus />
+                    <input id="email" class="form-control" name="email" type="email" value="{{old('email')}}"
+                        autofocus />
                     @error('email')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -43,7 +44,7 @@
 
             <div>
                 <a href="{{route('newPage')}}" class="btn btn-outline-secondary mx-2">戻る</a>
-            </div> 
+            </div>
         </div>
     </div>
 </body>

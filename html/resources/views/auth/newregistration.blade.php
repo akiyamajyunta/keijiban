@@ -1,7 +1,7 @@
 <!-- @include('parts.header') -->
+ @include('parts.header')
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 <body>
     <div class="container-parson">
         <div class="container">
-            <h2 class="text-center mb-4">ユーザー登録</h2>
+            <h2>ユーザー登録</h2>
             <form method="POST" action="{{ route('register') }}" autocomplete="off">
                 @csrf
                 <div class="input-from">
@@ -30,7 +30,7 @@
                     @enderror
                     <input id="email" type="email" name="email" class="form-control" value="">
                 </div>
-                
+
                 <div class="input-from">
                     <label for="userId" class="form-label">ユーザーID</label>
                     @error('userId')
@@ -57,7 +57,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">登録</button>
             </form>
-            <div class="mt-3 d-flex justify-content-center">
+            <div>
                 <a href="{{ url()->previous() }}" class="btn btn-outline-secondary mx-2">戻る</a>
             </div>
         </div>

@@ -5,12 +5,7 @@
 @auth
 <p class="text-center">ログイン中: {{ Auth::user()->name }}</p>
 @endauth
-
-
 @include('parts.header')
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +17,6 @@
 </head>
 
 <body>
-
     <div class="container-parson">
         @if(isset($message))
         <p style="text-align: center;">{{ $message }}</p>
