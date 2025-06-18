@@ -8,12 +8,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
     <title>contact</title>
 </head>
 
 <body>
     <!-- 連絡先一覧表。田中、山田とかにメッセージを送る。バックエンドが出来たら、DM機能を実施したら、cssを引っ越す-->
+    <div class="aria">
 
+    </div>
     <main>
         <section class="memo-list">
             <a href="{{route('message')}}" style="text-decoration:none">

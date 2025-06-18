@@ -13,41 +13,22 @@ main {
     overflow-y: auto; /* スクロールできるようにする */
 }
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: black;
-}
-
-/* 左側の線：中央部分600pxの左側端の位置を計算 */
-body::before {
-  left: calc((100% - 610px) / 2);
-}
-
-/* 右側の線：中央部分600pxの右側端の位置 */
-body::after {
-  left: calc((100% + 610px) / 2);
-}
 
 blockquote {
-    max-width: 90%;
+    max-width: 80%;
     word-wrap: break-word;
 }
 
 
-
 blockquote:nth-child(even) {
-background:#fff;
+background:#ffffff00;
 border:solid 3px #000;
 border-radius:12px;
 box-sizing:border-box;
 color:#000;
 display:inline-block;
-margin:1.5em 15px 1.5em 0;
+/* 60、コメント(チャット本体)の位置 */
+margin:1.5em 0px 1.5em 60px;  
 min-width:120px;
 padding:7px 10px;
 position:relative;
@@ -60,6 +41,7 @@ border-left:14px solid #000;
 content:"";
 margin-top:-14px;
 position:absolute;
+/* 矢印の位置の調整 */
 right:-30px;
 top:50%;
 z-index:1;
@@ -67,15 +49,16 @@ z-index:1;
 
 blockquote:nth-child(even):before {
 border:12px solid transparent;
-border-left:12px solid #fff;
+/* border-left:12px solid #fff; */
 content:"";
 margin-top:-12px;
 position:absolute;
-right:-24px;
+right:-25px;
 top:50%;
 z-index:2;
 }
 
+/* oddは奇数 */
 blockquote:nth-child(odd) {
 background:#fff;
 border:solid 3px #000;
@@ -104,9 +87,9 @@ z-index:1;
 
 blockquote:nth-child(odd):before {
 border:12px solid transparent;
-border-right:12px solid #fff;
+border-right:12px solid #ffffff00;
 content:"";
-left:-24px;
+left:-20px;
 margin-top:-12px;
 position:absolute;
 top:50%;

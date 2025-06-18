@@ -1,31 +1,4 @@
 
-/* 全体の基本設定 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e6ecf0;
-    padding: 0;
-}
-/* 画面全体の左右に線を表示 */
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: black;
-}
-
-/* 左側の線：中央部分600pxの左側端の位置を計算 */
-body::before {
-    left: calc((100% - 610px) / 2);
-}
-
-/* 右側の線：中央部分600pxの右側端の位置 */
-body::after {
-    left: calc((100% + 610px) / 2);
-}
-
 
 .memo-controls {
     display: flex;
@@ -37,13 +10,14 @@ body::after {
 
 
 /* メインコンテンツのコンテナ */
-main {
+main{
     max-width: 600px;
     margin: 0px auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 300px;
+    padding: 0;
 }
 
 

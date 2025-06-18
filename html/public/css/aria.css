@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgb(255, 0, 0);
+}
+
+/* 左側の線：中央部分600pxの左側端の位置を計算 */
+body::before {
+    left: calc((100% - 610px) / 2);
+}
+
+/* 右側の線：中央部分600pxの右側端の位置 */
+body::after {
+    left: calc((100% + 610px) / 2);
+}
+    .main{
+        justify-items: center;
+        margin: auto;
+
+    }
+    .aria{
+    background-color: wheat;
+    width: 28%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    z-index: -100;
+    position: fixed;
+    margin: 0 auto;  
+    right: 0;
+    left: 0;
+    top:0;
+    
+}

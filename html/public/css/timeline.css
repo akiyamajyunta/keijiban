@@ -1,23 +1,4 @@
 
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: black;
-}
-
-/* 左側の線：中央部分600pxの左側端の位置を計算 */
-body::before {
-    left: calc((100% - 610px) / 2);
-}
-
-/* 右側の線：中央部分600pxの右側端の位置 */
-body::after {
-    left: calc((100% + 610px) / 2);
-}
 
 .memo-controls {
     display: flex;
@@ -42,15 +23,6 @@ body::after {
 }
 
 /* メインコンテンツのコンテナ */
-main {
-    max-width: 550px;
-    margin: 20px auto;
-    margin-top: 150px;
-    margin-bottom: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 /* 新規メモ投稿エリア */
 .new-memo {
@@ -59,9 +31,9 @@ main {
 
 .new-memo textarea {
     width: 100%;
-    border: 1px solid #ccd6dd;
+    border: 1px solid #0095ff;
     border-radius: 4px;
-    padding: 10px;
+    padding: 0px;
     resize: vertical;
     min-height: 80px;
     font-size: 1rem;
@@ -84,11 +56,10 @@ main {
 
 /* メモ一覧のスタイル */
 .memo-list .memo-item {
-    border: 1px solid black;
-    padding: 15px 10px;
+    border: 2px solid black;
+    padding: 10px 10px;
     margin: 10px;
-    border-radius: 3px;
-
+    border-radius: 10px;
 }
 
 /* メモ項目のヘッダー */
@@ -123,6 +94,7 @@ main {
 .memo-item.expanded .memo-comments {
     /* max-height: 200px;  必要に応じて調整 */
     padding: 10px 15px;
+    
 }
 .comment-header {
     display: flex;

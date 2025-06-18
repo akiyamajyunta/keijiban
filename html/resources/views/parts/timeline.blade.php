@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
-    <title>Document</title>
-</head>
-
-<body>
-
     @foreach ($tweets->reverse() as $tweet)
     <section class="memo-list">
         <div class="memo-item">
@@ -67,9 +55,7 @@
         </div>
     </section>
     @endforeach
-</body>
 
-</html>
 
 <script>
 document.querySelectorAll('.memo-item').forEach(item => {

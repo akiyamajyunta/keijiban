@@ -8,13 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/message.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
+    <title>Home</title>
 </head>
 <body>
-
     <main>
-            <div class='memo-aria'>
+        <div class='aria'>
         </div>
         <!-- 新規メモ投稿エリア、投稿フォーム -->
         @error('message')
@@ -26,25 +27,9 @@
                 <button>投稿</button>
             </section>
         </form>
-
         @include('parts.timeline')
     </main>
     
 </body>
 
 </html>
-
-<style>
-    .memo-aria{
-    background-color: red;
-    padding-top: 20px;
-    width: 600px;
-    position: fixed;
-    height: 100px;
-    margin: auto;
-    display: block;
-    z-index: -100;
-    
-}
-
-</style>

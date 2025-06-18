@@ -28,7 +28,6 @@
             <div class="site-header__end">
                 <nav class="nav">
                     <ul class="nav__wrapper">
-
                         <li class="nav__item">
                             <a>
                                 <svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0"
@@ -43,5 +42,4 @@
         </div>
     </header>
 </body>
-
 </html>
