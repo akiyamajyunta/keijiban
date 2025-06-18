@@ -20,7 +20,7 @@
 
     </div>
     <main>
-        <div class="MassageAria">
+        {{--<div class="MassageAria">
             <!-- 降順ではなく逆順で表示させよう -->
             @foreach($messages as $message) 
             @if($message->sender_id === Auth::id())
@@ -31,12 +31,14 @@
             <a>{{$message->message}}</a>
             @endif
             @endforeach
+        </div>--}}
 
+        <div class="MassageAria">
+            <blockquote class='leftMessage'>テスト-相手</blockquote>
+            <blockquote class='rightMessage'>テスト-自分</blockquote>
         </div>
-        <div>
-            <blockquote class='leftMessage'>チャット1の文章をここに入力</blockquote>
-            <blockquote class='rightMessage'>チャット2の文章をここに入力</blockquote>
-        </div>
+
+        
         <div class="directMassage">
             <form action="{{route('postMessage')}}" method="post">
                 @csrf
