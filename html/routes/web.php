@@ -5,10 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\TimelineController;
-use App\Http\Controllers\Models\Tweet;
-
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DirectMessageController;
 
 
 //ログインしていない時のルート
@@ -76,9 +73,6 @@ Route::get('home/UserSearch', [App\Http\Controllers\HomeController::class, 'User
 
 Route::get('home/OtherProfile', [App\Http\Controllers\HomeController::class, 'OtherProfile'])->name('OtherProfile');//他人のプロフィール
 
-Route::get('home/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');//DMの相手をさがす
-Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');//DMのないよう
-
 //Route::get('home/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('home/logout');//
 Route::get('home/register', [App\Http\Controllers\HomeController::class, 'register'])->name('home.register');//
 
@@ -100,3 +94,17 @@ Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store']
 //コメントの削除
 Route::get('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
+
+//ダイレクトメッセージ
+
+    //DMの相手をさがす
+    Route::get('home/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+    //DMのないよう
+    // Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');
+
+    //メッセージの表示
+    Route::get('/home/messages', [DirectMessageController::class,'index'])->name('directMessages');
+    
+    // 新規メッセージ送信
+    Route::post('/home/post/messages', [DirectMessageController::class,'store'])->name('postMessage');
+

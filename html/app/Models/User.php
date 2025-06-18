@@ -57,12 +57,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
-
+    //メッセージの送信
     public function sentMessages()
     {
         return $this->hasMany(DirectMessage::class, 'sender_id');
     }
-
+    //メッセージの受信
     public function receivedMessages()
     {
         return $this->hasMany(DirectMessage::class, 'recipient_id');

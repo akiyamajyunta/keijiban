@@ -19,7 +19,7 @@
     </div>
     <main>
         <section class="memo-list">
-            <a href="{{route('message')}}" style="text-decoration:none">
+            <a href="{{route('directMessages')}}" style="text-decoration:none">
                 <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
                 <div class="memo-item">
                     <div class="memo-header">
@@ -35,7 +35,7 @@
             </a>
         </section>
         <section class="memo-list">
-            <a href="{{route('message')}}" style="text-decoration:none">
+            <a href="{{route('directMessages')}}" style="text-decoration:none">
                 <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
                 <div class="memo-item">
                     <div class="memo-header">
@@ -51,7 +51,7 @@
             </a>
         </section>
         <section class="memo-list">
-            <a href="{{route('message')}}" style="text-decoration:none">
+            <a href="{{route('directMessages')}}" style="text-decoration:none">
                 <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
                 <div class="memo-item">
                     <div class="memo-header">
