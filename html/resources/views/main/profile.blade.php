@@ -30,7 +30,7 @@
             <p class="explanation">{{$user->name}}</p>
 
             <p class="explanation">{{$user->userId}}</p>
-
+            
             <p class="explanation">{{$user->email}}</p>
             <hr>
             <p>{{$user->profile}}</p>
@@ -38,7 +38,7 @@
  <!-- directMessages ここではstoreに行く-->
             @if (Auth::check() && $user->id !== Auth::id())
             <form action="{{route('directMessages')}}" method="get">
-                <input type="hidden" name="recipient_name" value="{{$user->name}}">
+                <input type="hidden" name="recipient_name" value="{{ $user->name }}">
                 <input type="hidden" name="recipient_id" value="{{$user->id}}">
                 <button>ダイレクトメッセージ</button>
             </form>

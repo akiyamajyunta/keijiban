@@ -18,8 +18,7 @@ class CommentController extends Controller{
             return view('auth.newpage', ['message' => $message]);
         }
 
-        $userId = $request->input('user_id');
-        dd( $userId );
+        $userId =  $request->input('user_id');
         $validator = Validator::make($request->all(), [
 
         'tweet_id' => ['required','exists:tweets,id'],

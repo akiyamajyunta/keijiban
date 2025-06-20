@@ -22,8 +22,10 @@
     <main>
         <a>{{$recipient_name}}</a>
         @foreach ($messages as $message)
-        <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}">
-            {{ $message->message }}
+        <!-- <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}"> -->
+        <blockquote>
+            <!-- {{ $message->message }} -->
+        <strong>メッセージ:</strong> {{ $message->message }}<br>
         </blockquote>
         @endforeach
 
@@ -31,7 +33,7 @@
             <form action="{{route('directMessages.store')}}" method="post">
                 @csrf
                 <section class="new-memo">
-                    <input type="hidden" name="recipient_id" value="{{ $message->recipient_id}}">
+                    <input type="hidden" name="recipient_id" value="{{ $recipient }}">
                     <textarea placeholder="こんにちは" name='message' id='message'></textarea>
                     <button type='submit'>投稿</button>
                 </section>
