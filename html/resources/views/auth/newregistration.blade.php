@@ -1,5 +1,5 @@
-<!-- @include('parts.header') -->
- @include('parts.header')
+
+@include('parts.header')
 <!DOCTYPE html>
 <html lang="en">
 <head>

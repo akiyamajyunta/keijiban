@@ -19,6 +19,7 @@ class CommentController extends Controller{
         }
 
         $userId = $request->input('user_id');
+        dd( $userId );
         $validator = Validator::make($request->all(), [
 
         'tweet_id' => ['required','exists:tweets,id'],

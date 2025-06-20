@@ -38,7 +38,7 @@ class HomeController extends Controller
     {   
         $user_id = Auth::id();
         $tweet_user_Id = $request->input('user_id');
-
+        
         if(empty($tweet_user_Id)){
             $users = User::where('id', $user_id)->get(); 
             $tweets = Tweet::where('user_id', $user_id)->get();

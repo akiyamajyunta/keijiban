@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-
+use App\Http\Controllers\DirectMessageController;
 
 //ログインしていない時のルート
 Route::get('/', function () {
@@ -102,4 +102,12 @@ Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, '
 
     //メッセージの表示,相手のアイコンを押すと、その相手のメッセージを送る画面に行けるやつ
 
+
+Route::middleware('auth')->group(function () {
+    // DM の一覧ページ（会話履歴）
+    Route::get('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'index'])->name('directMessages');
+
+    // DM の投稿処理
+    Route::post('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'store'])->name('directMessages.store');
+});
 

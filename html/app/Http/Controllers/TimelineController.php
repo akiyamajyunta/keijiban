@@ -22,7 +22,6 @@ class TimelineController extends Controller
             'content' => $request->content,
         ]);
 
-        // return view('main/index');
         return redirect()->route('home');
     }
 

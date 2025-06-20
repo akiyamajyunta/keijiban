@@ -14,7 +14,7 @@
             <div class="site-header__start">
                 <a class="brand">twister</a>
                 <div class="search">
-                    <button class="search__toggle" aria-label="Open search">Search </button>
+                    <!-- <button class="search__toggle" aria-label="Open search">Search </button> -->
                     <form class="search__form" action="{{route('search')}}">
                         <!-- 検索、後でここに挿入-->
                         <label class="sr-only" for="search">検索</label>
