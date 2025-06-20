@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DirectMessage extends Model
 {
-    protected $fillable = ['sender_id', 'recipient_id', 'message'];
+    protected $fillable = ['sender_id', 'recipient_id', 'message','name'];
 
     public function sender()
     {

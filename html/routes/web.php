@@ -5,7 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\DirectMessageController;
 
 
 //ログインしていない時のルート
@@ -35,8 +34,7 @@ Route::get('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('r
 Route::post('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
 
 //パスワードの変更
-// Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
-// Route::post('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
+
 Route::get('/tweet/rePassword',  [RegisterController::class,'rePassword'])->name('rePassword');
 
 
@@ -102,9 +100,6 @@ Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, '
     //DMのないよう
     // Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');
 
-    //メッセージの表示
-    Route::get('/home/messages', [DirectMessageController::class,'index'])->name('directMessages');
-    
-    // 新規メッセージ送信
-    Route::post('/home/post/messages', [DirectMessageController::class,'store'])->name('postMessage');
+    //メッセージの表示,相手のアイコンを押すと、その相手のメッセージを送る画面に行けるやつ
+
 

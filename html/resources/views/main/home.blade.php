@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/home.css')}}">
     <title>Home</title>
 </head>
 <body>
@@ -21,15 +22,18 @@
         @error('message')
         <a>{{ $message }}</a>
         @enderror
-        <form action="{{route('tweet.store')}}">
-            <section class="new-memo">
-                <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
-                <button>投稿</button>
-            </section>
-        </form>
+        <div class='tweet'>
+            <form action="{{route('tweet.store')}}">
+                <section class="new-memo">
+                    <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
+                    <button>投稿</button>
+                </section>
+            </form>
+        </div>
         @include('parts.timeline')
     </main>
     
 </body>
 
 </html>
+

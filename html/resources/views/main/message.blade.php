@@ -20,30 +20,17 @@
 
     </div>
     <main>
-        {{--<div class="MassageAria">
-            <!-- 降順ではなく逆順で表示させよう -->
-            @foreach($messages as $message) 
-            @if($message->sender_id === Auth::id())
-            <blockquote>チャット1の文章をここに入力</blockquote>
-            <a>{{$message->message}}</a>
-            @else
-            <blockquote>チャット2の文章をここに入力</blockquote>
-            <a>{{$message->message}}</a>
-            @endif
-            @endforeach
-        </div>--}}
+        @foreach ($messages as $message)
+        <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}">
+            {{ $message->message }}
+        </blockquote>
+        @endforeach
 
-        <div class="MassageAria">
-            <blockquote class='leftMessage'>テスト-相手</blockquote>
-            <blockquote class='rightMessage'>テスト-自分</blockquote>
-        </div>
-
-        
         <div class="directMassage">
             <form action="{{route('postMessage')}}" method="post">
                 @csrf
                 <section class="new-memo">
-                    <input type="hidden" name="recipient_id" value="1">
+                    <input type="hidden" name="recipient_id" value="{{ $messages->recipient_id }}">
                     <textarea placeholder="こんにちは" name='message' id='message'></textarea>
                     <button type='submit'>投稿</button>
                 </section>

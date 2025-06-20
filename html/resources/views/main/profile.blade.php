@@ -17,9 +17,11 @@
 
 <body>
 
-
+<main>
     @foreach ($users as $user)
-    <a>プロフィール</a>
+    <!-- <a style="textaline:centsr">
+        プロフィール
+    </a> -->
     <div class="container-parson">
         <div class="container">
 
@@ -32,18 +34,19 @@
             <p class="explanation">{{$user->email}}</p>
             <hr>
             <p>{{$user->profile}}</p>
-
+<!-- もし、プロフィールのIDとログイン中のIDが一致しなければ（他人だったら）、DM -->
             @if (Auth::check() && $user->id !== Auth::id())
-            <form action="">
-                <input type="hidden" name="id">
-                {{--value="{{$tweet->id}}"> --}}
+            {{-- <form action="{{route('directMessages')}}" method="get"> --}}
+            <form action="" method="get">
+                <input type="hidden" name="name" value="{{$user->name}}">
+                <input type="hidden" name="recipient_id" value="{{$user->id}}">
                 <button>ダイレクトメッセージ</button>
             </form>
             @endif
         </div>
     </div>
     @endforeach
-    <main>
+    
         @include('parts.timeline')
     </main>
 </body>
