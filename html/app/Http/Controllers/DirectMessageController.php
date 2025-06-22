@@ -9,6 +9,29 @@ use App\Models\DirectMessage;
 
 class DirectMessageController extends Controller
 {
+
+    public function contact(Request $request)
+    {
+
+    $userId = Auth::id();
+    // $recipient = (int) $request->input('recipient_id');
+
+    // 自分が送信者または受信者になっている全メッセージ
+    $messages = DirectMessage::where('sender_id', $userId)
+        ->orWhere('recipient_id', $userId)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        // dd($lastMessage);
+    // 相手ごとに最新のメッセージをグループ化
+    $threads = $messages->map(function ($message) use ($userId) {
+        return $message->sender_id === $userId ? $message->recipient : $message->sender;
+    })->unique('id');
+
+        // dd($messages);
+
+        return view('main/contact', compact('threads'));
+    }
+
     public function index(Request $request)
     {
         $userId = Auth::id();
@@ -32,7 +55,7 @@ class DirectMessageController extends Controller
     {
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
-        
+
         // バリデーションルール
         $data = $request->validate([
             'message' => 'required|max:140'    // 空も許容する場合は nullable、文字列で長さ制限
@@ -49,4 +72,5 @@ class DirectMessageController extends Controller
             'recipient_name' => $recipient_name 
     ]);
     }
+
 }

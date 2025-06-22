@@ -93,17 +93,12 @@ Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store']
 Route::get('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 
-//ダイレクトメッセージ
-
-    //DMの相手をさがす
-    Route::get('home/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
-    //DMのないよう
-    // Route::get('home/message', [App\Http\Controllers\HomeController::class, 'message'])->name('message');
-
-    //メッセージの表示,相手のアイコンを押すと、その相手のメッセージを送る画面に行けるやつ
 
 
 Route::middleware('auth')->group(function () {
+
+     // DM の一覧ページ（受信相手）
+    Route::get('home/contact', [App\Http\Controllers\DirectMessageController::class, 'contact'])->name('contact');
     // DM の一覧ページ（会話履歴）
     Route::get('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'index'])->name('directMessages');
 

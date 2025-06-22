@@ -55,11 +55,6 @@ class HomeController extends Controller
     }
 
 
-    public function contact()
-    {
-        return view('main/contact');
-    }
-
     public function message()
     {
         return view('main/message');

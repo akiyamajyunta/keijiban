@@ -18,56 +18,26 @@
 
     </div>
     <main>
+        @foreach ($threads as $thread)
         <section class="memo-list">
             <a href="{{route('directMessages')}}" style="text-decoration:none">
                 <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
                 <div class="memo-item">
                     <div class="memo-header">
-                        <span class="memo-user">山田</span>
+                        <span class="memo-user">{{$thread->name}}</span>
                         <div class='memo-controls'>
                         </div>
                     </div>
                     <div class="memo-content">
-                        山田
-                        yamada1234
+                        <!-- 山田
+                        yamada1234 -->
+                        <!-- 元気？ -->
                     </div>
                 </div>
             </a>
         </section>
-        <section class="memo-list">
-            <a href="{{route('directMessages')}}" style="text-decoration:none">
-                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
-                <div class="memo-item">
-                    <div class="memo-header">
-                        <span class="memo-user">山田</span>
-                        <div class='memo-controls'>
-                        </div>
-                    </div>
-                    <div class="memo-content">
-                        山田
-                        yamada1234
-                    </div>
-                </div>
-            </a>
-        </section>
-        <section class="memo-list">
-            <a href="{{route('directMessages')}}" style="text-decoration:none">
-                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
-                <div class="memo-item">
-                    <div class="memo-header">
-                        <span class="memo-user">山田</span>
-                        <div class='memo-controls'>
-                        </div>
-                    </div>
-                    <div class="memo-content">
-                        山田
-                        yamada1234
-                    </div>
-                </div>
-            </a>
-        </section>
+        @endforeach
     </main>
-
 </body>
 
 </html>
