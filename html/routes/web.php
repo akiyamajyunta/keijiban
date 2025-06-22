@@ -107,6 +107,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'store'])->name('directMessages.store');
 });
 
+
+
 Route::get('/follow', [App\Http\Controllers\FollowController::class, 'follow'])->name('follow');
 Route::get('/unfollow', [App\Http\Controllers\FollowController::class, 'unfollow'])->name('unfollow');
 

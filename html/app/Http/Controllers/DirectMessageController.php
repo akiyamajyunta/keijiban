@@ -14,20 +14,20 @@ class DirectMessageController extends Controller
     {
 
         $userId = Auth::id();
-        // $recipient = (int) $request->input('recipient_id');
+        $recipient = (int) $request->input('recipient_id');
 
         // 自分が送信者または受信者になっている全メッセージ
         $messages = DirectMessage::where('sender_id', $userId)
             ->orWhere('recipient_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
+        
         // dd($lastMessage);
-        // 相手ごとに最新のメッセージをグループ化
         $threads = $messages->map(function ($message) use ($userId) {
             return $message->sender_id === $userId ? $message->recipient : $message->sender;
         })->unique('id');
 
-        // dd($messages);
+        // dd($threads->id);
 
         return view('main/contact', compact('threads'));
     }

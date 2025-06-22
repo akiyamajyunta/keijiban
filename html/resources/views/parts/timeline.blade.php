@@ -9,7 +9,7 @@
                         <button onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
-                <span class="memo-user">{{ $tweet->user_id }}</span>
+                <!-- <span class="memo-user">{{ $tweet->user_id }}</span> -->
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
                     @if ($tweet->user_id === Auth::id())

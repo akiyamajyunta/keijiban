@@ -15,11 +15,9 @@
     <title>Home</title>
 </head>
 <body>
-    <main>
+    <main class="zzz">
         <div class='aria'>
         </div>
-        <!-- 新規メモ投稿エリア、投稿フォーム -->
-         <!-- main、もしくはbodyにafter で追加してみる -->
         @error('message')
         <a>{{ $message }}</a>
         @enderror

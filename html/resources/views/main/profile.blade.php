@@ -35,6 +35,11 @@
                 <!-- もし、プロフィールのIDとログイン中のIDが一致しなければ（他人だったら）、DM -->
                 <!-- directMessages ここではstoreに行く-->
                 @if (Auth::check() && $user->id !== Auth::id())
+                <form action="{{route('directMessages')}}" method="get">
+                    <input type="hidden" name="recipient_name" value="{{ $user->name }}">
+                    <input type="hidden" name="recipient_id" value="{{$user->id}}">
+                    <button>ダイレクトメッセージ</button>
+                </form>
 
                 @if(Auth::user()->followings->contains($user->id))
                 <!-- フォローしている場合は、アンフォローボタン（フォローを外す）を表示 -->
