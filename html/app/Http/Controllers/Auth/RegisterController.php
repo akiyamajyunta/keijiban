@@ -62,12 +62,13 @@ class RegisterController extends Controller
     }
 //名前の変更
     public function rename(Request $request){
-
+              /** @var \App\Models\User $user */
             $user = Auth::user();
             $user->name = $request->get('name');
             $user->save();  
             $user_id = Auth::id();
             Tweet::where('user_id',$user_id)->update(['name' => $request->get('name')]);
+            
             return redirect()->route('option');
     } //名前の変更
 
@@ -85,6 +86,7 @@ class RegisterController extends Controller
                 ->withErrors(['message' => $allErrors])
                 ->withInput();
     }
+        /** @var \App\Models\User $user */
             $user = Auth::user();
             $user->profile = $request->get('profile');
             $user->save();  
@@ -105,6 +107,7 @@ class RegisterController extends Controller
             'message' => 'パスワードが一致しません',
         ])->onlyInput('message');
         }
+           /** @var \App\Models\User $user */
             $user = Auth::user();
             $user->password = Hash::make($request->get('password'));
             $user->save();  
@@ -125,13 +128,14 @@ class RegisterController extends Controller
         'userId.unique'   => 'すでに使用されてます。',
         'userId.regex'    => '「@」から始まり、英数字とアンダースコアのみで構成してください。',
     ]);
-
+ 
         if ($validator->fails()) {
             $allErrors = $validator->errors()->all();
             return back()
                 ->withErrors(['message' => $allErrors])
                 ->withInput();
     }
+       /** @var \App\Models\User $user */
         $user = Auth::user();
         $user->userId = $request->input('userId');
         $user->save();

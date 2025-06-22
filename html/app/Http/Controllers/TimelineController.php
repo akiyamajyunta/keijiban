@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TimelineController extends Controller
 {
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'content' => 'required|max:140'
@@ -26,7 +26,7 @@ class TimelineController extends Controller
     }
 
 
-        public function delete(Request $request)
+    public function delete(Request $request)
     {
         $tweetId = $request->input('id');
         $tweet = Tweet::findOrFail($tweetId);
@@ -34,12 +34,10 @@ class TimelineController extends Controller
         if (Auth::id() !== $tweet->user_id) {
             redirect()->back();;
         }
-        
-            // ツイートを削除
-            $tweet->delete();
-            
-            return redirect()->back();
+
+        // ツイートを削除
+        $tweet->delete();
+
+        return redirect()->back();
     }
 }
-
-

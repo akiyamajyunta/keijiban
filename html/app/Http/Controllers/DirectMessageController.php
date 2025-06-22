@@ -13,19 +13,19 @@ class DirectMessageController extends Controller
     public function contact(Request $request)
     {
 
-    $userId = Auth::id();
-    // $recipient = (int) $request->input('recipient_id');
+        $userId = Auth::id();
+        // $recipient = (int) $request->input('recipient_id');
 
-    // 自分が送信者または受信者になっている全メッセージ
-    $messages = DirectMessage::where('sender_id', $userId)
-        ->orWhere('recipient_id', $userId)
-        ->orderBy('created_at', 'desc')
-        ->get();
+        // 自分が送信者または受信者になっている全メッセージ
+        $messages = DirectMessage::where('sender_id', $userId)
+            ->orWhere('recipient_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
         // dd($lastMessage);
-    // 相手ごとに最新のメッセージをグループ化
-    $threads = $messages->map(function ($message) use ($userId) {
-        return $message->sender_id === $userId ? $message->recipient : $message->sender;
-    })->unique('id');
+        // 相手ごとに最新のメッセージをグループ化
+        $threads = $messages->map(function ($message) use ($userId) {
+            return $message->sender_id === $userId ? $message->recipient : $message->sender;
+        })->unique('id');
 
         // dd($messages);
 
@@ -39,15 +39,15 @@ class DirectMessageController extends Controller
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
 
-    $messages = DirectMessage::where(function ($query) use ($userId, $recipient) {
-        $query->where('sender_id', $userId)
-            ->where('recipient_id', $recipient);
-    })->orWhere(function ($query) use ($userId, $recipient) {
-        $query->where('sender_id', $recipient)
-            ->where('recipient_id', $userId);
-    })->orderBy('created_at', 'asc')->get();
-    
-    return view('main.message', compact('messages', 'recipient', 'recipient_name'));
+        $messages = DirectMessage::where(function ($query) use ($userId, $recipient) {
+            $query->where('sender_id', $userId)
+                ->where('recipient_id', $recipient);
+        })->orWhere(function ($query) use ($userId, $recipient) {
+            $query->where('sender_id', $recipient)
+                ->where('recipient_id', $userId);
+        })->orderBy('created_at', 'asc')->get();
+
+        return view('main.message', compact('messages', 'recipient', 'recipient_name'));
     }
 
     // メッセージの保存（投稿処理）
@@ -65,12 +65,14 @@ class DirectMessageController extends Controller
             'sender_id' => Auth::id(),
             'recipient_id' => $recipient,
             'message' => $data['message'],
-            'name'=>$recipient_name 
+            'name' => $recipient_name
         ]);
-        return redirect()->route('directMessages', 
-        ['recipient_id' => $recipient, 
-            'recipient_name' => $recipient_name 
-    ]);
+        return redirect()->route(
+            'directMessages',
+            [
+                'recipient_id' => $recipient,
+                'recipient_name' => $recipient_name
+            ]
+        );
     }
-
 }

@@ -74,8 +74,8 @@
 
 
 <script>
-function toggleFormTab(button) {
-    const formTab = button.nextElementSibling;
-    formTab.classList.toggle("open");
-}
+    function toggleFormTab(button) {
+        const formTab = button.nextElementSibling;
+        formTab.classList.toggle("open");
+    }
 </script>

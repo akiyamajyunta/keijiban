@@ -19,9 +19,7 @@
 
     <main>
         @foreach ($users as $user)
-        <!-- <a style="textaline:centsr">
-        プロフィール
-    </a> -->
+
         <div class="container-parson">
             <div class="container">
 
@@ -38,26 +36,26 @@
                 <!-- directMessages ここではstoreに行く-->
                 @if (Auth::check() && $user->id !== Auth::id())
 
-                    @if(Auth::user()->followings->contains($user->id))
-                    <!-- フォローしている場合は、アンフォローボタン（フォローを外す）を表示 -->
-                    <form action="{{ route('unfollow')}}">
-                        @csrf
-                        <input type="hidden" name="un_follow_id" value="{{$user->id}}">
-                        <button type="submit">フォローを外す</button>
-                    </form>
-                    @else
-                    <!-- フォローしていない場合は、フォローボタンを表示 -->
-                    <form action="{{ route('follow') }}">
-                        @csrf
-                        <input type="hidden" name="follow_id" value="{{$user->id}}">
-                        <button type="submit">フォローする</button>
-                    </form>
-                    @endif
-
-
-                </div>
+                @if(Auth::user()->followings->contains($user->id))
+                <!-- フォローしている場合は、アンフォローボタン（フォローを外す）を表示 -->
+                <form action="{{ route('unfollow')}}">
+                    @csrf
+                    <input type="hidden" name="un_follow_id" value="{{$user->id}}">
+                    <button type="submit">フォローを外す</button>
+                </form>
+                @else
+                <!-- フォローしていない場合は、フォローボタンを表示 -->
+                <form action="{{ route('follow') }}">
+                    @csrf
+                    <input type="hidden" name="follow_id" value="{{$user->id}}">
+                    <button type="submit">フォローする</button>
+                </form>
                 @endif
+
+
             </div>
+            @endif
+        </div>
         </div>
         @endforeach
 
