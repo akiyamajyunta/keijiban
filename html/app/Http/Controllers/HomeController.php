@@ -24,11 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $user_id = Auth::id();
-        // $tweets = Tweet::where('user_id', $user_id)->get();
-        // return view('main/home', compact('tweets'));
+
         $user = Auth::user();
+
         // フォローしているユーザーのIDを取得
+
+        /** @var \App\Models\User $user */
         $followingIds = $user->followings()->pluck('followed_id')->toArray();
 
         // 自分のツイートも含めるために、自分のIDを追加
@@ -62,9 +63,9 @@ class HomeController extends Controller
             $tweets = Tweet::where('user_id', $tweet_user_Id)->get();
             return view('main/profile', compact('users', 'tweets'));
         }
-        $users = User::where('id', $user_id)->get();
-        $tweets = Tweet::where('user_id', $user_id)->get();
-        return view('main/profile', compact('users', 'tweets'));
+            $users = User::where('id', $user_id)->get();
+            $tweets = Tweet::where('user_id', $user_id)->get();
+            return view('main/profile', compact('users', 'tweets'));
     }
 
 
@@ -88,7 +89,7 @@ class HomeController extends Controller
         $search = $request->input('search');
 
         if (!empty($search)) {
-
+                //検索
             $tweets = Tweet::where('content', 'LIKE', "%{$search}%")->get();
         } else {
 

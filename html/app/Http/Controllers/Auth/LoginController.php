@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -32,22 +33,41 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // 1. リクエストのデータを検証する
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        // $credentials = $request->validate(
+        //password
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ],
+            [
+                'email.required' => 'メールアドレスを入力してください',
+                'email.email' => '正しいメールアドレス形式で入力してください',
+                'password.required' => 'パスワードを入力してください',
+            ]
+        );
+
+        if ($validator->fails()) {
+            $allErrors = $validator->errors()->all();
+            return back()
+                ->withErrors(['message' => $allErrors])
+                ->withInput();
+        }
 
         // 2. 認証を試みる
+        $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             // 認証に成功したら、セッションを再生成する
             $request->session()->regenerate();
-            
+
             return redirect()->intended(route('home'));
-        }//成功。ここは弄らない
+        } //成功。ここは弄らない
 
         // 認証に失敗した場合は、ログインページにリダイレクトする
         return back()->withErrors([
-            'email' => 'ログイン情報が正しくありません。',
-        ])->onlyInput('email');
+            'message' => 'ログイン情報が正しくありません。',
+        ])->onlyInput('message');
     }
 }
