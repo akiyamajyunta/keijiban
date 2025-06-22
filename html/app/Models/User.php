@@ -47,7 +47,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
@@ -68,7 +68,15 @@ class User extends Authenticatable
         return $this->hasMany(DirectMessage::class, 'recipient_id');
     }
 
+    public function followings()
+    {
+        // 自分がフォローしているユーザーを取得
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
+    }
 
-
-
+    public function followers()
+    {
+        // 自分をフォローしているユーザーを取得
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'follower_id');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\DirectMessageController;
 
 //ログインしていない時のルート
@@ -106,3 +107,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'store'])->name('directMessages.store');
 });
 
+Route::get('/follow', [App\Http\Controllers\FollowController::class, 'follow'])->name('follow');
+Route::get('/unfollow', [App\Http\Controllers\FollowController::class, 'unfollow'])->name('unfollow');
+
+Route::post('/follow', [App\Http\Controllers\FollowController::class, 'follow'])->name('follow');
+Route::post('/unfollow', [App\Http\Controllers\FollowController::class, 'unfollow'])->name('unfollow');

@@ -24,8 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
-        $tweets = Tweet::where('user_id', $user_id)->get();
+        // $user_id = Auth::id();
+        // $tweets = Tweet::where('user_id', $user_id)->get();
+        // return view('main/home', compact('tweets'));
+        $user = Auth::user();
+        // フォローしているユーザーのIDを取得
+        $followingIds = $user->followings()->pluck('followed_id')->toArray();
+
+        // 自分のツイートも含めるために、自分のIDを追加
+        $followingIds[] = $user->id;
+
+        // フォローしているユーザー＋自分のツイートを最新順（降順）に取得
+        $tweets = Tweet::whereIn('user_id', $followingIds)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('main/home', compact('tweets'));
     }
 
@@ -35,23 +48,23 @@ class HomeController extends Controller
     }
 
     public function profile(Request $request)
-    {   
+    {
         $user_id = Auth::id();
         $tweet_user_Id = $request->input('user_id');
-        
-        if(empty($tweet_user_Id)){
-            $users = User::where('id', $user_id)->get(); 
+
+        if (empty($tweet_user_Id)) {
+            $users = User::where('id', $user_id)->get();
             $tweets = Tweet::where('user_id', $user_id)->get();
-            return view('main/profile',compact('users', 'tweets'));
+            return view('main/profile', compact('users', 'tweets'));
         }
-        if($tweet_user_Id != $user_id){
-            $users = User::where('id', $tweet_user_Id )->get(); 
-            $tweets = Tweet::where('user_id', $tweet_user_Id )->get();
-            return view('main/profile',compact('users', 'tweets'));
+        if ($tweet_user_Id != $user_id) {
+            $users = User::where('id', $tweet_user_Id)->get();
+            $tweets = Tweet::where('user_id', $tweet_user_Id)->get();
+            return view('main/profile', compact('users', 'tweets'));
         }
-            $users = User::where('id', $user_id)->get(); 
-            $tweets = Tweet::where('user_id', $user_id)->get();
-            return view('main/profile',compact('users', 'tweets'));
+        $users = User::where('id', $user_id)->get();
+        $tweets = Tweet::where('user_id', $user_id)->get();
+        return view('main/profile', compact('users', 'tweets'));
     }
 
 
@@ -64,26 +77,24 @@ class HomeController extends Controller
     {
         return view('UserSearch');
     }
-    
+
     public function OtherProfile()
     {
         return view('OtherProfile');
     }
-    
+
     public function search(Request $request)
     {
         $search = $request->input('search');
 
-        if(!empty($search)){
+        if (!empty($search)) {
 
             $tweets = Tweet::where('content', 'LIKE', "%{$search}%")->get();
+        } else {
 
-        }else{
-            
             $tweets = Tweet::all();
         }
 
         return view('main/search', compact('tweets'));
     }
-
 }
