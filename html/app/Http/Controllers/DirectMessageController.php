@@ -16,22 +16,6 @@ class DirectMessageController extends Controller
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
 
-        // $recipient = 4;
-            //dd($userId, $recipient);// 2 4 //2 2 
-    //             dd([
-    //     'userId' => $userId,
-    //     'recipient' => $recipient,
-    //     'all_messages' => DirectMessage::all(), // 全メッセージを確認
-    //     'filtered_messages' => DirectMessage::where(function ($query) use ($userId, $recipient) {
-    //         $query->where('sender_id', $userId)
-    //               ->where('recipient_id', $recipient);
-    //     })->orWhere(function ($query) use ($userId, $recipient) {
-    //         $query->where('sender_id', $recipient)
-    //               ->where('recipient_id', $userId);
-    //     })->orderBy('created_at', 'asc')->get()
-    // ]);
-
-
     $messages = DirectMessage::where(function ($query) use ($userId, $recipient) {
         $query->where('sender_id', $userId)
             ->where('recipient_id', $recipient);
@@ -47,8 +31,8 @@ class DirectMessageController extends Controller
     public function store(Request $request)
     {
         $recipient = (int) $request->input('recipient_id');
-        $name =  $request->input('name');
-
+        $recipient_name = $request->input('recipient_name');
+        
         // バリデーションルール
         $data = $request->validate([
             'message' => 'required|max:140'    // 空も許容する場合は nullable、文字列で長さ制限
@@ -58,11 +42,11 @@ class DirectMessageController extends Controller
             'sender_id' => Auth::id(),
             'recipient_id' => $recipient,
             'message' => $data['message'],
-            // 'name'=>$name
+            'name'=>$recipient_name 
         ]);
         return redirect()->route('directMessages', 
         ['recipient_id' => $recipient, 
-            'recipient_name' => $name
+            'recipient_name' => $recipient_name 
     ]);
     }
 }
