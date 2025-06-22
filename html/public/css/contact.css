@@ -13,9 +13,8 @@
 main{
     max-width: 600px;
     margin: 0px auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     margin-top: 300px;
     padding: 0;
 }
@@ -26,6 +25,10 @@ main{
     margin-top: 5px;
     border: 1px solid;
     border-radius: 8px;
+    width: 90%;
+    margin: 10px auto;
+    background-color: white;
+    border: 2px solid black;
 
 }
 

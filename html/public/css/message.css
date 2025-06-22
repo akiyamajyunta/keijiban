@@ -23,6 +23,7 @@ blockquote {
 
 .rightMessage {
 background:#ffffff00;
+background-color: white;
 border:solid 3px #000;
 border-radius:12px;
 box-sizing:border-box;
@@ -101,7 +102,7 @@ z-index:2;
 .massageAria{
     background-color: #0d95e8;
 }
-.directMassage{
+.inputMassage{
     position: fixed;
     top:93%;
     left: 50%;
@@ -110,6 +111,7 @@ z-index:2;
     width: 30%;
     background-color: white;
     z-index: 1000;
+
 
 }
 .new-memo {
@@ -141,3 +143,24 @@ z-index:2;
   background-color: #0d95e8;
 }
 
+.messagePosition {
+    margin-top: 50px;
+}
+    .recipient-name {
+        text-align: center;
+        background-color: white;
+        margin-top: 150px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+
+    }
+
+    .messagePosition {
+        margin-top: 50px;
+    } 

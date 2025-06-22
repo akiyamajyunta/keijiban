@@ -17,8 +17,11 @@
 
 <body>
     <div class="aria">
-        <p class='xxx'>{{$recipient_name}}</p>
+        <p class='recipient-name'>{{$recipient_name}}</p>
     </div>
+    <!-- <div class='name-aria'>
+        <p class='xxx'>{{$recipient_name}}</p>
+    </div> -->
     <main>
         <div class='messagePosition'>
             @foreach ($messages as $message)
@@ -28,7 +31,7 @@
             </blockquote>
             @endforeach
 
-            <div class="directMassage">
+            <div class="inputMassage">
                 <form action="{{route('directMessages.store')}}" method="post">
                     @csrf
                     <section class="new-memo">
@@ -44,21 +47,3 @@
 </body>
 
 </html>
-<style>
-    .xxx {
-        text-align: center;
-        background-color: white;
-        margin-top: 150px;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-    }
-
-    .messagePosition {
-        margin-top: 50px;
-    }
-</style>

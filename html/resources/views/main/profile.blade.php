@@ -16,7 +16,9 @@
 </head>
 
 <body>
+    <div class="aria">
 
+    </div>
     <main>
         @foreach ($users as $user)
 
