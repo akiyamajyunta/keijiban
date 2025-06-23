@@ -21,19 +21,17 @@
         @foreach ($threads as $thread)
         <section class="memo-list">
             <form action="{{route('directMessages')}}">
-            <!-- <a href="{{route('directMessages')}}" style="text-decoration:none"> -->
-                <input type="hidden" name="recipient_name" value="{{ $thread->name }}">
-                <input type="hidden" name="recipient_id" value="{{$thread->id}}">
-                <button>会話する</button>
-                <!-- サンプルとして1件だけ表示、この’メモ’アイテムをforeachとかでふやしたいね -->
                 <div class="memo-item">
                     <div class="memo-header">
                         <span class="memo-user">{{$thread->name}}</span>
-                        <div class='memo-controls'>
-                        </div>
                     </div>
                 </div>
-            <!-- </a> -->
+                <div  class="talk-button">
+                    <input type="hidden" name="recipient_name" value="{{ $thread->name }}">
+                    <input type="hidden" name="recipient_id" value="{{$thread->id}}">
+                    <button>会話する</button>
+                </div>
+
             </form>
         </section>
         @endforeach

@@ -3,13 +3,12 @@
         <div class="memo-item">
             <div class="memo-header">
                 <form action="{{route('profile')}}" method="POST">
-                    <span class="memo-user">
+                    <span>
                         @csrf
                         <input type="hidden" name="user_id" value='{{ $tweet->user_id}}'>
                         <button onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
-                <!-- <span class="memo-user">{{ $tweet->user_id }}</span> -->
                 <div class='memo-controls'>
                     <span class="memo-date">{{ $tweet->created_at}}</span>
                     @if ($tweet->user_id === Auth::id())

@@ -1,12 +1,5 @@
 
 
-.memo-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-
 
 /* メインコンテンツのコンテナ */
 main{
@@ -31,6 +24,12 @@ main{
     border: 2px solid black;
 
 }
+.memo-list form {
+    display: flex;
+    align-items: center; 
+    gap: 20px;          
+}
+
 
 
 .memo-list:hover{
@@ -72,5 +71,20 @@ main{
     padding: 0 15px;
 }
 
+.memo-user{
+
+    color: black;
+}
+
+.talk-button{
+    margin-left: auto;
+    margin-right: 10px;
+
+}
 
 
+.memo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
