@@ -94,8 +94,8 @@
 
 /* memo-item に expanded クラスが付いたとき */
 .memo-item.expanded .memo-comments {
-    /* max-height: 200px;  必要に応じて調整 */
-    padding: 10px 15px;
+    max-height: 230px;  
+    padding: 0px 15px;
     
 }
 .comment-header {

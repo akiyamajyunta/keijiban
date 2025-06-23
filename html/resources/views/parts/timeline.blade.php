@@ -24,6 +24,7 @@
             <div class="memo-content">
                 <p>{{$tweet->content}}</p>
             </div>
+            <hr>
             <!-- 返信,要するにコメント -->
             <div class="memo-comments" onclick="event.stopPropagation()">
                 <form action="{{route('comment.store')}}">
