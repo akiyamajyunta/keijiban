@@ -3,7 +3,6 @@
 .memo-controls {
     display: flex;
     flex-direction: column;
-    /* 余白を調整したい場合は、例えば下記を追加 */
     gap: 5px;
 }
 
@@ -13,8 +12,9 @@
 main{
     max-width: 600px;
     margin: 0px auto;
-    /* border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    /* aria(中央の背景)のz-indexが１なのでそれ以上にする事 */
+    position: relative;
+    z-index: 10;
     margin-top: 300px;
     padding: 0;
 }

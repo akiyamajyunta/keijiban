@@ -15,9 +15,9 @@
     <title>Home</title>
 </head>
 <body>
-    <main class="zzz">
-        <div class='aria'>
+    <div class='aria'>
         </div>
+    <main >
         @error('message')
         <a>{{ $message }}</a>
         @enderror

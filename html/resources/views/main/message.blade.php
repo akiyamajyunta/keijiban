@@ -10,8 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <title>directMessage</title>
 </head>
 
@@ -19,9 +19,7 @@
     <div class="aria">
         <p class='recipient-name'>{{$recipient_name}}</p>
     </div>
-    <!-- <div class='name-aria'>
-        <p class='xxx'>{{$recipient_name}}</p>
-    </div> -->
+
     <main>
         <div class='messagePosition'>
             @foreach ($messages as $message)

@@ -3,10 +3,10 @@ main {
     max-width: 550px;
     margin: 20px auto;
     margin-top: 150px;
-    /* background-color: #ffffff00; */
+    position: relative;
+    z-index: 100;
     border-radius: 8px;
     padding: 20px;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     
 }
 .MassageAria{
@@ -103,14 +103,10 @@ z-index:2;
     background-color: #0d95e8;
 }
 .inputMassage{
-    position: fixed;
-    top:93%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* 必要に応じて幅やその他のプロパティを設定 */
-    width: 30%;
     background-color: white;
-    z-index: 1000;
+    padding: 10px;
+    border: 2px solid  black;
+    border-radius: 10px;
 
 
 }
@@ -119,13 +115,13 @@ z-index:2;
 }
 
 .new-memo textarea {
-  width: 100%;
-  border: 1px solid #ccd6dd;
-  border-radius: 4px;
-  padding: 10px;
-  resize: vertical;
-  min-height: 80px;
-  font-size: 1rem;
+    width: 100%;
+    border: 1px solid #0095ff;
+    border-radius: 4px;
+    padding: 0px;
+    resize: vertical;
+    min-height: 80px;
+    font-size: 1rem;
 }
 
 .new-memo button {
