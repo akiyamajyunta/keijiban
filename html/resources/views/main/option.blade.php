@@ -8,14 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
     <link rel="stylesheet" href="{{ asset('css/option.css') }}">
     <title>オプション</title>
 </head>
 
 <body>
-    <!-- <div class="aria">
-    </div> -->
+
     <main>
         <div class="container-parson">
             <div class="container">

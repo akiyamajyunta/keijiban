@@ -1,8 +1,5 @@
-
-
-
 /* メインコンテンツのコンテナ */
-main{
+main {
     max-width: 600px;
     margin: 0px auto;
     /* aria(中央の背景)のz-indexが１なのでそれ以上にする事 */
@@ -14,7 +11,7 @@ main{
 
 
 
-.memo-list{
+.twi-list {
     margin-top: 5px;
     border: 1px solid;
     border-radius: 8px;
@@ -24,29 +21,31 @@ main{
     border: 2px solid black;
 
 }
-.memo-list form {
+
+.twi-list form {
     display: flex;
-    align-items: center; 
-    gap: 20px;          
+    align-items: center;
+    gap: 20px;
 }
 
 
 
-.memo-list:hover{
+.twi-list:hover {
     background-color: rgb(255, 255, 227);
     border-radius: 8px;
 }
-.memo-list .memo-item {
+
+.twi-list .twi-item {
     border-bottom: 1px solid #e1e8ed;
     padding: 15px 0;
 }
 
-.memo-list .memo-item:last-child {
+.twi-list .twi-item:last-child {
     border-bottom: none;
 }
 
 /* メモ項目のヘッダー */
-.memo-header {
+.twi-header {
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
@@ -54,7 +53,7 @@ main{
 }
 
 /* メモ内容のスタイル */
-.memo-content {
+.twi-content {
     font-size: 1.1rem;
     color: #14171a;
     margin-top: 5px;
@@ -62,7 +61,7 @@ main{
 }
 
 
-    .memo-comments {
+.twi-comments {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out, padding 0.5s;
@@ -71,19 +70,19 @@ main{
     padding: 0 15px;
 }
 
-.memo-user{
+.twi-user {
 
     color: black;
 }
 
-.talk-button{
+.talk-button {
     margin-left: auto;
     margin-right: 10px;
 
 }
 
 
-.memo-controls {
+.twi-controls {
     display: flex;
     flex-direction: column;
     gap: 5px;

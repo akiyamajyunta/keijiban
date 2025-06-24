@@ -33,7 +33,7 @@
             <div class="inputMassage">
                 <form action="{{route('directMessages.store')}}" method="post">
                     @csrf
-                    <section class="new-memo">
+                    <section class="new-twi">
                         <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
                         <input type="hidden" name="recipient_id" value="{{ $recipient }}">
                         <textarea placeholder="こんにちは" name='message' id='message'></textarea>

@@ -1,7 +1,7 @@
     @foreach ($tweets->reverse() as $tweet)
-    <section class="memo-list">
-        <div class="memo-item">
-            <div class="memo-header">
+    <section class="twi-list">
+        <div class="twi-item">
+            <div class="twi-header">
                 <form action="{{route('profile')}}" method="POST">
                     <span>
                         @csrf
@@ -9,8 +9,8 @@
                         <button class="btn-name" onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
-                <div class='memo-controls'>
-                    <p class="memo-date">{{ $tweet->created_at}}</p>
+                <div class='twi-controls'>
+                    <p class="twi-date">{{ $tweet->created_at}}</p>
                     <hr>
                     @if ($tweet->user_id === Auth::id())
                     <form action="{{route('tweet.delete')}}">
@@ -22,14 +22,14 @@
                     @endif
                 </div>
             </div>
-            <div class="memo-content">
+            <div class="twi-content">
                 <p>{{$tweet->content}}</p>
             </div>
             <hr>
             <!-- 返信,要するにコメント -->
-            <div class="memo-comments" onclick="event.stopPropagation()">
+            <div class="twi-comments" onclick="event.stopPropagation()">
                 <form action="{{route('comment.store')}}">
-                    <section class="new-memo" onclick="event.stopPropagation();">
+                    <section class="new-twi" onclick="event.stopPropagation();">
                         @csrf
                         <input type="hidden" name="tweet_id" value='{{$tweet->id}}'>
                         <input type="hidden" name="user_id" value='{{$tweet->user_id}}'>
@@ -67,9 +67,9 @@
 
 
     <script>
-        document.querySelectorAll('.memo-item').forEach(item => {
+        document.querySelectorAll('.twi-item').forEach(item => {
             item.addEventListener('click', () => {
-                const comments = item.querySelector('.memo-comments');
+                const comments = item.querySelector('.twi-comments');
                 if (item.classList.contains('expanded')) {
                     // すでに展開されている場合は折りたたむ
                     comments.style.maxHeight = null;

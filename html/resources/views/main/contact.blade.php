@@ -13,17 +13,15 @@
 </head>
 
 <body>
-
     <div class="aria">
-
     </div>
     <main>
         @foreach ($threads as $thread)
-        <section class="memo-list">
+        <section class="twi-list">
             <form action="{{route('directMessages')}}">
-                <div class="memo-item">
-                    <div class="memo-header">
-                        <span class="memo-user">{{$thread->name}}</span>
+                <div class="twi-item">
+                    <div class="twi-header">
+                        <span class="twi-user">{{$thread->name}}</span>
                     </div>
                 </div>
                 <div  class="talk-button">

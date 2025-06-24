@@ -1,6 +1,6 @@
 
 
-.memo-controls {
+.twi-controls {
     display: flex;
     flex-direction: column;
     /* 余白を調整したい場合は、例えば下記を追加 */
@@ -25,11 +25,11 @@
 /* メインコンテンツのコンテナ */
 
 /* 新規メモ投稿エリア */
-.new-memo {
+.new-twi {
     margin-bottom: 20px;
 }
 
-.new-memo textarea {
+.new-twi textarea {
     width: 100%;
     border: 1px solid #0095ff;
     border-radius: 4px;
@@ -41,7 +41,7 @@
 
 
 /* メモ一覧のスタイル */
-.memo-list .memo-item {
+.twi-list .twi-item {
     border: 2px solid black;
     padding: 10px 10px;
     margin: 10px;
@@ -51,7 +51,7 @@
 }
 
 /* メモ項目のヘッダー */
-.memo-header {
+.twi-header {
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
@@ -61,7 +61,7 @@
 }
 
 /* メモ内容のスタイル */
-.memo-content {
+.twi-content {
     font-size: 1.1rem;
     color: #14171a;
     margin-top: 5px;
@@ -69,7 +69,7 @@
 }
 
 
-.memo-comments {
+.twi-comments {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out, padding 0.5s;
@@ -78,8 +78,8 @@
     padding: 0 15px;
 }
 
-/* memo-item に expanded クラスが付いたとき */
-.memo-item.expanded .memo-comments {
+/* twi-item に expanded クラスが付いたとき */
+.twi-item.expanded .twi-comments {
     max-height: 230px;  
     padding: 0px 15px;
     
