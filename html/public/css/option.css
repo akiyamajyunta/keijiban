@@ -32,19 +32,7 @@ input[type="password"] {
   border-radius: 4px;
 }
 
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-button:hover {
-  background-color: #45a049;
-}
 
 .change_button{
     background-color: white;

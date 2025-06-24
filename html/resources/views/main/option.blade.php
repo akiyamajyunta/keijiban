@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/option.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
     <title>オプション</title>
 </head>
 
@@ -23,49 +24,49 @@
                 @enderror
                 <hr>
 
-                <button class="change_button" onclick="toggleFormTab(this)">名前</button>
+                <button class="btn-want" onclick="toggleFormTab(this)">名前</button>
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('rename')}}">
                         <input type="text" name='name' placeholder="Username" />
-                        <button class="change_button">送信</button>
+                        <button class="btn-change">変更</button>
                     </form>
                 </div>
 
-                <button class="change_button" onclick="toggleFormTab(this)">プロフィール</button>
+                <button class="btn-want" onclick="toggleFormTab(this)">プロフィール</button>
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('reProfile')}}">
                         <input type="text" name='profile' placeholder="profile" />
-                        <button class="change_button">送信</button>
+                        <button class="btn-change">変更</button>
                     </form>
                 </div>
 
-                <button class="change_button" onclick="toggleFormTab(this)">ユーザーID</button>
+                <button class="btn-want" onclick="toggleFormTab(this)">ユーザーID</button>
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('reUserId')}}">
                         <input type="text" name="userId" placeholder="accountName" />
-                        <button class="change_button">送信</button>
+                        <button class="btn-change">変更</button>
                     </form>
                 </div>
 
-                <button class="change_button" onclick="toggleFormTab(this)">パスワード</button>
+                <button class="btn-want" onclick="toggleFormTab(this)">パスワード</button>
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('rePassword')}}">
                         <input type="password" name="password" placeholder="password" />
                         <input type="password" name="password_confirmation" placeholder="password" />
-                        <button class="change_button">送信</button>
+                        <button class="btn-change">変更</button>
                     </form>
                 </div>
                 <hr>
                 @csrf
                 <form action="{{route('logout')}}">
-                    <button class="change_button">ログアウト</button>
+                    <button class="btn-change">ログアウト</button>
                 </form>
                 <form action="{{route('register')}}">
-                    <button class="change_button">新規登録</button>
+                    <button class="btn-change">新規登録</button>
                 </form>
             </div>
         </div>

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\DirectMessage;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Tweet;
+// use Dom\Comment;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -68,6 +71,8 @@ class RegisterController extends Controller
             $user->save();  
             $user_id = Auth::id();
             Tweet::where('user_id',$user_id)->update(['name' => $request->get('name')]);
+            Comment::where('user_id',$user_id)->update(['name' => $request->get('name')]);
+            DirectMessage::where('user_id',$user_id)->update(['name' => $request->get('name')]);
             
             return redirect()->route('option');
     } //名前の変更

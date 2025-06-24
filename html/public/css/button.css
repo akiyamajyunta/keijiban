@@ -70,3 +70,30 @@
 .btn-direct:hover{
     background-color: #ff0000;
 }
+.btn-want{
+    background-color: white;
+    width: 50%;
+    color: black;
+    border: 1px solid black;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    justify-content: center;
+}
+.btn-change {
+    background-color: white;
+    width: 40%;
+    color: black;
+    border: 1px solid black;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    justify-content: center;
+}
+.btn-change:hover {
+    background-color: #45a049;
+}
