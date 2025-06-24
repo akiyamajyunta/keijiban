@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
     <title>新規登録</title>
 </head>
 
@@ -55,7 +56,7 @@
                     <input id="password-confirm" type="password" name="password_confirmation" class="form-control"
                         value="">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">登録</button>
+                <button type="submit" class="btn-auth">登録</button>
             </form>
             <div>
                 <a href="{{ url()->previous() }}" class="btn btn-outline-secondary mx-2">戻る</a>

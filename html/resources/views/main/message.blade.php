@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/button.css')}}">
     <title>directMessage</title>
 </head>
 
@@ -36,7 +37,7 @@
                         <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
                         <input type="hidden" name="recipient_id" value="{{ $recipient }}">
                         <textarea placeholder="こんにちは" name='message' id='message'></textarea>
-                        <button type='submit'>投稿</button>
+                        <button class='btn-post' type='submit'>返信</button>
                     </section>
                 </form>
             </div>

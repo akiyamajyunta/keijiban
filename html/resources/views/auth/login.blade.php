@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
     <title>ログイン</title>
 </head>
 
@@ -37,7 +38,7 @@
                     <input id="remember" class="form-check-input" name="remember" type="checkbox" />
                     <label class="" for="remember">ログイン情報を記憶する</label>
                 </div>
-                <button type="submit">ログイン</button>
+                <button type="submit" class="btn-auth">ログイン</button>
             </form>
 
             <div>

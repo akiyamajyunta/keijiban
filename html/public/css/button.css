@@ -1,0 +1,72 @@
+.btn-auth{
+  margin-top: 3%;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-auth:hover {
+  background-color: #45a049;
+}
+/* 
+コメントを削除するボタン */
+.btn-delete {
+    background-color: #1100ff;
+    color: white;
+    border: none;
+    padding: 1px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.btn-delete:hover {
+    background-color: #ff0000;
+
+}
+
+/* 投稿ボタン */
+.btn-post{
+    background-color: #1100ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.btn-post:hover {
+    background-color: #ff0000;
+}
+
+/* 人の名前ボタン */
+.btn-name{
+    background-color: #000000;
+    padding:0  100px 0  10px;
+    border-radius: 15px 0 15px 0;
+    color: #fff;
+    border: #fff;
+}
+.btn-name:hover{
+    background-color: #ff0000;
+}
+
+.btn-direct{
+    border: solid 1px #333;
+    padding: 5px 20px;
+    position: relative;
+    border-radius: 5px;
+    background-color: #1100ff;
+    color: #ffffff;
+    
+}
+
+
+.btn-direct:hover{
+    background-color: #ff0000;
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
     <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/button.css')}}">
     <title>Search</title>
 </head>
 

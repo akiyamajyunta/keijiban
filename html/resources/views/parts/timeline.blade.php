@@ -6,16 +6,17 @@
                     <span>
                         @csrf
                         <input type="hidden" name="user_id" value='{{ $tweet->user_id}}'>
-                        <button onclick="event.stopPropagation()">{{ $tweet->name}}</button>
+                        <button class="btn-name" onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
                 <div class='memo-controls'>
-                    <span class="memo-date">{{ $tweet->created_at}}</span>
+                    <p class="memo-date">{{ $tweet->created_at}}</p>
+                    <hr>
                     @if ($tweet->user_id === Auth::id())
                     <form action="{{route('tweet.delete')}}">
                         <span>
                             <input type="hidden" name="id" value="{{$tweet->id}}">
-                            <button onclick="event.stopPropagation()">削除</button>
+                            <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
                         </span>
                     </form>
                     @endif
@@ -33,20 +34,28 @@
                         <input type="hidden" name="tweet_id" value='{{$tweet->id}}'>
                         <input type="hidden" name="user_id" value='{{$tweet->user_id}}'>
                         <textarea placeholder="送信" name="comment"></textarea>
-                        <button>返信</button>
+                        <button class='btn-post'>返信</button>
                     </section>
                 </form>
                 @foreach($tweet->comments->reverse() as $comment)
                 <div class='comment-contener'>
                     <div class="comment-header">
-                        <p>{{ $comment->user->name }}</p>
-                        <p>{{$comment->created_at}}</p>
+                        <!-- <p>{{ $comment->user_id}}</p> -->
+                        <form action="{{route('profile')}}" method="POST">
+                            <span>
+                                <input type="hidden" name="user_id" value='{{  $comment->user_id }}'>
+                                <button class="btn-name" onclick="event.stopPropagation()">{{ $comment->user->name }}</button>
+                            </span>
+                        </form>
+
                     </div>
+                    <p>{{$comment->created_at}}</p>
+                    <hr>
                     <div class="comment">{{ $comment->comment }}</div>
                     <form action="{{route('comment.delete')}}">
                         @if ($comment->user_id === Auth::id())
                         <input type="hidden" name="id" value="{{$comment->id}}">
-                        <button onclick="event.stopPropagation()">削除</button>
+                        <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
                         @endif
                     </form>
                 </div>
@@ -57,19 +66,19 @@
     @endforeach
 
 
-<script>
-document.querySelectorAll('.memo-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const comments = item.querySelector('.memo-comments');
-        if (item.classList.contains('expanded')) {
-            // すでに展開されている場合は折りたたむ
-            comments.style.maxHeight = null;
-            item.classList.remove('expanded');
-        } else {
-            // 展開する際、コメントの scrollHeight を max-height に設定する
-            item.classList.add('expanded');
-            comments.style.maxHeight = comments.scrollHeight + "px";
-        }
-    });
-});
-</script>
+    <script>
+        document.querySelectorAll('.memo-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const comments = item.querySelector('.memo-comments');
+                if (item.classList.contains('expanded')) {
+                    // すでに展開されている場合は折りたたむ
+                    comments.style.maxHeight = null;
+                    item.classList.remove('expanded');
+                } else {
+                    // 展開する際、コメントの scrollHeight を max-height に設定する
+                    item.classList.add('expanded');
+                    comments.style.maxHeight = comments.scrollHeight + "px";
+                }
+            });
+        });
+    </script>

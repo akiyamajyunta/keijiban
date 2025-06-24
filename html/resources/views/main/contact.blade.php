@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
-    <title>contact</title>
+    <link rel="stylesheet" href="{{ asset('css/button.css')}}">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 <div  class="talk-button">
                     <input type="hidden" name="recipient_name" value="{{ $thread->name }}">
                     <input type="hidden" name="recipient_id" value="{{$thread->id}}">
-                    <button>会話する</button>
+                    <button class='btn-direct'>会話する</button>
                 </div>
 
             </form>

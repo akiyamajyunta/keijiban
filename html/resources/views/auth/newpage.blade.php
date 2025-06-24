@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
     <title>ログイン</title>
 </head>
 
@@ -22,10 +23,10 @@
         @endif
         <div class="container">
             <form action="{{ route('login') }}">
-                <button class="change_button">ログイン</button>
+                <button class="btn-auth">ログイン</button>
             </form>
             <form action="{{ route('register') }}">
-                <button class="change_button">新規登録</button>
+                <button class="btn-auth">新規登録</button>
             </form>
         </div>
     </div>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
     <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
     <link rel="stylesheet" href="{{ asset('css/profile.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/button.css')}}">
     <title>プロフィール</title>
 </head>
 
@@ -40,7 +41,7 @@
                 <form action="{{route('directMessages')}}" method="get">
                     <input type="hidden" name="recipient_name" value="{{ $user->name }}">
                     <input type="hidden" name="recipient_id" value="{{$user->id}}">
-                    <button>ダイレクトメッセージ</button>
+                    <button class='btn-direct'>ダイレクトメッセージ</button>
                 </form>
 
                 @if(Auth::user()->followings->contains($user->id))

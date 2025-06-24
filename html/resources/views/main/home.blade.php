@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
     <link rel="stylesheet" href="{{ asset('css/home.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/button.css')}}">
     <title>Home</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
             <form action="{{route('tweet.store')}}">
                 <section class="new-memo">
                     <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
-                    <button>投稿</button>
+                    <button class='btn-post'>投稿</button>
                 </section>
             </form>
         </div>
