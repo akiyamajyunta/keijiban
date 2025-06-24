@@ -82,7 +82,7 @@ class RegisterController extends Controller
         'profile' => ['max:140'],
         ], 
     [
-        'profile.max'      => '15文字以内にしてください',
+        'profile.max'      => '140文字以内にしてください',
     ]);
 
         if ($validator->fails()) {

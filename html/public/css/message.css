@@ -1,13 +1,15 @@
 main {
     max-width: 550px;
     margin: 20px auto;
-    margin-top: 150px;
+    margin-top: 100px;
     position: relative;
     z-index: 100;
     border-radius: 8px;
     padding: 20px;
 
+
 }
+
 
 .MassageAria {
     height: 80%;
@@ -99,18 +101,34 @@ blockquote {
     z-index: 2;
 }
 
-/* 新規メモ投稿エリア */
+
 .massageAria {
-    background-color: #0d95e8;
+    /* background-color: #009dff; */
+    height: 70%;
+    /* border: 1px solid #000; */
+    /* わかりやすくボーダーを引く */
+    overflow-y: scroll;
 }
 
+/* //クロームはこれでスクロールバーがきえる */
+.massageAria::-webkit-scrollbar {
+    display: none;
+}
+
+/*ダイレクトメッセージ投稿エリア */
 .inputMassage {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
     border: 2px solid black;
-    border-radius: 10px;
-
-
+    border-radius: 20px;
+    position: fixed;
+    margin: 0 auto;
+    bottom: 0vh;
+    display: block;
+    width: 590px;
+    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .new-twi {
@@ -128,13 +146,26 @@ blockquote {
 }
 
 .messagePosition {
-    margin-top: 50px;
+    margin: 0px auto 0px auto;
+    /* background-color: rgba(165, 42, 42, 0); */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 550px;
+    -ms-overflow-style: none;
+
+}
+
+.messagePosition::-webkit-scrollbar {
+    display: none;
 }
 
 .recipient-name {
     text-align: center;
     background-color: white;
-    margin-top: 150px;
+    margin-top: 110px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -148,4 +179,11 @@ blockquote {
 
 .messagePosition {
     margin-top: 50px;
+}
+
+.message-post {
+    width: 80%;
+    height: 40px;
+    margin-right: 20px;
+    border: 2px solid black;
 }

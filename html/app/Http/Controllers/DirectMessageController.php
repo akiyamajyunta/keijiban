@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DirectMessage;
@@ -21,7 +22,7 @@ class DirectMessageController extends Controller
             ->orWhere('recipient_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
-        
+
         // dd($lastMessage);
         $threads = $messages->map(function ($message) use ($userId) {
             return $message->sender_id === $userId ? $message->recipient : $message->sender;
@@ -56,17 +57,36 @@ class DirectMessageController extends Controller
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
 
-        // バリデーションルール
-        $data = $request->validate([
-            'message' => 'required|max:140'    // 空も許容する場合は nullable、文字列で長さ制限
-        ]);
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'message' => ['required', 'max:140'],
+            ],
+            [
+                'message.required' => 'メッセージを入力してください',
+                'message.max'      => '140文字以内にしてください',
+            ]
+        );
+
+        if ($validator->fails()) {
+
+            $allErrors = $validator->errors()->all();
+
+            return back()
+                ->withErrors(['message' => $allErrors])
+                ->withInput();
+        }
+
+
 
         DirectMessage::create([
             'sender_id' => Auth::id(),
             'recipient_id' => $recipient,
-            'message' => $data['message'],
-            'name' => $recipient_name
+            'message' =>  $request->input('message'),
+            'name' => $recipient_name,
         ]);
+
         return redirect()->route(
             'directMessages',
             [
