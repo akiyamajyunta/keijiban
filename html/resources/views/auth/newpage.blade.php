@@ -22,10 +22,10 @@
         <p style="text-align: center;">{{ $message }}</p>
         @endif
         <div class="container">
-            <form action="{{ route('login') }}">
+            <form action="{{ route('login')}}">
                 <button class="btn-auth">ログイン</button>
             </form>
-            <form action="{{ route('register') }}">
+            <form action="{{route('showRegistrationForm')}}">
                 <button class="btn-auth">新規登録</button>
             </form>
         </div>

@@ -26,8 +26,8 @@
                 <hr>
                 <button class="btn-want" onclick="toggleFormTab(this)">名前</button>
                 <div class="form-tab">
-                    @csrf
-                    <form action="{{route('rename')}}">
+                    <form action="{{route('rename')}}" method="post">
+                        @csrf
                         <input type="text" name='name' value='{{$user->name}}' placeholder="Username" />
                         <button class="btn-change">変更</button>
                     </form>
@@ -35,8 +35,8 @@
 
                 <button class="btn-want" onclick="toggleFormTab(this)">プロフィール</button>
                 <div class="form-tab">
-                    @csrf
-                    <form action="{{route('reProfile')}}">
+                    <form action="{{route('reProfile')}}" method="post">
+                        @csrf
                         <input type="text" name='profile' value='{{$user->profile}}' placeholder="profile" />
                         <button class="btn-change">変更</button>
                     </form>
@@ -44,28 +44,31 @@
 
                 <button class="btn-want" onclick="toggleFormTab(this)">ユーザーID</button>
                 <div class="form-tab">
-                    @csrf
-                    <form action="{{route('reUserId')}}">
-                        <input type="text" name="userId"  value='{{$user->userId}}' placeholder="accountName" />
+
+                    <form action="{{route('reUserId')}}" method="post">
+                        @csrf
+                        <input type="text" name="userId" value='{{$user->userId}}' placeholder="accountName" />
                         <button class="btn-change">変更</button>
                     </form>
                 </div>
 
                 <button class="btn-want" onclick="toggleFormTab(this)">パスワード</button>
                 <div class="form-tab">
-                    @csrf
-                    <form action="{{route('rePassword')}}">
+                    <form action="{{route('rePassword')}}" method="post">
+                        @csrf
                         <input type="password" name="password" placeholder="password" />
                         <input type="password" name="password_confirmation" placeholder="password" />
                         <button class="btn-change">変更</button>
                     </form>
                 </div>
                 <hr>
-                @csrf
-                <form action="{{route('logout')}}">
+
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
                     <button class="btn-change">ログアウト</button>
                 </form>
-                <form action="{{route('register')}}">
+                <form action="{{route('register')}}" method="post">
+                    @csrf
                     <button class="btn-change">新規登録</button>
                 </form>
             </div>

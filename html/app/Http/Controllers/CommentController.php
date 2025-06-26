@@ -72,7 +72,6 @@ class CommentController extends Controller
         }
 
         $comment->delete();
-
         return redirect()->back();
     }
 }

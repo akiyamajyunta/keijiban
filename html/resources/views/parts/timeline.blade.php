@@ -13,8 +13,9 @@
                     <p class="twi-date">{{ $tweet->created_at}}</p>
                     <hr>
                     @if ($tweet->user_id === Auth::id())
-                    <form action="{{route('tweet.delete')}}">
+                    <form action="{{route('tweet.delete')}}" method="post">
                         <span>
+                            @csrf
                             <input type="hidden" name="id" value="{{$tweet->id}}">
                             <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
                         </span>
@@ -28,7 +29,7 @@
             <hr>
             <!-- 返信,要するにコメント -->
             <div class="twi-comments" onclick="event.stopPropagation()">
-                <form action="{{route('comment.store')}}">
+                <form action="{{route('comment.store')}}" method="post">
                     <section class="new-twi" onclick="event.stopPropagation();">
                         @csrf
                         <input type="hidden" name="tweet_id" value='{{$tweet->id}}'>
@@ -52,12 +53,13 @@
                     <p>{{$comment->created_at}}</p>
                     <hr>
                     <div class="comment">{{ $comment->comment }}</div>
-                    <form action="{{route('comment.delete')}}">
-                        @if ($comment->user_id === Auth::id())
+                    @if ($comment->user_id === Auth::id())
+                    <form action="{{route('comment.delete')}}" method="post">
+                        @csrf
                         <input type="hidden" name="id" value="{{$comment->id}}">
                         <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
-                        @endif
                     </form>
+                    @endif
                 </div>
                 @endforeach($tweet->comments as $comment)
             </div>

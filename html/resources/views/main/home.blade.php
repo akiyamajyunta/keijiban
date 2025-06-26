@@ -23,7 +23,8 @@
         <a>{{ $message }}</a>
         @enderror
         <div class='tweet'>
-            <form action="{{route('tweet.store')}}">
+            <form action="{{route('tweet.store')}}" method="post">
+                @csrf
                 <section class="new-twi">
                     <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
                     <button class='btn-post'>投稿</button>
