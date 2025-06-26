@@ -42,10 +42,12 @@ class HomeController extends Controller
 
         return view('main/home', compact('tweets'));
     }
-
+//option の表示
     public function option()
     {
-        return view('main/option');
+            $user_id = Auth::id();
+            $users = User::where('id', $user_id)->get();
+            return view('main/option', compact('users'));
     }
 
     public function profile(Request $request)

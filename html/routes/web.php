@@ -5,8 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\FollowController;
-use App\Http\Controllers\DirectMessageController;
+
 
 //ログインしていない時のルート
 Route::get('/', function () {
@@ -24,15 +23,15 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register']);
 
 
+//プロフィールの変更　reProfile
+
+Route::get('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
+Route::post('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
 
 //名前の変更
 Route::get('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
 Route::post('/tweet/rename', [RegisterController::class,'rename'])->name('rename');
 
-//プロフィールの変更　reProfile
-
-Route::get('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
-Route::post('/tweet/reProfile', [RegisterController::class,'reProfile'])->name('reProfile');
 
 //パスワードの変更
 

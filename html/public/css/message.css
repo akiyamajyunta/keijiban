@@ -147,7 +147,6 @@ blockquote {
 
 .messagePosition {
     margin: 0px auto 0px auto;
-    /* background-color: rgba(165, 42, 42, 0); */
     left: 50%;
     transform: translateX(-50%);
     height: 100vh;

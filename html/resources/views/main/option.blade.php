@@ -16,6 +16,7 @@
 <body>
 
     <main>
+        @foreach ($users as $user)
         <div class="container-parson">
             <div class="container">
                 <p class="explanation">個人情報の変更</p>
@@ -23,12 +24,11 @@
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
                 <hr>
-
                 <button class="btn-want" onclick="toggleFormTab(this)">名前</button>
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('rename')}}">
-                        <input type="text" name='name' placeholder="Username" />
+                        <input type="text" name='name' value='{{$user->name}}' placeholder="Username" />
                         <button class="btn-change">変更</button>
                     </form>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('reProfile')}}">
-                        <input type="text" name='profile' placeholder="profile" />
+                        <input type="text" name='profile' value='{{$user->profile}}' placeholder="profile" />
                         <button class="btn-change">変更</button>
                     </form>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="form-tab">
                     @csrf
                     <form action="{{route('reUserId')}}">
-                        <input type="text" name="userId" placeholder="accountName" />
+                        <input type="text" name="userId"  value='{{$user->userId}}' placeholder="accountName" />
                         <button class="btn-change">変更</button>
                     </form>
                 </div>
@@ -70,6 +70,7 @@
                 </form>
             </div>
         </div>
+        @endforeach
     </main>
 </body>
 

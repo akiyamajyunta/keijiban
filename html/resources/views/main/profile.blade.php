@@ -49,14 +49,14 @@
                 <form action="{{ route('unfollow')}}">
                     @csrf
                     <input type="hidden" name="un_follow_id" value="{{$user->id}}">
-                    <button type="submit">フォローを外す</button>
+                    <button  class='btn-follow' type="submit">フォローを外す</button>
                 </form>
                 @else
                 <!-- フォローしていない場合は、フォローボタンを表示 -->
                 <form action="{{ route('follow') }}">
                     @csrf
                     <input type="hidden" name="follow_id" value="{{$user->id}}">
-                    <button type="submit">フォローする</button>
+                    <button class='btn-follow' type="submit">フォローする</button>
                 </form>
                 @endif
 

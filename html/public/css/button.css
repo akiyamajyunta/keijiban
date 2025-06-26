@@ -55,21 +55,28 @@
 .btn-name:hover{
     background-color: #ff0000;
 }
-
-.btn-direct{
-    border: solid 1px #333;
-    padding: 5px 20px;
-    position: relative;
-    border-radius: 5px;
-    background-color: #1100ff;
+/* `プロフィールで"ダイレクトメッセージを送る"とかいてるやつ */
+.btn-direct ,.btn-follow{
+    padding: 10px;
+    background-color: #4CAF50;
     color: #ffffff;
-    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 180px;
 }
 
-
-.btn-direct:hover{
+.btn-direct:hover,
+.btn-follow:hover{
     background-color: #ff0000;
 }
+
+
+
+
+
+
 .btn-want{
     background-color: white;
     width: 50%;
