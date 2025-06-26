@@ -12,6 +12,8 @@ class TimelineController extends Controller
 {
     public function store(Request $request)
     {
+
+        $talk =  $request->input('talk');
         $request->validate([
             'content' => 'required|max:140'
         ]);
@@ -22,9 +24,19 @@ class TimelineController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('home');
+
+        return redirect()->route('home', ['talk' => $talk]);
     }
 
+    public function make()
+    {
+
+        $talk =  'コミュ強太郎です。自動でつぶやきます';
+
+        return redirect()->route('home', ['talk' => $talk]);
+    }
+    // compact('users', 'tweets')
+    // ['user_id' =>  $userId]
 
     public function delete(Request $request)
     {

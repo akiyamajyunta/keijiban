@@ -15,26 +15,34 @@
     <link rel="stylesheet" href="{{ asset('css/button.css')}}">
     <title>Home</title>
 </head>
+
 <body>
     <div class='aria'>
-        </div>
-    <main >
+    </div>
+    <main>
         @error('message')
         <a>{{ $message }}</a>
         @enderror
         <div class='tweet'>
-            <form action="{{route('tweet.store')}}" method="post">
-                @csrf
-                <section class="new-twi">
-                    <textarea placeholder="いまどんなかんじ？" name="content" type="text"></textarea>
-                    <button class='btn-post'>投稿</button>
-                </section>
-            </form>
+
+            <section class="new-twi">
+                <div>
+                    <form action="{{route('tweet.store')}}" method="post">
+                        @csrf
+                        <textarea placeholder="いまどんなかんじ？" name="content">{{$talk}}</textarea>
+                        <input type="hidden" name="talk" value="">
+                        <button class='btn-post'>投稿</button>
+                    </form>
+                    <form action="{{route('tweet.make')}}" method="post">
+                        @csrf
+                        <button class='btn-post'>コミュ強太郎</button>
+                    </form>
+                </div>
+            </section>
         </div>
         @include('parts.timeline')
     </main>
-    
+
 </body>
 
 </html>
-
