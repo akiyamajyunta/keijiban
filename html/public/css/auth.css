@@ -1,4 +1,13 @@
 
+main {
+    max-width: 600px;
+    margin: 0px auto;
+    position: relative;
+    z-index: 10;
+    margin-top:200px;
+    padding: 0;
+}
+
 
 .container-parson{
     justify-content: center;

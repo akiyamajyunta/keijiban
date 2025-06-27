@@ -24,20 +24,21 @@
         <a>{{ $message }}</a>
         @enderror
         <div class='tweet'>
-
             <section class="new-twi">
-                <div>
-                    <form action="{{route('tweet.store')}}" method="post">
-                        @csrf
-                        <textarea placeholder="いまどんなかんじ？" name="content">{{$talk}}</textarea>
-                        <input type="hidden" name="talk" value="">
-                        <button class='btn-post'>投稿</button>
-                    </form>
-                    <form action="{{route('tweet.make')}}" method="post">
-                        @csrf
-                        <button class='btn-post'>コミュ強太郎</button>
-                    </form>
-                </div>
+                <form action="{{route('tweet.store')}}" method="post">
+                    @csrf
+                    <textarea placeholder="いまどんなかんじ？" name="content">{{$talk}}</textarea>
+                    <input type="hidden" name="talk" value="">
+
+                    <div class='btn-set'>
+                        <button class='btn-post' type="submit">投稿</button>
+                        <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">コミュ強太郎</button>
+                    </div>
+                </form>
+                <!-- 隠しフォーム -->
+                <form id="commu-form" action="{{route('tweet.make')}}" method="post" style="display: none;">
+                    @csrf
+                </form>
             </section>
         </div>
         @include('parts.timeline')

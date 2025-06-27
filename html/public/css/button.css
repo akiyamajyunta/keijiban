@@ -104,3 +104,23 @@
 .btn-change:hover {
     background-color: #45a049;
 }
+
+/* tweetのボタンの2セット,横並びにするため*/
+
+.btn-set {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.btn-set button {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-set button:hover {
+    background-color: #3367d6;
+}

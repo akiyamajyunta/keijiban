@@ -9,14 +9,20 @@ use App\Http\Controllers\Auth\LogoutController;
 
 //ログインしていない時のルート
     Route::get('/', function () {
+        
         return view('auth/newpage');})->name('newPage');
 
     // ユーザー新規登録のルート
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('showRegistrationForm');
     // ユーザー新規登録
     Route::post('register', [RegisterController::class,'register'])->name('register');
-    // ログインのルート
-    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+
+
+    // ログインフォームへ行くルート
+    Route::get('showlogin', [LoginController::class, 'showLoginForm'])->name('showlogin');
+
+    // ログインの処理
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 
 
     // ログインしてたらこう
@@ -40,7 +46,12 @@ use App\Http\Controllers\Auth\LogoutController;
     // コンテンツのルート、遷移用;
 
     // ヘッダーにあるアイコンの選択肢共
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
+    Route::post('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//ログイン成功、メインの画面
+
+    
+
     Route::get('home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');//検索
     Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//オプション
     Route::get('home/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
@@ -48,7 +59,7 @@ use App\Http\Controllers\Auth\LogoutController;
     //tweet
     Route::post('/tweet', [App\Http\Controllers\TimelineController::class,'store'])->name('tweet.store');
 
-    //tweetの自動生成
+    //tweetの自動生成,コミュ強太郎
     Route::post('/make/tweet', [App\Http\Controllers\TimelineController::class,'make'])->name('tweet.make');
 
 

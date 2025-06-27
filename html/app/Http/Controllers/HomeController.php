@@ -32,7 +32,6 @@ class HomeController extends Controller
 
         }
 
-
         $user = Auth::user();
         // フォローしているユーザーのIDを取得
         /** @var \App\Models\User $user */
@@ -47,6 +46,9 @@ class HomeController extends Controller
             ->get();
         return view('main/home', compact('tweets', 'talk'));
     }
+
+
+    
     //option の表示
     public function option()
     {
