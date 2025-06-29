@@ -50,6 +50,7 @@ main {
     justify-content: space-between;
     font-size: 0.9rem;
     color: #657786;
+    margin-left: 10px;
 }
 
 /* メモ内容のスタイル */
@@ -82,3 +83,9 @@ main {
     flex-direction: column;
     gap: 5px;
 }
+
+.contact_user {
+
+        display: flex;
+        justify-content: space-between
+    }

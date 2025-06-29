@@ -1,17 +1,18 @@
-.btn-auth{
-  margin-top: 3%;
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.btn-auth {
+    margin-top: 3%;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .btn-auth:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
+
 /* 
 コメントを削除するボタン */
 .btn-delete {
@@ -23,13 +24,14 @@
     cursor: pointer;
     font-size: 1rem;
 }
+
 .btn-delete:hover {
     background-color: #ff0000;
 
 }
 
 /* 投稿ボタン */
-.btn-post{
+.btn-post {
     background-color: #1100ff;
     color: white;
     border: none;
@@ -45,18 +47,20 @@
 }
 
 /* 人の名前ボタン */
-.btn-name{
+.btn-name {
     background-color: #000000;
-    padding:0  100px 0  10px;
+    padding: 0 100px 0 10px;
     border-radius: 15px 0 15px 0;
     color: #fff;
     border: #fff;
 }
-.btn-name:hover{
+
+.btn-name:hover {
     background-color: #ff0000;
 }
+
 /* `プロフィールで"ダイレクトメッセージを送る"とかいてるやつ */
-.btn-direct ,.btn-follow{
+.btn-direct, .btn-follow {
     padding: 10px;
     background-color: #4CAF50;
     color: #ffffff;
@@ -67,8 +71,14 @@
     width: 180px;
 }
 
+.btn-direct {
+    margin:auto 10px auto 0px;
+}
+
+
+
 .btn-direct:hover,
-.btn-follow:hover{
+.btn-follow:hover {
     background-color: #ff0000;
 }
 
@@ -77,7 +87,7 @@
 
 
 
-.btn-want{
+.btn-want {
     background-color: white;
     width: 50%;
     color: black;
@@ -89,6 +99,7 @@
     margin-bottom: 3%;
     justify-content: center;
 }
+
 .btn-change {
     background-color: white;
     width: 40%;
@@ -101,6 +112,7 @@
     margin-bottom: 3%;
     justify-content: center;
 }
+
 .btn-change:hover {
     background-color: #45a049;
 }
@@ -122,5 +134,5 @@
 }
 
 .btn-set button:hover {
-    background-color: #3367d6;
+    background-color: red;
 }

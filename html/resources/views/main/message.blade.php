@@ -18,16 +18,19 @@
 
 <body>
     <div class="aria">
-        <p class='recipient-name'>{{$recipient_name}}</p>
-        @error('message')
-        <a>{{ $message }}</a>
-        @enderror
+        <p class='recipient-name'>{{$recipient_name}}
+            @error('message')
+            <br>
+            {{ $message }}
+            @enderror
+        </p>
     </div>
 
     <main>
         <div class='messagePosition'>
             <div class='massageAria'>
-                @foreach ($messages as $message)
+                @foreach ($messages->reverse() as $message)
+
                 <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}">
                     <!-- <blockquote> -->
                     {{ $message->message }}
@@ -37,17 +40,28 @@
         </div>
     </main>
 
-            <div class="inputMassage">
+    <div class="inputMassage">
+        <section class="new-twi">
             <form action="{{route('directMessages.store')}}" method="post">
                 @csrf
-                <section class="new-twi">
-                    <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
-                    <input type="hidden" name="recipient_id" value="{{ $recipient }}">
-                    <input class='message-post' placeholder="こんにちは" name='message' id='message'></input>
+                <!-- <p>{{$lastReceivedMessage->message}}</p> -->
+                <!-- <section class="new-twi"> -->
+                <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
+                <input type="hidden" name="recipient_id" value="{{ $recipient }}">
+                <textarea class='message-post' placeholder="こんにちは" name='message' id='message'>{{$make_talk}}</textarea>
+                <div class='btn-set'>
                     <button class='btn-post' type='submit'>返信</button>
-                </section>
+                    <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">与太</button>
+                </div>
             </form>
-        </div>
+            <form id="commu-form" action="{{route('message.make')}}" method="post" style="display: none;">
+                @csrf
+                <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
+                <input type="hidden" name="recipient_id" value="{{ $recipient }}">
+                <input type="hidden" name="last_message" value="{{$lastReceivedMessage->message}}">
+            </form>
+        </section>
+    </div>
 </body>
 
 </html>

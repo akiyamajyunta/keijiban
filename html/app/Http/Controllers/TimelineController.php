@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tweet;
 use Illuminate\Support\Facades\Auth;
 
+use OpenAI;
 
 class TimelineController extends Controller
 {
@@ -31,7 +32,23 @@ class TimelineController extends Controller
     public function make()
     {
 
-        $talk =  'コミュ強太郎です。自動でつぶやきます';
+        // $talk =  'コミュ強太郎です。自動でつぶやきます';
+        $api_key = env('OPENAI_API_KEY');
+        $client = OpenAI::client($api_key);
+
+        $response = $client->chat()->create([
+            'model' => 'gpt-4o', // または gpt-3.5-turbo
+            //content はGTP先生に話したい内容を記述
+            'messages' => [
+                [
+                    'role' => 'user',
+                    'content' => 'これはtweeterです。何か話題やつぶやきを作って。ハッシュタグは無し。どこかに行くのも無し'
+                        . '文字数は120字以内で'
+                ]
+            ],
+        ]);
+
+        $talk = $response->choices[0]->message->content;
 
         return redirect()->route('home', ['talk' => $talk]);
     }

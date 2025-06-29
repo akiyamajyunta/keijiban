@@ -32,7 +32,7 @@
 
                     <div class='btn-set'>
                         <button class='btn-post' type="submit">投稿</button>
-                        <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">コミュ強太郎</button>
+                        <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">与太</button>
                     </div>
                 </form>
                 <!-- 隠しフォーム -->

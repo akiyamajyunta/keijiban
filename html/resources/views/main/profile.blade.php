@@ -38,7 +38,8 @@
                 <!-- もし、プロフィールのIDとログイン中のIDが一致しなければ（他人だったら）、DM -->
                 <!-- directMessages ここではstoreに行く-->
                 @if (Auth::check() && $user->id !== Auth::id())
-                <form action="{{route('directMessages')}}" method="get">
+                <form action="{{route('directMessages')}}" method="post">
+                @csrf
                     <input type="hidden" name="recipient_name" value="{{ $user->name }}">
                     <input type="hidden" name="recipient_id" value="{{$user->id}}">
                     <button class='btn-direct'>ダイレクトメッセージ</button>

@@ -54,6 +54,8 @@ use App\Http\Controllers\Auth\LogoutController;
 
     Route::get('home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');//検索
     Route::get('home/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');//オプション
+
+    Route::post('home/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
     Route::get('home/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');//プロフィール
 //tweet,comment,DMなど
     //tweet
@@ -69,6 +71,7 @@ use App\Http\Controllers\Auth\LogoutController;
     //コメント
     Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 
+
     //コメントの削除
     Route::post('/comment/delete', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 
@@ -76,10 +79,16 @@ use App\Http\Controllers\Auth\LogoutController;
      // DM の一覧ページ（受信相手）
     Route::get('home/contact', [App\Http\Controllers\DirectMessageController::class, 'contact'])->name('contact');
     // DM の一覧ページ（会話履歴）
-    Route::get('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'index'])->name('directMessages');
+
+    Route::post('/messages/show', [App\Http\Controllers\DirectMessageController::class, 'index'])->name('directMessages');
+    Route::get('/messages/show', [App\Http\Controllers\DirectMessageController::class, 'index'])->name('directMessages');
+
+    
+    //DMの自動返信,aiによって自動で生成
+    Route::post('/messages/make', [App\Http\Controllers\DirectMessageController::class, 'make'])->name('message.make');
 
     // DM の投稿処理
-    Route::post('/direct-messages', [App\Http\Controllers\DirectMessageController::class, 'store'])->name('directMessages.store');
+    Route::post('/messages/post', [App\Http\Controllers\DirectMessageController::class, 'store'])->name('directMessages.store');
 
     Route::get('/follow', [App\Http\Controllers\FollowController::class, 'follow'])->name('follow');
     Route::get('/unfollow', [App\Http\Controllers\FollowController::class, 'unfollow'])->name('unfollow');

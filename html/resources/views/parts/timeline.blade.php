@@ -9,6 +9,7 @@
                         <button class="btn-name" onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
+                
                 <div class='twi-controls'>
                     <p class="twi-date">{{ $tweet->created_at}}</p>
                     <hr>
@@ -29,15 +30,15 @@
             <hr>
             <!-- 返信,要するにコメント -->
             <div class="twi-comments" onclick="event.stopPropagation()">
-                <form action="{{route('comment.store')}}" method="post">
-                    <section class="new-twi" onclick="event.stopPropagation();">
+                <section class="new-twi" onclick="event.stopPropagation();">
+                    <form action="{{route('comment.store')}}" method="post">
                         @csrf
                         <input type="hidden" name="tweet_id" value='{{$tweet->id}}'>
                         <input type="hidden" name="user_id" value='{{$tweet->user_id}}'>
                         <textarea placeholder="送信" name="comment"></textarea>
                         <button class='btn-post'>返信</button>
-                    </section>
-                </form>
+                    </form>
+                </section>
                 @foreach($tweet->comments->reverse() as $comment)
                 <div class='comment-contener'>
                     <div class="comment-header">

@@ -30,6 +30,18 @@ docker compose exec stduy-laravel-server bash
 composer create-project laravel/laravel --prefer-dist .
 ```
 
+API を使用するためにライブラリーをインストール
+```:shell
+composer require openai-php/client
+```
+
+.envの
+
+    OPENAI_API_KEY=　
+
+にAPIキーを入力
+
+
 ```:shell
 php artisan serve --host=0.0.0.0 --port=8000
 ```

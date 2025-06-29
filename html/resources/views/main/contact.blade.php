@@ -18,18 +18,18 @@
     <main>
         @foreach ($threads as $thread)
         <section class="twi-list">
-            <form action="{{route('directMessages')}}">
+            <form class='contact_user' action="{{route('directMessages')}}" method="post">
+                @csrf
                 <div class="twi-item">
                     <div class="twi-header">
                         <span class="twi-user">{{$thread->name}}</span>
                     </div>
                 </div>
-                <div  class="talk-button">
+                <div class="talk-button">
                     <input type="hidden" name="recipient_name" value="{{ $thread->name }}">
                     <input type="hidden" name="recipient_id" value="{{$thread->id}}">
                     <button class='btn-direct'>会話する</button>
                 </div>
-
             </form>
         </section>
         @endforeach
@@ -37,3 +37,4 @@
 </body>
 
 </html>
+
