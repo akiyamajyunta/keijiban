@@ -22,17 +22,15 @@
                 @enderror
                 <form action="{{route('login')}}" method="post">
                     @csrf
-
                     <div class="input-from">
                         <label class="form-label" for="email">メールアドレス</label>
 
-                        <input id="email" class="form-control" name="email" type="email" value="{{old('email')}}"
-                            autofocus />
+                        <input id="email" class="form-control" name="email" type="email" value="{{old('email')}}"/>
                     </div>
 
                     <div class="input-from">
                         <label class="form-label" for="password">パスワード</label>
-                        <input id="password" class="form-control" name="password" type="password" />
+                        <input id="password" class="form-control" name="password" type="password" value="{{old('password')}}"/>
                     </div>
 
                     <div>

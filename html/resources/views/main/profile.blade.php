@@ -42,6 +42,7 @@
                 @csrf
                     <input type="hidden" name="recipient_name" value="{{ $user->name }}">
                     <input type="hidden" name="recipient_id" value="{{$user->id}}">
+                    <input type="hidden" name="recipient_user_id" value="{{$user->userId}}">
                     <button class='btn-direct'>ダイレクトメッセージ</button>
                 </form>
 

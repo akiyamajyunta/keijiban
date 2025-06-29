@@ -23,11 +23,14 @@
                 <div class="twi-item">
                     <div class="twi-header">
                         <span class="twi-user">{{$thread->name}}</span>
+                        <span class="twi-user">{{$thread->userId}}
+                        </span>
                     </div>
                 </div>
                 <div class="talk-button">
                     <input type="hidden" name="recipient_name" value="{{ $thread->name }}">
                     <input type="hidden" name="recipient_id" value="{{$thread->id}}">
+                    <input type="hidden" name='recipient_user_id' value='{{$thread->userId}}'>
                     <button class='btn-direct'>会話する</button>
                 </div>
             </form>
@@ -37,4 +40,3 @@
 </body>
 
 </html>
-

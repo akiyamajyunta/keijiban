@@ -1,6 +1,6 @@
 # 概要
 
-twetterのクローンアプリです。ログイン、ツイート、フォロー、DMの機能があります
+twetterのクローンアプリです。ログイン、ツイート、フォロー、DM、chatGTPによるアシスト機能があります
 
 # 起動方法
 
@@ -46,7 +46,7 @@ composer require openai-php/client
 php artisan serve --host=0.0.0.0 --port=8000
 ```
 
-
+[http://localhost:8000](http://localhost:8000)にアクセス
 
 localhost:8000
 

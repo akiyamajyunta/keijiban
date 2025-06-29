@@ -67,7 +67,7 @@
                     @csrf
                     <button class="btn-change">ログアウト</button>
                 </form>
-                <form action="{{route('register')}}" method="post">
+                <form action="{{route('showRegistrationForm')}}" >
                     @csrf
                     <button class="btn-change">新規登録</button>
                 </form>

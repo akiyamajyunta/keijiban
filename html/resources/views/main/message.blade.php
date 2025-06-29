@@ -19,6 +19,7 @@
 <body>
     <div class="aria">
         <p class='recipient-name'>{{$recipient_name}}
+            {{$recipient_user_id}}
             @error('message')
             <br>
             {{ $message }}
@@ -48,6 +49,7 @@
                 <!-- <section class="new-twi"> -->
                 <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
                 <input type="hidden" name="recipient_id" value="{{ $recipient }}">
+                <input type="hidden" name="recipient_user_id" value="{{$recipient_user_id}}">
                 <textarea class='message-post' placeholder="こんにちは" name='message' id='message'>{{$make_talk}}</textarea>
                 <div class='btn-set'>
                     <button class='btn-post' type='submit'>返信</button>

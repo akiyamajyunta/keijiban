@@ -14,11 +14,13 @@ use OpenAI;
 class DirectMessageController extends Controller
 {
 
+    //メッセージをやり取りした相手を表示
     public function contact(Request $request)
     {
-
+// recipient_user_id
         $userId = Auth::id();
         $recipient = (int) $request->input('recipient_id');
+        // dd($recipient);
 
         // 自分が送信者または受信者になっている全メッセージ
         $messages = DirectMessage::where('sender_id', $userId)
@@ -31,19 +33,23 @@ class DirectMessageController extends Controller
             return $message->sender_id === $userId ? $message->recipient : $message->sender;
         })->unique('id');
 
-        // dd($threads->id);
+        // dd($threads);
 
         return view('main/contact', compact('threads'));
     }
-    //DMの表示
+
+    //DM、会話内容の表示
     public function index(Request $request)
     {
         $userId = Auth::id();
-    
+   
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
+        $recipient_user_id = $request->input('recipient_user_id');
+
+        //自動生成時に受け取り。
         $make_talk = $request->input('make_talk');
-// dd( $recipient_name);
+
         $messages = DirectMessage::where(function ($query) use ($userId, $recipient) {
             $query->where('sender_id', $userId)
                 ->where('recipient_id', $recipient);
@@ -67,23 +73,22 @@ class DirectMessageController extends Controller
             $make_talk = '';
         }
 
-        return view('main.message', compact('messages', 'recipient', 'recipient_name', 'lastReceivedMessage','make_talk'));
+        return view('main.message', compact('messages', 'recipient', 'recipient_name', 'lastReceivedMessage','make_talk','recipient_user_id'));
     }
     // last_message
 
-    //返信メッセージの作製
+    //返信メッセージの作製、AIを使って。[与太]の部分
     public function make(Request $request)
     {
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
         $lastReceivedMessage = $request->input('last_message');
-        // dd($recipient_name);
         $api_key = env('OPENAI_API_KEY');
         $client = OpenAI::client($api_key);
 
         $response = $client->chat()->create([
             'model' => 'gpt-4o', // または gpt-3.5-turbo
-            //content はGTP先生に話したい内容を記述
+            //content はGTP先生に話したい内容を記述。$lastReceivedMessageは相手が最後に話した内容
             'messages' => [
                 [
                     'role' => 'user',
@@ -95,7 +100,9 @@ class DirectMessageController extends Controller
 
         $make_talk = $response->choices[0]->message->content;
     
-        return redirect()->route('directMessages', ['make_talk' =>  $make_talk,'recipient_id'=>$recipient,'recipient_name' =>  $recipient_name ]);
+        return redirect()->route('directMessages', ['make_talk' =>  $make_talk,
+                                                    'recipient_id'=>$recipient,
+                                                    'recipient_name' =>  $recipient_name ]);
     }
 
     // メッセージの保存（投稿処理）
@@ -103,7 +110,7 @@ class DirectMessageController extends Controller
     {
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
-
+        $recipient_user_id = $request->input('recipient_user_id');
 
         $validator = Validator::make(
             $request->all(),
@@ -125,11 +132,12 @@ class DirectMessageController extends Controller
                 ->withInput();
         }
 
-
+// dd( $recipient_user_id);
 
         DirectMessage::create([
             'sender_id' => Auth::id(),
             'recipient_id' => $recipient,
+            'recipient_user_id' => $recipient_user_id,
             'message' =>  $request->input('message'),
             'name' => $recipient_name,
         ]);
@@ -138,7 +146,8 @@ class DirectMessageController extends Controller
             'directMessages',
             [
                 'recipient_id' => $recipient,
-                'recipient_name' => $recipient_name
+                'recipient_name' => $recipient_name,
+                'recipient_user_id' =>  $recipient_user_id,
             ]
         );
     }

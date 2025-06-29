@@ -20,6 +20,8 @@ use App\Http\Controllers\Auth\LogoutController;
 
     // ログインフォームへ行くルート
     Route::get('showlogin', [LoginController::class, 'showLoginForm'])->name('showlogin');
+    //時間がたつと、  Route::middleware('auth')が無効に、その際に、get login へ遷移するので、ログインフォームへ行くように
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 
     // ログインの処理
     Route::post('login', [LoginController::class, 'login'])->name('login');
