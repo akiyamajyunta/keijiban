@@ -13,7 +13,7 @@ class LoginController extends Controller
     // {
     //     $this->middleware('guest');  // ログインしていないユーザーのみがアクセス可能
     // }
-
+    
     /**
      * ログインフォームを表示する
      *

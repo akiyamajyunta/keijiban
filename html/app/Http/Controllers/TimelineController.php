@@ -52,8 +52,6 @@ class TimelineController extends Controller
 
         return redirect()->route('home', ['talk' => $talk]);
     }
-    // compact('users', 'tweets')
-    // ['user_id' =>  $userId]
 
     public function delete(Request $request)
     {

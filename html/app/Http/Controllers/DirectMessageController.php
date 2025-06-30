@@ -42,7 +42,7 @@ class DirectMessageController extends Controller
     public function index(Request $request)
     {
         $userId = Auth::id();
-   
+
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
         $recipient_user_id = $request->input('recipient_user_id');

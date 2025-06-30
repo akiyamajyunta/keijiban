@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\App;
 use App\Models\Tweet;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
 class HomeController extends Controller
+
 {
     /**
      * Create a new controller instance.
@@ -47,8 +47,6 @@ class HomeController extends Controller
         return view('main/home', compact('tweets', 'talk'));
     }
 
-
-    
     //option の表示
     public function option()
     {

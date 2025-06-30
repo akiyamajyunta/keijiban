@@ -1,4 +1,4 @@
-    @foreach ($tweets->reverse() as $tweet)
+    @foreach ($tweets as $tweet)
     <section class="twi-list">
         <div class="twi-item">
             <div class="twi-header">
