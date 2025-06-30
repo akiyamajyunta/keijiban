@@ -14,6 +14,12 @@ RUN RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 
 
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
+
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
+RUN composer require openai-php/client
+
+CMD ["php", "artisan" , "serve", "--host=0.0.0.0", "--port=8000"]
+
 #RUN apt install -y php-mysql
+# composer require openai-php/client
