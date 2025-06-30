@@ -66,7 +66,7 @@ class RegisterController extends Controller
     public function rename(Request $request)
     {
 
-            $validator = Validator::make(
+        $validator = Validator::make(
             $request->all(),
             [
                 'name'    => ['required', 'string', 'max:100'],
@@ -84,16 +84,17 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-
         /** @var \App\Models\User $user */
         $user = Auth::user();
         $user->name = $request->get('name');
-        $user->save();
         $user_id = Auth::id();
+
         Tweet::where('user_id', $user_id)->update(['name' => $request->get('name')]);
+        User::where('user_id', $user_id)->update(['name' => $request->get('name')]);
         Comment::where('user_id', $user_id)->update(['name' => $request->get('name')]);
         DirectMessage::where('user_id', $user_id)->update(['name' => $request->get('name')]);
 
+        $user->save();
         return redirect()->route('option');
     } //名前の変更
 
@@ -173,7 +174,13 @@ class RegisterController extends Controller
         }
         /** @var \App\Models\User $user */
         $user = Auth::user();
+        $user_id = Auth::id();
         $user->userId = $request->input('userId');
+        // dd($request->input('userId'));
+
+        // Tweet::where('user_id', $user_id)->update(['userId' => $request->get('userId')]);
+        User::where('user_id', $user_id)->update(['userId' => $request->get('userId')]);
+        DirectMessage::where('recipient_id', $user_id)->update(['recipient_user_id' => $request->get('userId')]);
         $user->save();
 
         return redirect()->route('option');
