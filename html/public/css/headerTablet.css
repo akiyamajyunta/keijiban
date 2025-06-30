@@ -1,0 +1,68 @@
+/* タブレット用CSS（768px - 1024px）修正版 */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    /* twisterロゴを非表示 */
+    .brand {
+        display: none;
+    }
+    
+    /* 元のレイアウト構造を維持 */
+    .site-header__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    
+    .site-header__start {
+        order: 1;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    .personal_info {
+        order: 2;
+        width: auto;
+        margin-top: 0;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .site-header__end {
+        order: 3;
+        width: auto;
+        justify-content: flex-end;
+    }
+    
+    /* 検索フィールドのサイズ調整 */
+    .search__form input {
+        min-width: 300px;
+    }
+    
+    /* ナビゲーション要素のサイズ縮小 */
+    .nav__wrapper {
+        gap: 0.1rem;
+    }
+    
+    .nav__item a {
+        padding: 0.6rem;
+        font-size: 12px;
+    }
+    
+    .nav__item svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .header_name {
+        font-size: 10px;
+    }
+    
+    /* 個人情報のフォントサイズ調整 */
+    .name {
+        font-size: 16px;
+    }
+}

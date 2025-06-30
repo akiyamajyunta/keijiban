@@ -1,0 +1,182 @@
+/* スマホ用CSS（767px以下） */
+@media screen and (max-width: 767px) {
+    .site-header {
+        position: relative;
+        border-top: 3px solid red;
+        border-bottom: 3px solid red;
+    }
+    
+    .site-header__wrapper {
+        flex-direction: column;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+    
+    .site-header__start {
+        width: 100%;
+        order: 1;
+    }
+    
+    .brand {
+        font-size: 24px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .search {
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+    }
+    
+    .search__form input {
+        min-width: 100%;
+        max-width: 100%;
+        width: 280px;
+        font-size: 16px;
+        padding: 0.7rem;
+    }
+    
+    .personal_info {
+        order: 2;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        text-align: center;
+    }
+        
+
+
+    .name {
+        font-size: 18px;
+        margin: 2px 0;
+    }
+    
+    .site-header__end {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* ハンバーガーメニューボタンを非表示 */
+    .nav__toggle {
+        display: none;
+    }
+    
+    /* ナビゲーションメニューを常に表示（縦並び） */
+    .nav__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+    
+    .nav__item {
+        width: 100%;
+        border-bottom: 1px solid #333;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+    }
+    
+    .nav__item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav__item a {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem;
+        text-align: left;
+        border-left: none;
+        border-bottom: none;
+        gap: 1rem;
+    }
+    
+    .nav__item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav__item svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    
+    .header_name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+
+    
+    /*ホバー機能 */
+    .site-header__end {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.3s ease;
+         width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .personal_info:hover ~ .site-header__end {
+        opacity: 1;
+        visibility: visible;
+        max-height: 1000px; /* 十分な高さを設定 */
+    }
+    .site-header__wrapper:hover .site-header__end {
+        opacity: 1;
+        visibility: visible;
+        max-height: 1000px;
+    }
+
+        .nav__wrapper {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .nav__item {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+}
+/* 極小スマホ用CSS（480px以下） */
+@media screen and (max-width: 480px) {
+    .site-header__wrapper {
+        padding: 0.3rem;
+    }
+    
+    .brand {
+        font-size: 20px;
+    }
+    
+    .search__form input {
+        width: 240px;
+        font-size: 14px;
+        padding: 0.6rem;
+    }
+    
+    .name {
+        font-size: 16px;
+    }
+    
+    .nav__item a {
+        padding: 0.8rem;
+        gap: 0.8rem;
+    }
+    
+    .nav__item svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .header_name {
+        font-size: 14px;
+    }
+}

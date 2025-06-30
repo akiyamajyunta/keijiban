@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ asset('css/header.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/headerSmartphone.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/headerTablet.css')}}" />
 </head>
 
 <body>
@@ -34,7 +36,7 @@
                                     preserveAspectRatio="xMinYMin meet" class="nav-icon" focusable="false"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                    
+
                                         d="M18.94,14H5.06L5.79,8.44A6.26,6.26,0,0,1,12,3h0a6.26,6.26,0,0,1,6.21,5.44Zm2,5-1.71-4H4.78L3.06,19a0.71,0.71,0,0,0-.06.28,0.75,0.75,0,0,0,.75.76H10a2,2,0,1,0,4,0h6.27A0.74,0.74,0,0,0,20.94,19Z"
                                         class="inactive-item" style="fill-opacity: 1"></path>
                                     <path
@@ -50,4 +52,5 @@
         </div>
     </header>
 </body>
+
 </html>

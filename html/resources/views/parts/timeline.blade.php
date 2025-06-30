@@ -42,14 +42,12 @@
                 @foreach($tweet->comments->reverse() as $comment)
                 <div class='comment-contener'>
                     <div class="comment-header">
-                        <!-- <p>{{ $comment->user_id}}</p> -->
                         <form action="{{route('profile')}}" method="POST">
                             <span>
                                 <input type="hidden" name="user_id" value='{{  $comment->user_id }}'>
                                 <button class="btn-name" onclick="event.stopPropagation()">{{ $comment->user->name }}</button>
                             </span>
                         </form>
-
                     </div>
                     <p>{{$comment->created_at}}</p>
                     <hr>

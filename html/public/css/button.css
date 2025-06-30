@@ -72,7 +72,7 @@
 }
 
 .btn-direct {
-    margin:auto 10px auto 0px;
+    margin: auto 10px auto 0px;
 }
 
 
@@ -81,11 +81,6 @@
 .btn-follow:hover {
     background-color: #ff0000;
 }
-
-
-
-
-
 
 .btn-want {
     background-color: white;
@@ -117,15 +112,23 @@
     background-color: #45a049;
 }
 
+.profile-button-set {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.profile-button-set button{
+    margin: 5px auto;
+}
 /* tweetのボタンの2セット,横並びにするため*/
 
-.btn-set {
+.post-btn-set {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
 }
 
-.btn-set button {
+.post-btn-set button {
     padding: 8px 16px;
     color: white;
     border: none;
@@ -133,6 +136,6 @@
     white-space: nowrap;
 }
 
-.btn-set button:hover {
+.post-btn-set button:hover {
     background-color: red;
 }

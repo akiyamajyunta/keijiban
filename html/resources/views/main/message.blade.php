@@ -33,7 +33,6 @@
                 @foreach ($messages->reverse() as $message)
 
                 <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}">
-                    <!-- <blockquote> -->
                     {{ $message->message }}
                 </blockquote>
                 @endforeach
@@ -45,13 +44,11 @@
         <section class="new-twi">
             <form action="{{route('directMessages.store')}}" method="post">
                 @csrf
-                <!-- <p>{{$lastReceivedMessage->message}}</p> -->
-                <!-- <section class="new-twi"> -->
                 <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
                 <input type="hidden" name="recipient_id" value="{{ $recipient }}">
                 <input type="hidden" name="recipient_user_id" value="{{$recipient_user_id}}">
                 <textarea class='message-post' placeholder="こんにちは" name='message' id='message'>{{$make_talk}}</textarea>
-                <div class='btn-set'>
+                <div class='post-btn-set'>
                     <button class='btn-post' type='submit'>返信</button>
                     <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">与太</button>
                 </div>
@@ -60,6 +57,7 @@
                 @csrf
                 <input type="hidden" name="recipient_name" value="{{$recipient_name }}">
                 <input type="hidden" name="recipient_id" value="{{ $recipient }}">
+                <input type="hidden" name="recipient_user_id" value="{{$recipient_user_id}}">
                 <input type="hidden" name="last_message" value="{{$lastReceivedMessage->message}}">
             </form>
         </section>

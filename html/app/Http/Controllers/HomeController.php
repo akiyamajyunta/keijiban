@@ -83,16 +83,6 @@ class HomeController extends Controller
         return view('main/message');
     }
 
-    // public function UserSearch()
-    // {
-    //     return view('UserSearch');
-    // }
-
-    // public function OtherProfile()
-    // {
-    //     return view('OtherProfile');
-    // }
-
     public function search(Request $request)
     {
         $search = $request->input('search');

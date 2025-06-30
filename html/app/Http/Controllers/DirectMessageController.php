@@ -83,6 +83,8 @@ class DirectMessageController extends Controller
         $recipient = (int) $request->input('recipient_id');
         $recipient_name = $request->input('recipient_name');
         $lastReceivedMessage = $request->input('last_message');
+        $recipient_user_id = $request->input('recipient_user_id');
+        
         $api_key = env('OPENAI_API_KEY');
         $client = OpenAI::client($api_key);
 
@@ -93,6 +95,7 @@ class DirectMessageController extends Controller
                 [
                     'role' => 'user',
                     'content' => $lastReceivedMessage
+                        . 'これはダイレクトメッセージの返信。（なければ自身で新しい話題を作製）なのでうまく返信内容を作製して'
                         . '文字数は120字以内で'
                 ]
             ],
@@ -102,7 +105,8 @@ class DirectMessageController extends Controller
     
         return redirect()->route('directMessages', ['make_talk' =>  $make_talk,
                                                     'recipient_id'=>$recipient,
-                                                    'recipient_name' =>  $recipient_name ]);
+                                                    'recipient_name' =>  $recipient_name,
+                                                    'recipient_user_id'=> $recipient_user_id]);
     }
 
     // メッセージの保存（投稿処理）
@@ -131,8 +135,6 @@ class DirectMessageController extends Controller
                 ->withErrors(['message' => $allErrors])
                 ->withInput();
         }
-
-// dd( $recipient_user_id);
 
         DirectMessage::create([
             'sender_id' => Auth::id(),
