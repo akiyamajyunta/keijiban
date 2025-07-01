@@ -36,5 +36,4 @@
         @endforeach
     </main>
 </body>
-
 </html>

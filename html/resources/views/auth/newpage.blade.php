@@ -10,7 +10,6 @@
 
 @include('parts.header')
 @section('content')
-
     <main>
         <div class="container-parson">
             @if(isset($message))
