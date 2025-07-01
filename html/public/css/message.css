@@ -7,13 +7,18 @@ main {
     border-radius: 8px;
     padding: 20px;
 }
-
+@media screen and (max-width: 767px) {
+main {
+    margin-top: 0px;
+}
+}
 
 .MassageAria {
     height: 70%;
     overflow-y: auto;
     /* スクロールできるようにする */
 }
+
 
 
 blockquote {
@@ -101,12 +106,20 @@ blockquote {
 
 
 .massageAria {
-    /* background-color: #009dff; */
+
     margin-top: 8px;
     height: 55%;
-    /* border: 1px solid #000; */
-    /* わかりやすくボーダーを引く */
+
     overflow-y: scroll;
+}
+
+@media screen and (max-width: 767px) {
+.MassageAria {
+    margin-top: 0px;
+    height: 43%;
+    overflow-y: auto;
+    /* スクロールできるようにする */
+}
 }
 
 /* //クロームはこれでスクロールバーがきえる */
@@ -173,7 +186,6 @@ blockquote {
     padding-bottom: 10px;
     border: 2px solid black;
     border-radius: 10px;
-
 }
 
 .messagePosition {

@@ -5,7 +5,7 @@ main {
     /* aria(中央の背景)のz-indexが１なのでそれ以上にする事 */
     position: relative;
     z-index: 10;
-    margin-top: 300px;
+    margin-top: 150px;
     padding: 0;
 }
 
