@@ -9,7 +9,7 @@
                         <button class="btn-name" onclick="event.stopPropagation()">{{ $tweet->name}}</button>
                     </span>
                 </form>
-                
+
                 <div class='twi-controls'>
                     <p class="twi-date">{{ $tweet->created_at}}</p>
                     <hr>
@@ -18,7 +18,7 @@
                         <span>
                             @csrf
                             <input type="hidden" name="id" value="{{$tweet->id}}">
-                            <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
+                            <button class='btn-delete' onclick="event.stopPropagation();return deleteAlert();">削除</button>
                         </span>
                     </form>
                     @endif
@@ -56,7 +56,7 @@
                     <form action="{{route('comment.delete')}}" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$comment->id}}">
-                        <button class='btn-delete' onclick="event.stopPropagation()">削除</button>
+                        <button class='btn-delete' onclick="event.stopPropagation(); return deleteAlert();">削除</button>
                     </form>
                     @endif
                 </div>
@@ -82,4 +82,13 @@
                 }
             });
         });
+
+//削除の確認
+        function deleteAlert() {
+            if (window.confirm('本当に削除してよろしいですか？')) {
+
+            } else {
+                return false;
+            }
+        }
     </script>
