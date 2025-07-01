@@ -16,10 +16,6 @@
                         <input type="search" name="search" id="search" placeholder="検索" />
                     </form>
                 </div>
-                <div class="personal_info">
-                    <p class="name"></p>
-                    <p class="name"></p>
-                </div>
             </div>
             <div class="site-header__end">
                 <nav class="nav">
