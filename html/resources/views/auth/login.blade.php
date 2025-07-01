@@ -1,5 +1,5 @@
 {{-- @include('parts.header') --}}
-@include('parts.header')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    @include('parts.header')
     <main>
         <div class="container-parson">
             <div class="container">

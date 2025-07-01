@@ -1,24 +1,16 @@
 {{--@extends('layouts.app')--}}
 
-@section('content')
+@extends('layouts.app')
 
-@auth
-<p class="text-center">ログイン中: {{ Auth::user()->name }}</p>
-@endauth
-@include('parts.header')
-<!DOCTYPE html>
-<html lang="en">
+@section('title', 'ログイン')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <link rel="stylesheet" href="{{ asset('css/button.css') }}">
+@endsection
 
-    <title>ログイン</title>
-</head>
-
-<body>
+@section('content')
+@include('parts.header')
     <main>
         <div class="container-parson">
             @if(isset($message))
@@ -34,6 +26,4 @@
             </div>
         </div>
     </main>
-</body>
-
-</html>
+@endsection
