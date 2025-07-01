@@ -15,8 +15,6 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
-
-
 [http://localhost:8000](http://localhost:8000)にアクセス
 
 

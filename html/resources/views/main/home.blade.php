@@ -24,7 +24,7 @@
                     @csrf
                     <textarea placeholder="いまどんなかんじ？" name="content">{{$talk}}</textarea>
                     <input type="hidden" name="talk" value="">
-
+                    
                     <div class='post-btn-set'>
                         <button class='btn-post' type="submit">投稿</button>
                         <button class='btn-post' type="button" onclick="document.getElementById('commu-form').submit();">与太</button>
