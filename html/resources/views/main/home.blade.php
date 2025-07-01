@@ -1,22 +1,17 @@
-{{--@extends('layouts.app')--}}
-@include('parts.header')
-@section('content')
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
+@section('title', 'HOME')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/timeline.css')}}">
     <link rel="stylesheet" href="{{ asset('css/home.css')}}">
     <link rel="stylesheet" href="{{ asset('css/button.css')}}">
-    <title>Home</title>
-</head>
+@endsection
 
-<body>
+@include('parts.header')
+@section('content')
     <div class='aria'>
     </div>
     <main>
@@ -43,7 +38,4 @@
         </div>
         @include('parts.timeline')
     </main>
-
-</body>
-
-</html>
+@endsection

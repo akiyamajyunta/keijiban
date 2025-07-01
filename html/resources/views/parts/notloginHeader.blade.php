@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ asset('css/header.css')}}">
     <link rel="stylesheet" href="{{ asset('css/headerSmartphone.css')}}" />
     <link rel="stylesheet" href="{{ asset('css/headerTablet.css')}}" />
 </head>
 
-<body>
-    <!-- Header Start -->
     <header class="site-header">
         <div class="wrapper site-header__wrapper">
             <div class="site-header__start">
@@ -31,7 +25,7 @@
                 <nav class="nav">
                     <ul class="nav__wrapper">
                         <li class="nav__item">
-                            <a href="{{route('comment.store')}}">
+                            <a href="{{route('showlogin')}}">
                                 <svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0"
                                     preserveAspectRatio="xMinYMin meet" class="nav-icon" focusable="false"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +45,3 @@
             </div>
         </div>
     </header>
-</body>
-
-</html>

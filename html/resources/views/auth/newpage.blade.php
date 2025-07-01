@@ -1,4 +1,3 @@
-{{--@extends('layouts.app')--}}
 
 @extends('layouts.app')
 
@@ -9,8 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/button.css') }}">
 @endsection
 
-@section('content')
 @include('parts.header')
+@section('content')
+
     <main>
         <div class="container-parson">
             @if(isset($message))

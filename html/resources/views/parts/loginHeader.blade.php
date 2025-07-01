@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ asset('css/header.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/headerSmartphone.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/headerTablet.css')}}"/>
 </head>
-<body>
 
     <header class="site-header">
         <div class="wrapper site-header__wrapper">
@@ -110,6 +106,3 @@
     </header>
     <!-- Header End -->
     <script src="js/header-4.js"></script>
-</body>
-
-</html>

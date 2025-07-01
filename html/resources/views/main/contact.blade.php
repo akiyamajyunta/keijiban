@@ -1,18 +1,16 @@
-{{--@extends('layouts.app')--}}
-@include('parts.header')
-@section('content')
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title', 'contact')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aria.css') }}">
     <link rel="stylesheet" href="{{ asset('css/button.css')}}">
-</head>
+@endsection
 
-<body>
+
+@include('parts.header')
+@section('content')
     <div class="aria">
     </div>
     <main>

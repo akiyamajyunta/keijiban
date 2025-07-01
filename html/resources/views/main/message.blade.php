@@ -1,22 +1,15 @@
-{{-- @extends('layouts.app') --}}
+@extends('layouts.app')
 
-@include('parts.header')
+@section('title', 'directMessage')
 
-{{-- @section('content') --}}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/aria.css')}}">
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
     <link rel="stylesheet" href="{{ asset('css/button.css')}}">
-    <title>directMessage</title>
-</head>
+@endsection
 
-<body>
+@include('parts.header')
+@section('content')
     <div class="aria">
         <p class='recipient-name'>{{$recipient_name}}
             {{$recipient_user_id}}
@@ -62,6 +55,4 @@
             </form>
         </section>
     </div>
-</body>
-
-</html>
+@endsection
