@@ -10,7 +10,6 @@
             <div class="site-header__start">
                 <a class="brand">twister</a>
                 <div class="search">
-                    <!-- <button class="search__toggle" aria-label="Open search">Search </button> -->
                     <form class="search__form" action="{{route('search')}}">
                         <label class="sr-only" for="search">検索</label>
                         <input type="search" name="search" id="search" placeholder="検索" />

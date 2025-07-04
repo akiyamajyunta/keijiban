@@ -4,6 +4,9 @@ FROM php:8.2-apache
 
 RUN docker-php-ext-install pdo_mysql
 
+WORKDIR /app
+COPY ./html .
+
 RUN apt update -y
 RUN apt install curl git vim unzip -y
 
@@ -16,8 +19,9 @@ RUN RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
 RUN composer require openai-php/client
+RUN composer install
+
 
 CMD ["php", "artisan" , "serve", "--host=0.0.0.0", "--port=8000"]
 

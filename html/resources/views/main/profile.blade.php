@@ -31,32 +31,31 @@
                 @endif
                 <hr>
                 <p>{{$user->profile}}</p>
-                <!-- もし、プロフィールのIDとログイン中のIDが一致しなければ（他人だったら）、DM -->
-                <!-- directMessages ここではstoreに行く-->
+                <!-- もし、プロフィールのIDとログイン中のIDが一致しなければ（他人だったら）、DM ,フォロー or アンフォロー-->
                 <div class='profile-button-set'>
                     @if (Auth::check() && $user->id !== Auth::id())
-                    <form action="{{route('directMessages')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="recipient_name" value="{{ $user->name }}">
-                        <input type="hidden" name="recipient_id" value="{{$user->id}}">
-                        <input type="hidden" name="recipient_user_id" value="{{$user->userId}}">
-                        <button class='btn-direct'>ダイレクトメッセージ</button>
-                    </form>
+                        <form action="{{route('directMessages')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="recipient_name" value="{{ $user->name }}">
+                            <input type="hidden" name="recipient_id" value="{{$user->id}}">
+                            <input type="hidden" name="recipient_user_id" value="{{$user->userId}}">
+                            <button class='btn-direct'>ダイレクトメッセージ</button>
+                        </form>
 
-                    @if(Auth::user()->followings->contains($user->id))
-                    <!-- フォローしている場合は、アンフォローボタン（フォローを外す）を表示 -->
-                    <form action="{{ route('unfollow')}}" method="get">
-                        @csrf
-                        <input type="hidden" name="un_follow_id" value="{{$user->id}}">
-                        <button class='btn-follow' type="submit">フォローを外す</button>
-                    </form>
-                    @else
-                    <!-- フォローしていない場合は、フォローボタンを表示 -->
-                    <form action="{{ route('follow') }}" method="get">
-                        @csrf
-                        <input type="hidden" name="follow_id" value="{{$user->id}}">
-                        <button class='btn-follow' type="submit">フォローする</button>
-                    </form>
+                        @if(Auth::user()->followings->contains($user->id))
+                        <!-- フォローしている場合は、アンフォローボタン（フォローを外す）を表示 -->
+                        <form action="{{ route('unfollow')}}" method="get">
+                            @csrf
+                            <input type="hidden" name="un_follow_id" value="{{$user->id}}">
+                            <button class='btn-follow' type="submit">フォローを外す</button>
+                        </form>
+                        @else
+                        <!-- フォローしていない場合は、フォローボタンを表示 -->
+                        <form action="{{ route('follow') }}" method="get">
+                            @csrf
+                            <input type="hidden" name="follow_id" value="{{$user->id}}">
+                            <button class='btn-follow' type="submit">フォローする</button>
+                        </form>
                     @endif
                 </div>
 

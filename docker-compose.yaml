@@ -1,10 +1,9 @@
 services:
   stduy-laravel-server:
     build: .
-    container_name: stduy-laravel-server
+    container_name: stduy-laravel-server 
     volumes:
       - ./php.ini:/usr/local/etc/php/php.ini
-      - ./html:/var/www/html
     ports:
       - 8080:80
       - 8000:8000

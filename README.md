@@ -10,9 +10,22 @@ cp .env.example .env
 
 .envの `OPENAI_API_KEY` にAPIキーを入力
 
+初回
+```:shell
+    docker compose up --build
+```
 
 ```:shell
-docker compose up -d --build
+    docker compose up -d
+```
+
+    fork/exec /usr/local/lib/docker/cli-plugins/docker-buildx: no such file or directory
+
+と表示されたら
+
+
+```:shell
+docker buildx build -t lara_deploy
 ```
 
 [http://localhost:8000](http://localhost:8000)にアクセス

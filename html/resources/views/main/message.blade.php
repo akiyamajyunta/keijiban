@@ -11,11 +11,12 @@
 @include('parts.header')
 @section('content')
     <div class="aria">
-        <p class='recipient-name'>{{$recipient_name}}
+        <p class='recipient-name'>
+            {{$recipient_name}}
             {{$recipient_user_id}}
             @error('message')
-            <br>
-            {{ $message }}
+                <br>
+                {{ $message }}
             @enderror
         </p>
     </div>
@@ -24,7 +25,6 @@
         <div class='messagePosition'>
             <div class='massageAria'>
                 @foreach ($messages->reverse() as $message)
-
                 <blockquote class="{{ $message->sender_id == Auth::id() ? 'rightMessage' : 'leftMessage' }}">
                     {{ $message->message }}
                 </blockquote>
