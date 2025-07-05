@@ -1,6 +1,6 @@
 # 概要
 
-twetterのクローンアプリです。ログイン、ツイート、フォロー、DM、chatGTPによる会話アシスト機能があります
+Twitterのクローンアプリです。ログイン、投稿、フォロー、ダイレクトメッセージ、chatGTPによる会話アシスト機能があります
 
 # 起動方法
 
@@ -10,12 +10,14 @@ twetterのクローンアプリです。ログイン、ツイート、フォロ�
 cp .env.example .env
 ```
 
-html直下で
+compoer をインストール
+
 ```:shell
 composer install
 ```
 
 app_key を発行
+
 ```:shell
 php artisan key:generate
 ```
@@ -26,7 +28,7 @@ touch database/database.sqlite
 ```
 
 
-.env のファイルのSESSION_DRIVERを変更
+.env のファイルのSESSION_DRIVERをfileに変更
 ```:shell
 変更前
 SESSION_DRIVER=database
@@ -35,7 +37,13 @@ SESSION_DRIVER=database
 SESSION_DRIVER=file
 ```
 
-.envの `OPENAI_API_KEY` にAPIキーを入力
+.envの 
+
+```:shell
+OPENAI_API_KEY= 
+```
+
+ にAPIキーを入力
 
 ```:shell
     docker compose up --build
@@ -50,8 +58,6 @@ artisan ディレクトリでマイグレートを実行
     php artisan migrate:fresh
 ```
 
-
-
 [http://localhost:8000](http://localhost:8000)にアクセス
 
 2回目
@@ -61,7 +67,9 @@ artisan ディレクトリでマイグレートを実行
 ```
 
 
-# 使い方
+# LLMのサポートについて
 
-1.新規登録を行ってください。ユーザー名、＠から始まるユーザー名、パスワードが必要です
-2.会話ボタンで好きな言葉を話せます。制限は140字です。この言葉は自身のタイムラインに表示されます。
+本アプリはchatGPTによる会話アシスト機能を投稿、ダイレクトメッセージにて実装しています。
+使用方法は「投稿」の横にある「与太」を押すことで、自動で生成されます。
+生成されるキーワードは自動生成されますが、ダイレクトメッセージで相手が何かメッセージを送っていた場合は、その言葉に応じた
+メッセージを生成します。
