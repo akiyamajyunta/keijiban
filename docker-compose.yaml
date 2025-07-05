@@ -5,8 +5,8 @@ services:
     volumes:
       - ./php.ini:/usr/local/etc/php/php.ini
     ports:
-      - 8080:80
-      - 8000:8000
+      # - 8080:80
+      - 80:8000
     # environment:
     #   - DB_CONNECTION=mysql
     #   - DB_HOST=stduy-laravel-db
