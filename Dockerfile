@@ -8,8 +8,10 @@ WORKDIR /app
 COPY ./html .
 
 RUN apt update -y
-RUN apt install curl git vim unzip -y
 
+RUN apt-get install sqlite3 libsqlite3-dev -y
+
+RUN apt install curl git vim unzip -y
 
 #新規
 RUN RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
@@ -19,8 +21,9 @@ RUN RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-RUN composer require openai-php/client
 RUN composer install
+RUN composer require openai-php/client
+
 
 
 CMD ["php", "artisan" , "serve", "--host=0.0.0.0", "--port=8000"]

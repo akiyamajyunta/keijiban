@@ -4,34 +4,61 @@ twetterのクローンアプリです。ログイン、ツイート、フォロ�
 
 # 起動方法
 
+初回
+
 ```:shell
 cp .env.example .env
 ```
 
+html直下で
+```:shell
+composer install
+```
+
+app_key を発行
+```:shell
+php artisan key:generate
+```
+
+データベースファイルを作製
+```:shell
+touch database/database.sqlite
+```
+
+
+.env のファイルのSESSION_DRIVERを変更
+```:shell
+変更前
+SESSION_DRIVER=database
+
+変更後
+SESSION_DRIVER=file
+```
+
 .envの `OPENAI_API_KEY` にAPIキーを入力
 
-初回
 ```:shell
     docker compose up --build
 ```
+コンテナの中に入る
+```:shell
+    docker compose exec stduy-laravel-server bash
+```
+
+artisan ディレクトリでマイグレートを実行
+```:shell
+    php artisan migrate:fresh
+```
+
+
+
+[http://localhost:8000](http://localhost:8000)にアクセス
+
+2回目
 
 ```:shell
     docker compose up -d
 ```
-
-    fork/exec /usr/local/lib/docker/cli-plugins/docker-buildx: no such file or directory
-
-と表示されたら
-
-
-```:shell
-docker buildx build -t lara_deploy
-```
-
-[http://localhost:8000](http://localhost:8000)にアクセス
-
-
-
 
 
 # 使い方
