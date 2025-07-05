@@ -35,33 +35,62 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        // 1. リクエストのデータを検証する
-        $request->validate([ //ここ、エラー処理を記入する
-            'name' => ['required', 'string', 'max:100'],
-            'profile' => ['nullable', 'string', 'max:255'],
-            'userId' => ['required', 'string', 'max:255', 'unique:users', 'regex:/^@[A-Za-z0-9_]+$/'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+    // 1. ルールとメッセージを定義
+    $validator = Validator::make(
+        $request->all(),
+        [
+            'name'     => ['required', 'string', 'max:100'],
+            'profile'  => ['nullable', 'string', 'max:255'],
+            'userId'   => [
+                'required',
+                'string',
+                'max:255',
+                'unique:users,userId',
+                'regex:/^@[A-Za-z0-9_]+$/'
+            ],
+            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'confirmed', 'min:8'],
+        ],
+        [
+            'name.required'     => '名前は必須入力です。',
+            'name.max'          => '名前は100文字以内で入力してください。',
+            'profile.max'       => 'プロフィールは255文字以内で入力してください。',
+            'userId.required'   => 'ユーザーIDは必須入力です。',
+            'userId.unique'     => 'そのユーザーIDは既に使われています。',
+            'userId.regex'      => 'ユーザーIDは「@」で始まり、英数字とアンダースコアのみ使用できます。',
+            'email.required'    => 'メールアドレスは必須入力です。',
+            'email.email'       => '有効なメールアドレスを入力してください。',
+            'email.unique'      => 'そのメールアドレスは既に登録されています。',
+            'password.required' => 'パスワードは必須入力です。',
+            'password.confirmed'=> '確認用パスワードと一致しません。',
+            'password.min'      => 'パスワードは8文字以上で入力してください。',
+        ]
+    );
 
-        // 2. 新しいユーザーを作成する
-        $user = User::create([
-            'name' => $request->name,
-            'profile' => $request->profile,
-            'userId' => $request->userId,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        // 3. ユーザー登録イベントを発行する
-        event(new Registered($user));
-
-        // 4. ユーザーをログインさせる
-        Auth::login($user);
-
-        // 5. ダッシュボードページにリダイレクトする
-        return redirect()->route('home');
+    // 2. バリデーション失敗時の処理
+    if ($validator->fails()) {
+        return back()
+            ->withErrors($validator)   // エラー情報
+            ->withInput();             // 入力値を保持
     }
+
+    // 3. ユーザー作成
+    $user = User::create([
+        'name'     => $request->name,
+        'profile'  => $request->profile,
+        'userId'   => $request->userId,
+        'email'    => $request->email,
+        'password' => Hash::make($request->password),
+    ]);
+
+    // 4. 登録完了イベント発行→ログイン→リダイレクト
+    event(new Registered($user));
+    Auth::login($user);
+
+    return redirect()->route('home');
+}
+
+
     //名前の変更
     public function rename(Request $request)
     {
