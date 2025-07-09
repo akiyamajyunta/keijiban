@@ -67,6 +67,15 @@ artisan ディレクトリでマイグレートを実行
 ```
 
 
+もし、マイグレート時に、could not find driver sql lite と出たら
+
+```:shell
+ sudo apt install php8.2-sqlite3
+```
+
+とし、もう一回マイグレートしてください
+
+
 # LLMのサポートについて
 
 本アプリはChatGPTによる会話アシスト機能を投稿、ダイレクトメッセージにて実装しています。
